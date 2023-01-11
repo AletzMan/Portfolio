@@ -1,0 +1,38 @@
+-var github = "https://github.com/AletzMan";
+-var linkedin = "https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/";
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="./styles/main_style.min.css")
+        script(defer src="./scripts/main_script.prod.js") 
+        title Alejandro Garcia
+    body 
+        header(class="header")
+            div(class="header__container")
+                img(class="header__logo" src="./assets/logos/logo-large.svg", alt="logo Alejandro Garcia" loading="lazy" draggable="false")
+                ul(class="header__menu menu")
+                    li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home") HOME]
+                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills")  SKILLS]
+                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section2" title="Go to Projects")  PROJECTS]
+                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section2" title="Go to About Me")  ABOUT ME]
+                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section2" title="Go to Contact")  CONTACT]
+                    div(class="menu__selection")
+        section(id="section__home" class="home")
+            h2(class="home__title title") HOME
+            div(class="home__description description") 
+                p(class="description__name") Hey, #[br]My name is  #[br]#[span(class="name") Alejandro.]
+                span(class="description__profesion")
+            span(class="home__idea") "Your ideas converted to code"        
+            img(class="home__photo" src="./assets/photos/my_photo.jpg" alt="photo of Alejandro Garcia" loading="lazy" draggable="false")
+            a(class="home__link--github" href=github title="Go To GitHub" target="_blank")
+                img(class="home__icon--github" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
+            a(class="home__link--linkedin"  href=linkedin title="Go To Linkedin" target="_blank")   
+                img(class="home__icon--linkedin" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
+        
+        footer(class="footer")
+            p(class="footer__copyright") &#169 Copyright. Alejandro Garcia Alonso 2023

@@ -16,11 +16,11 @@ html(lang="en")
             div(class="header__container")
                 img(class="header__logo" src="./assets/logos/logo-large.svg", alt="logo Alejandro Garcia" loading="lazy" draggable="false")
                 ul(class="header__menu menu")
-                    li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home") HOME]
-                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills")  SKILLS]
-                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section2" title="Go to Projects")  PROJECTS]
-                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section2" title="Go to About Me")  ABOUT ME]
-                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section2" title="Go to Contact")  CONTACT]
+                    li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") HOME]
+                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  SKILLS]
+                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section2" title="Go to Projects" rel="noopener noreferrer")  PROJECTS]
+                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section2" title="Go to About Me" rel="noopener noreferrer")  ABOUT ME]
+                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section2" title="Go to Contact" rel="noopener noreferrer")  CONTACT]
                     div(class="menu__selection")
         div(class="menumobil__content")
         section(id="section__home" class="home")
@@ -30,10 +30,19 @@ html(lang="en")
                 span(class="description__profesion")
             span(class="home__idea") "Your ideas converted to code"        
             img(class="home__photo" src="./assets/photos/my_photo.jpg" alt="photo of Alejandro Garcia" loading="lazy" draggable="false")
-            a(class="home__link--github" href=github title="Go To GitHub" target="_blank")
+            a(class="home__link--github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
                 img(class="home__icon--github" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
-            a(class="home__link--linkedin"  href=linkedin title="Go To Linkedin" target="_blank")   
+            a(class="home__link--linkedin"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
                 img(class="home__icon--linkedin" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
         
         footer(class="footer")
             p(class="footer__copyright") &#169 Copyright. Alejandro Garcia Alonso 2023
+            div(class="footer__menumobil menumobil")
+                div(class="menumobil__link--select") HOME
+                ul(class="menumobil__links")
+                    li(class="menumobil__links--home link")
+                    li(class="menumobil__links--skills link")
+                    li(class="menumobil__links--projects link")
+                    li(class="menumobil__links--about link")
+                    li(class="menumobil__links--contact link")
+                

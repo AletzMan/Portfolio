@@ -2,12 +2,15 @@ const menuDesktop = document.querySelectorAll(".header__menu li");
 const selectItemMenu = document.querySelector(".menu__selection");
 const presentation = document.querySelector(".home__description");
 const sectionHome = document.querySelector(".home");
+const menuMobilSelect = document.querySelector(".menumobil__link--select");
+const menuMobilContainer = document.querySelector(".menumobil");
+const menuMobil = document.querySelectorAll(".link");
 
 
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
 
-const textPresentation = 'Front-End Developer Jr.';
+const textPresentation = 'Front-End Developer';
 const numbertags = 20;
 let containerTags = [];
 const nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
@@ -241,3 +244,26 @@ function GetRandomNumberFloat(min, max) {
 ///////--------- MENU MOBIL ---------////////
 /////////////////////////////////////////////
 
+const nameTagMenu = [
+	"HOME",
+	"SKILLS",
+	"PROJECTS",
+	"ABOUT",
+	"CONTACT"
+]
+
+let positionMenuselected = 0;
+for (let index = 0; index < menuMobil.length; index++) {
+	menuMobil.item(index).addEventListener('mousedown', (e) => {
+		menuMobil.forEach(section => {
+			section.style.filter = "invert(1)";
+		});
+		setTimeout(() => {
+			e.target.style.filter = "invert(0)";
+			menuMobilSelect.innerText = nameTagMenu[index];
+		}, 300);
+		
+		positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width/16) / 5 * (index + 1)) - 7.2;
+		menuMobilSelect.style.left = `${positionMenuselected}rem`;		
+	})
+}

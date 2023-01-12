@@ -1,5 +1,9 @@
 @import "components/globales.scss";
 @import "components/_breakpoints.scss";
+//@use "sass:map";
+
+
+$sizeContainerMenuMobil: 35rem;
 
 .header {
     position: fixed;
@@ -8,7 +12,6 @@
     height: 5rem;
     //overflow: hidden;
     background-color: var(--color_backdark);
-    z-index: 4;
     &__container {
         position: relative;
         width: 90%;
@@ -66,7 +69,6 @@
         transition: left 0.3s linear;
 }
 
-
 .title {
     width: 100%;
     font-size: 2rem;
@@ -76,6 +78,7 @@
     border-bottom: 1px solid var(--color_font);
     background:  linear-gradient(90deg, #A7D12925, #A7D12901);
     padding: 0.6rem 0 0 0.5rem;
+    border-radius: 0.5rem 0 0 0;
 }
 
 .home {
@@ -125,7 +128,8 @@
         justify-self: start;
         margin: 0 0 0 1rem;
         grid-column: 2 / 3;
-        grid-row: 5 / 6;
+        grid-row: 5 / 6;        
+        z-index: 4;
     }
     &__icon--github {
         width: 3rem;
@@ -140,7 +144,8 @@
         justify-self: end;
         margin: 0 1rem 0 0;
         grid-column: 1 / 2;
-        grid-row: 5 / 6;
+        grid-row: 5 / 6;        
+        z-index: 4;
     }
     &__icon--linkedin {
         width: 3rem;
@@ -176,16 +181,81 @@
 }
 
 .footer {
+    position: fixed;
+    bottom: 0;
     width: 100vw;
     height: 4rem;
     background-color: var(--color_backdark);
     border-top: 3px solid var(--color_activated);
+    @include media(tablet) {
+        position: relative;        
+    }
     &__copyright {
+        display: none;
         font-size: 0.8rem;
         color: var(--color_font);
+        @include media(tablet) {
+            display: flex;
+        }
     }
 }
-
+.link {
+    width: 3rem;
+    height: 3rem;
+    bottom: 0.1rem;
+    list-style:none ;
+    filter: invert(1);
+}
+.menumobil {
+    position: absolute; 
+    width: $sizeContainerMenuMobil;
+    height: 5.5rem;
+    top: -2.5rem;
+    left: calc(50vw - 17.5rem);
+    background-color: var(--color_backdark);  
+    border: 3px solid var(--color_activated);
+    border-radius: 0.5rem 0.5rem 0 0;
+    align-items: end;
+    &__links {           
+        display: flex;
+        justify-content: space-around;    
+        margin-top: 2rem;    
+    }
+    &__links--home {
+        background-image: url("/assets/icons/home-icon.svg");
+        background-size: cover;
+        filter: invert(0);
+    }
+    &__links--skills {
+        background-image: url("/assets/icons/skills-icon.svg");
+        background-size: cover;
+    }
+    &__links--projects {
+        background-image: url("/assets/icons/portfolio-icon.svg");
+        background-size: cover;
+    }
+    &__links--about {
+        background-image: url("/assets/icons/about-icon.svg");
+        background-size: cover;
+    }
+    &__links--contact {
+        background-image: url("/assets/icons/contact-icon.svg");
+        background-size: cover;
+    }
+    &__link--select {
+        position: absolute;
+        width: 7rem;
+        height: 5.2rem;
+        top: -0.1rem;
+        left: 0rem;
+        font-weight: 900;
+        background-color: var(--color_activated);
+        border-radius: 5% 5% 0 0;
+        text-align: center;
+        padding: 0.4rem 0 0 0;
+        transition: left 0.3s linear;
+    }
+}
 
 
 .tag__move {

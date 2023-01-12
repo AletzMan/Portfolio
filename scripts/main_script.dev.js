@@ -10,9 +10,12 @@ var menuDesktop = document.querySelectorAll(".header__menu li");
 var selectItemMenu = document.querySelector(".menu__selection");
 var presentation = document.querySelector(".home__description");
 var sectionHome = document.querySelector(".home");
+var menuMobilSelect = document.querySelector(".menumobil__link--select");
+var menuMobilContainer = document.querySelector(".menumobil");
+var menuMobil = document.querySelectorAll(".link");
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
-var textPresentation = 'Front-End Developer Jr.';
+var textPresentation = 'Front-End Developer';
 var numbertags = 20;
 var containerTags = [];
 var nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
@@ -269,3 +272,25 @@ function GetRandomNumberFloat(min, max) {
 } /////////////////////////////////////////////
 ///////--------- MENU MOBIL ---------////////
 /////////////////////////////////////////////
+
+
+var nameTagMenu = ["HOME", "SKILLS", "PROJECTS", "ABOUT", "CONTACT"];
+var positionMenuselected = 0;
+
+var _loop = function _loop(index) {
+  menuMobil.item(index).addEventListener('mousedown', function (e) {
+    menuMobil.forEach(function (section) {
+      section.style.filter = "invert(1)";
+    });
+    setTimeout(function () {
+      e.target.style.filter = "invert(0)";
+      menuMobilSelect.innerText = nameTagMenu[index];
+    }, 300);
+    positionMenuselected = menuMobilContainer.getBoundingClientRect().width / 16 / 5 * (index + 1) - 7.2;
+    menuMobilSelect.style.left = "".concat(positionMenuselected, "rem");
+  });
+};
+
+for (var index = 0; index < menuMobil.length; index++) {
+  _loop(index);
+}

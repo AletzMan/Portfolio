@@ -79,7 +79,6 @@ img, picture, video, iframe, figure {
   width: 100vw;
   height: 5rem;
   background-color: var(--color_backdark);
-  z-index: 4;
 }
 .header__container {
   position: relative;
@@ -149,6 +148,7 @@ img, picture, video, iframe, figure {
   border-bottom: 1px solid var(--color_font);
   background: linear-gradient(90deg, #A7D12925, #A7D12901);
   padding: 0.6rem 0 0 0.5rem;
+  border-radius: 0.5rem 0 0 0;
 }
 
 .home {
@@ -202,6 +202,7 @@ img, picture, video, iframe, figure {
   margin: 0 0 0 1rem;
   grid-column: 2/3;
   grid-row: 5/6;
+  z-index: 4;
 }
 .home__icon--github {
   width: 3rem;
@@ -217,6 +218,7 @@ img, picture, video, iframe, figure {
   margin: 0 1rem 0 0;
   grid-column: 1/2;
   grid-row: 5/6;
+  z-index: 4;
 }
 .home__icon--linkedin {
   width: 3rem;
@@ -253,14 +255,86 @@ img, picture, video, iframe, figure {
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
   width: 100vw;
   height: 4rem;
   background-color: var(--color_backdark);
   border-top: 3px solid var(--color_activated);
 }
+@media only screen and (min-width: 768px) {
+  .footer {
+    position: relative;
+  }
+}
 .footer__copyright {
+  display: none;
   font-size: 0.8rem;
   color: var(--color_font);
+}
+@media only screen and (min-width: 768px) {
+  .footer__copyright {
+    display: flex;
+  }
+}
+
+.link {
+  width: 3rem;
+  height: 3rem;
+  bottom: 0.1rem;
+  list-style: none;
+  filter: invert(1);
+}
+
+.menumobil {
+  position: absolute;
+  width: 35rem;
+  height: 5.5rem;
+  top: -2.5rem;
+  left: calc(50vw - 17.5rem);
+  background-color: var(--color_backdark);
+  border: 3px solid var(--color_activated);
+  border-radius: 0.5rem 0.5rem 0 0;
+  align-items: end;
+}
+.menumobil__links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.menumobil__links--home {
+  background-image: url("/assets/icons/home-icon.svg");
+  background-size: cover;
+  filter: invert(0);
+}
+.menumobil__links--skills {
+  background-image: url("/assets/icons/skills-icon.svg");
+  background-size: cover;
+}
+.menumobil__links--projects {
+  background-image: url("/assets/icons/portfolio-icon.svg");
+  background-size: cover;
+}
+.menumobil__links--about {
+  background-image: url("/assets/icons/about-icon.svg");
+  background-size: cover;
+}
+.menumobil__links--contact {
+  background-image: url("/assets/icons/contact-icon.svg");
+  background-size: cover;
+}
+.menumobil__link--select {
+  position: absolute;
+  width: 7rem;
+  height: 5.2rem;
+  top: -0.1rem;
+  left: 0rem;
+  font-weight: 900;
+  background-color: var(--color_activated);
+  border-radius: 5% 5% 0 0;
+  text-align: center;
+  padding: 0.4rem 0 0 0;
+  transition: left 0.3s linear;
 }
 
 .tag__move {

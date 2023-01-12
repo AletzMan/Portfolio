@@ -2,9 +2,6 @@ const menuDesktop = document.querySelectorAll(".header__menu li");
 const selectItemMenu = document.querySelector(".menu__selection");
 const presentation = document.querySelector(".home__description");
 const sectionHome = document.querySelector(".home");
-const menuMobilContent = document.querySelector(".menumobil__content");
-const menuMobil = document.querySelector("#burguer");
-const body = document.querySelector("body");
 
 
 selectItemMenu.style.left = "0px";
@@ -244,15 +241,3 @@ function GetRandomNumberFloat(min, max) {
 ///////--------- MENU MOBIL ---------////////
 /////////////////////////////////////////////
 
-menuMobil.addEventListener('click', () => {
-	if (menuMobil.checked) {
-		menuMobilContent.style.visibility = "visible";
-		menuMobilContent.style.left = "0";
-		body.style.overflow = "hidden";
-		console.log("Checked")
-	} else {
-		//menuMobilContent.style.visibility = "hidden";
-		body.style.overflow = "visible";
-		menuMobilContent.style.left = "-120%";
-	}
-})

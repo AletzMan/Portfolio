@@ -10,9 +10,6 @@ var menuDesktop = document.querySelectorAll(".header__menu li");
 var selectItemMenu = document.querySelector(".menu__selection");
 var presentation = document.querySelector(".home__description");
 var sectionHome = document.querySelector(".home");
-var menuMobilContent = document.querySelector(".menumobil__content");
-var menuMobil = document.querySelector("#burguer");
-var body = document.querySelector("body");
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
 var textPresentation = 'Front-End Developer Jr.';
@@ -272,17 +269,3 @@ function GetRandomNumberFloat(min, max) {
 } /////////////////////////////////////////////
 ///////--------- MENU MOBIL ---------////////
 /////////////////////////////////////////////
-
-
-menuMobil.addEventListener('click', function () {
-  if (menuMobil.checked) {
-    menuMobilContent.style.visibility = "visible";
-    menuMobilContent.style.left = "0";
-    body.style.overflow = "hidden";
-    console.log("Checked");
-  } else {
-    //menuMobilContent.style.visibility = "hidden";
-    body.style.overflow = "visible";
-    menuMobilContent.style.left = "-120%";
-  }
-});

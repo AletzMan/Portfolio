@@ -65,6 +65,7 @@ img, picture, video, iframe, figure {
   --color_activated: #A7D129;
   --color_font: #EEEEEE;
   --color_font_section: #FFFFFF08;
+  --color_back_section: #00000099;
   --font_Display: "DotGothic16", sans-serif;
   --font-General: "Raleway", sans-serif;
   --font-Title: "Prosto One", cursive;

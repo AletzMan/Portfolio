@@ -29,8 +29,11 @@
         position: relative;
         font-size: 0.8rem;
         list-style: none;
-        display: flex;   
-        justify-self: flex-end;   
+        display: none;   
+        justify-self: flex-end;
+        @include media(tablet) {
+            display: flex; 
+        }   
     }
 }
 .menu__list {             
@@ -60,7 +63,39 @@
         background: linear-gradient(0deg, #626a7733, #626a7700);
         border-bottom: 2px solid var(--color_activated);
         transition: left 0.5s linear;
+}
+
+.menumobil {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+    &__icon--checked {
+
     }
+}
+.bar{
+    width: 4rem;
+    height: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+.burguer__menu {
+    position: fixed;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    &--barstart {
+    }
+    &--barmiddle {
+    }
+    &--barend {
+    }
+}
+
+
 .title {
     width: 100%;
     font-size: 2rem;
@@ -153,14 +188,14 @@
 }
 .description__profesion {
     font-size: 2.5rem;
-    background: #DDDDDD;
+    background: var(--color_back_section);
     color: var(--color_deactivated); 
     border-bottom: 3px solid var(--color_activated);
     &::after {
         content: "";
         font-size: 3rem;
         animation: animationCursor 1s linear infinite;
-        color: var(--color_backmedium);  
+        color: var(--color_deactivated);  
     }
 }
 .name{

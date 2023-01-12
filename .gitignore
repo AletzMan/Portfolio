@@ -13,6 +13,7 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+<<<<<<< HEAD
 #Images
 *.jpg
 *.svg
@@ -39,6 +40,8 @@ mono_crash.*
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+=======
+>>>>>>> 3c5feb29e86fa2feb7342e698d5b312d08d3e96c
 # Mono auto generated files
 mono_crash.*
 
@@ -59,7 +62,10 @@ bld/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+<<<<<<< HEAD
 .vscode/
+=======
+>>>>>>> 3c5feb29e86fa2feb7342e698d5b312d08d3e96c
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -375,6 +381,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+<<<<<<< HEAD
 [Rr]elease/
 [Rr]eleases/
 x64/
@@ -704,3 +711,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+=======
+>>>>>>> 3c5feb29e86fa2feb7342e698d5b312d08d3e96c

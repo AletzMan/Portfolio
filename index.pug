@@ -1,6 +1,14 @@
 -var github = "https://github.com/AletzMan";
 -var linkedin = "https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/";
 
+-var technologies = ["html", "css", "javascript", "sass", "pug", "git", "github", "csharp", "netcore"];
+-var sourceLogos = "./assets/icons/";
+
+mixin createLogosImages
+    each val, index in technologies
+        div(class="logos__name") #[img(class="logos--"+technologies[index]+" logo" src=sourceLogos+technologies[index]+"-logo.svg" alt="Logo "+technologies[index] loading="lazy" draggable="false")] #[br]
+            span=technologies[index]  
+        
 
 doctype html
 html(lang="en")
@@ -9,6 +17,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="./styles/main_style.min.css")
+        link(rel="shortcut icon" href="./assets/logos/logo-tab.svg")
         script(defer src="./scripts/main_script.prod.js") 
         title Alejandro Garcia
     body 
@@ -38,6 +47,13 @@ html(lang="en")
                 span(class="linkedin__name") Linkedin
         section(class="skills section" id="section__skills")
             h2(class="skills__title title") SKILLS
+            div(class="skills__logos logos")
+                button(class="logos--webdev technologies" href="#") Web Developer
+                button(class="logos--mobil technologies" href="#") Mobil Developer
+                button(class="logos--desktop technologies" href="#") Desktop Developer
+                button(class="logos--test technologies" href="#") Test and Measurement Systems
+                button(class="logos--all technologies" href="#") All Technologies
+                +createLogosImages                
         section(class="projects section" id="section__projects")
             h2(class="projects__title title") PROJECTS
         section(class="about section" id="section__about")

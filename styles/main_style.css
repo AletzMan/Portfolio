@@ -65,7 +65,7 @@ img, picture, video, iframe, figure {
   --color_deactivated: #616F39;
   --color_activated: #A7D129;
   --color_font: #EEEEEE;
-  --color_font_section: #FFFFFF08;
+  --color_font_section: #FFFFFF20;
   --color_back_section: #00000099;
   --font_Display: "DotGothic16", sans-serif;
   --font-General: "Raleway", sans-serif;
@@ -342,6 +342,92 @@ img, picture, video, iframe, figure {
   font-weight: 600;
 }
 
+.logo {
+  width: 60%;
+  min-height: 2rem;
+  animation: animationLogos 2s linear alternate infinite;
+}
+@media only screen and (min-width: 768px) {
+  .logo {
+    width: 3.7rem;
+  }
+}
+
+.technologies {
+  font-size: 1.2rem;
+  color: var(--color_font);
+  font-family: var(--font-General);
+  display: none;
+  width: 100%;
+  height: 50%;
+  border-left: 2px solid var(--color_font);
+  background-color: var(--color_backdark);
+  font-weight: 500;
+  cursor: pointer;
+}
+.technologies:hover {
+  color: var(--color_activated);
+}
+@media only screen and (min-width: 992px) {
+  .technologies {
+    display: block;
+  }
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  row-gap: 1rem;
+  margin: 1rem 0 0 0;
+  background: linear-gradient(0deg, var(--color_back_section) 0%, var(--color_backmedium) 100%);
+}
+@media only screen and (min-width: 992px) {
+  .logos {
+    margin: 0rem 0 0 0;
+  }
+}
+.logos__name {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  color: var(--color_font);
+  text-align: center;
+  font-size: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  border-radius: 50%;
+  min-height: 3rem;
+  width: 70%;
+  height: 90%;
+}
+@media only screen and (min-width: 768px) {
+  .logos__name {
+    font-size: 1rem;
+    width: 8rem;
+    height: 8rem;
+    box-shadow: -10px -10px 20px 7px var(--color_font_section) inset;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .logos__name {
+    width: 8.9rem;
+    height: 8.9rem;
+  }
+}
+.logos--webdev {
+  color: var(--color_font);
+  border-bottom: 4px solid var(--color_activated);
+  border-left: none;
+  background: linear-gradient(var(--color_backmedium) 0%, var(--color_backdark) 100%);
+}
+.logos--webdev:hover {
+  color: var(--color_font);
+}
+
 .contact {
   height: 45.5rem;
 }
@@ -464,5 +550,13 @@ img, picture, video, iframe, figure {
   }
   100% {
     content: "I";
+  }
+}
+@keyframes animationLogos {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(10deg);
   }
 }

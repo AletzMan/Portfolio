@@ -23,7 +23,6 @@ onload = () => {
 
 }
 
-
 for (let index = 0; index < menuDesktop.length; index++) {
 	menuDesktop.item(index).addEventListener('mouseup', (e) => {
 		menuDesktop.forEach(elementMenuUnSelected => { elementMenuUnSelected.style.borderBottom = "none" });
@@ -36,9 +35,6 @@ for (let index = 0; index < menuDesktop.length; index++) {
 }
 
 
-
-
-
 let intervalPresentetion = setInterval(LoadPresentation, 130);
 let numLetter = 0;
 function LoadPresentation() {
@@ -49,7 +45,6 @@ function LoadPresentation() {
 		clearInterval(intervalPresentetion);
 	}
 }
-
 
 class TagBubble {
 	constructor(posX, posY, speedX, speedY, mass) {
@@ -84,9 +79,9 @@ class TagBubble {
 		});
 		newTagMove.addEventListener('mouseout', (e) => {
 			//newTagMove.style.backgroundColor = 'transparent';
-			newTagMove.style.boxShadow = '-10px -10px 20px 7px var(--color_font_section) inset';
-			newTagMove.style.color = '#FFFFFF09';
-			newTagMove.style.filter = 'blur(1px)';
+			newTagMove.style.boxShadow = '-10px -10px 20px 7px #FFFFFF20 inset';
+			newTagMove.style.color = '#FFFFFF20';
+			newTagMove.style.filter = 'blur(0px)';
 		});
 		this.initPosMouseX = 0;
 		this.initPosMouseY = 0;
@@ -225,7 +220,6 @@ const borderCollisionDetection = () => {
 			bubble.posY = collisionLimitYBottom - bubble.height;
 		}
 	}
-
 }
 
 
@@ -234,7 +228,6 @@ function intersectionCircles(posXOne, posYOne, radiusOne, posXTwo, posYTwo, radi
 	return distanceBetweenCircles <= ((radiusOne + radiusTwo) * (radiusOne + radiusTwo));
 }
 
-
 function GetRandomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
 }
@@ -242,7 +235,6 @@ function GetRandomNumber(min, max) {
 function GetRandomNumberFloat(min, max) {
 	return Math.random() * (max - min) + min;
 }
-
 
 /////////////////////////////////////////////
 ///////--------- MENU MOBIL ---------////////

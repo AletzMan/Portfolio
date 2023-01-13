@@ -92,9 +92,9 @@ function () {
       });
       newTagMove.addEventListener('mouseout', function (e) {
         //newTagMove.style.backgroundColor = 'transparent';
-        newTagMove.style.boxShadow = '-10px -10px 20px 7px var(--color_font_section) inset';
-        newTagMove.style.color = '#FFFFFF09';
-        newTagMove.style.filter = 'blur(1px)';
+        newTagMove.style.boxShadow = '-10px -10px 20px 7px #FFFFFF20 inset';
+        newTagMove.style.color = '#FFFFFF20';
+        newTagMove.style.filter = 'blur(0px)';
       });
       this.initPosMouseX = 0;
       this.initPosMouseY = 0;

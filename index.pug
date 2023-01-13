@@ -18,25 +18,34 @@ html(lang="en")
                 ul(class="header__menu menu")
                     li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") HOME]
                     li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  SKILLS]
-                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section2" title="Go to Projects" rel="noopener noreferrer")  PROJECTS]
-                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section2" title="Go to About Me" rel="noopener noreferrer")  ABOUT ME]
-                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section2" title="Go to Contact" rel="noopener noreferrer")  CONTACT]
+                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer")  PROJECTS]
+                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer")  ABOUT ME]
+                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer")  CONTACT]
                     div(class="menu__selection")
         div(class="menumobil__content")
-        section(id="section__home" class="home")
+        section(id="section__home" class="home section")
             h2(class="home__title title") HOME
             div(class="home__description description") 
                 p(class="description__name") Hey, #[br]My name is  #[br]#[span(class="name") Alejandro.]
                 span(class="description__profesion")
-            span(class="home__idea") "Your ideas converted to code"        
+            span(class="home__idea") "Turning ideas and desing into code"        
             img(class="home__photo" src="./assets/photos/my_photo.jpg" alt="photo of Alejandro Garcia" loading="lazy" draggable="false")
             a(class="home__link--github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
                 img(class="home__icon--github" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
+                span(class="github__name") GitHub
             a(class="home__link--linkedin"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
                 img(class="home__icon--linkedin" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
-        
+                span(class="linkedin__name") Linkedin
+        section(class="skills section" id="section__skills")
+            h2(class="skills__title title") SKILLS
+        section(class="projects section" id="section__projects")
+            h2(class="projects__title title") PROJECTS
+        section(class="about section" id="section__about")
+            h2(class="about__title title") ABOUT ME
+        section(class="contact section" id="section__contact")
+            h2(class="contact__title title") CONTACT
         footer(class="footer")
-            p(class="footer__copyright") &#169 Copyright. Alejandro Garcia Alonso 2023
+            p(class="footer__copyright") Alejandro Garcia Alonso
             div(class="footer__menumobil menumobil")
                 div(class="menumobil__link--select") HOME
                 ul(class="menumobil__links")

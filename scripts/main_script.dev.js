@@ -6,9 +6,11 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var menuDesktop = document.querySelectorAll(".header__menu li");
+var menuDesktop = document.querySelectorAll(".header__menu a");
+var menuDesktopArea = document.querySelectorAll(".header__menu li");
 var selectItemMenu = document.querySelector(".menu__selection");
 var presentation = document.querySelector(".home__description");
+var sections = document.querySelectorAll(".section");
 var sectionHome = document.querySelector(".home");
 var menuMobilSelect = document.querySelector(".menumobil__link--select");
 var menuMobilContainer = document.querySelector(".menumobil");
@@ -22,23 +24,22 @@ var nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>"
 
 onload = function onload() {
   initAnimation();
-
-  for (var index = 0; index < numbertags; index++) {
-    var arrayBubbles = new TagBubble();
-  }
 };
 
-menuDesktop.forEach(function (elementMenu) {
-  elementMenu.addEventListener('mouseup', function (e) {
+for (var index = 0; index < menuDesktop.length; index++) {
+  menuDesktop.item(index).addEventListener('mouseup', function (e) {
     menuDesktop.forEach(function (elementMenuUnSelected) {
       elementMenuUnSelected.style.borderBottom = "none";
     });
-    selectItemMenu.style.left = elementMenu.getBoundingClientRect().left - menuDesktop.item(0).getBoundingClientRect().left - 1 + "px";
+
+    if (e.target.innerHTML === "HOME") {
+      setTimeout(function () {
+        scroll(0, 0);
+      }, 0);
+    }
   });
-});
-menuDesktop.item(3).addEventListener("mousedown", function () {
-  return scroll(0, 14);
-});
+}
+
 var intervalPresentetion = setInterval(LoadPresentation, 130);
 var numLetter = 0;
 
@@ -117,7 +118,7 @@ function () {
             directionY = +10;
           }
 
-          for (var index = 0; index < 20; index++) {
+          for (var _index = 0; _index < 20; _index++) {
             setTimeout(function () {
               _this.speedX += directionX;
               _this.speedY += directionY;
@@ -152,7 +153,7 @@ var initAnimation = function initAnimation() {
 };
 
 var createBubbleTags = function createBubbleTags() {
-  for (var index = 0; index < numbertags; index++) {
+  for (var _index2 = 0; _index2 < numbertags; _index2++) {
     var positionTagX = GetRandomNumber(50, window.innerWidth - 50);
     var positionTagY = GetRandomNumber(100, window.innerHeight - 20);
     bubblesContainer.push(new TagBubble(positionTagX, positionTagY, GetRandomNumber(-20, 70), GetRandomNumber(-20, 70), GetRandomNumber(1, 10)));
@@ -181,9 +182,9 @@ var animationLoop = function animationLoop(timeStamp) {
 };
 
 var UpdatePosition = function UpdatePosition() {
-  for (var index = 0; index < containerTags.length; index++) {
-    containerTags[index].style.left = bubblesContainer[index].posX + "px";
-    containerTags[index].style.top = bubblesContainer[index].posY + "px";
+  for (var _index3 = 0; _index3 < containerTags.length; _index3++) {
+    containerTags[_index3].style.left = bubblesContainer[_index3].posX + "px";
+    containerTags[_index3].style.top = bubblesContainer[_index3].posY + "px";
   }
 };
 
@@ -231,9 +232,9 @@ var detectCollisions = function detectCollisions() {
 
 var borderCollisionDetection = function borderCollisionDetection() {
   var collisionLimitXLeft = 1;
-  var collisionLimitXRight = window.innerWidth - 1;
+  var collisionLimitXRight = window.innerWidth - 30;
   var collisionLimitYTop = 80;
-  var collisionLimitYBottom = window.innerHeight - 64;
+  var collisionLimitYBottom = window.innerHeight - 70;
   var speedReset = 0.95;
   var bubble;
 
@@ -276,21 +277,60 @@ function GetRandomNumberFloat(min, max) {
 
 var nameTagMenu = ["HOME", "SKILLS", "PROJECTS", "ABOUT", "CONTACT"];
 var positionMenuselected = 0;
+var indexMenuCurrent = 0;
+var indexMenuBefore = 0;
+var numberOfSectionsDisplaced = 0;
+var sizeSection = 815;
 
-var _loop = function _loop(index) {
-  menuMobil.item(index).addEventListener('mousedown', function (e) {
-    menuMobil.forEach(function (section) {
-      section.style.filter = "invert(1)";
+var _loop = function _loop(_index4) {
+  menuMobil.item(_index4).addEventListener('mousedown', function (e) {
+    sections.forEach(function (section) {
+      section.style.opacity = 0;
     });
+    indexMenuBefore = indexMenuCurrent;
+    indexMenuCurrent = _index4;
+    numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
+    scroll(0, sizeSection * _index4);
     setTimeout(function () {
-      e.target.style.filter = "invert(0)";
-      menuMobilSelect.innerText = nameTagMenu[index];
-    }, 300);
-    positionMenuselected = menuMobilContainer.getBoundingClientRect().width / 16 / 5 * (index + 1) - 7.2;
-    menuMobilSelect.style.left = "".concat(positionMenuselected, "rem");
+      sections.forEach(function (section) {
+        section.style.opacity = 1;
+      });
+    }, 600);
   });
 };
 
-for (var index = 0; index < menuMobil.length; index++) {
-  _loop(index);
+for (var _index4 = 0; _index4 < menuMobil.length; _index4++) {
+  _loop(_index4);
 }
+
+window.addEventListener("resize", function () {
+  positionMenuselected = menuMobilContainer.getBoundingClientRect().width / 16 / 5 * (indexMenuCurrent + 1) - menuMobilSelect.getBoundingClientRect().width / 16 - 0.2;
+  menuMobilSelect.style.left = "".concat(positionMenuselected, "rem");
+});
+document.addEventListener("scroll", function () {
+  if (scrollY) {
+    var designMobil = window.getComputedStyle(menuMobilContainer, null).getPropertyValue("display") == "none" ? false : true;
+
+    var _loop2 = function _loop2(_index5) {
+      if (sections[_index5].getBoundingClientRect().y < 200 && sections[_index5].getBoundingClientRect().y > -20) {
+        if (designMobil) {
+          positionMenuselected = menuMobilContainer.getBoundingClientRect().width / 16 / 5 * (_index5 + 1) - menuMobilSelect.getBoundingClientRect().width / 16 - 0.2;
+          menuMobilSelect.style.left = "".concat(positionMenuselected, "rem");
+          setTimeout(function () {
+            menuMobil.forEach(function (section) {
+              section.style.filter = "invert(1)";
+            });
+            menuMobil[_index5].style.filter = "invert(0)";
+            menuMobilSelect.innerText = nameTagMenu[_index5];
+          }, 400);
+        } else {
+          selectItemMenu.style.left = menuDesktopArea.item(_index5).getBoundingClientRect().left - menuDesktopArea.item(0).getBoundingClientRect().left - 1 + "px";
+        }
+      }
+    };
+
+    for (var _index5 = 0; _index5 < sections.length; _index5++) {
+      _loop2(_index5);
+    }
+  }
+});

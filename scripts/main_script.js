@@ -1,6 +1,8 @@
-const menuDesktop = document.querySelectorAll(".header__menu li");
+const menuDesktop = document.querySelectorAll(".header__menu a");
+const menuDesktopArea = document.querySelectorAll(".header__menu li");
 const selectItemMenu = document.querySelector(".menu__selection");
 const presentation = document.querySelector(".home__description");
+const sections = document.querySelectorAll(".section");
 const sectionHome = document.querySelector(".home");
 const menuMobilSelect = document.querySelector(".menumobil__link--select");
 const menuMobilContainer = document.querySelector(".menumobil");
@@ -18,21 +20,23 @@ const nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img
 
 onload = () => {
 	initAnimation();
-	for (let index = 0; index < numbertags; index++) {
-		let arrayBubbles = new TagBubble();
-	}
+
 }
 
 
-menuDesktop.forEach(elementMenu => {
-	elementMenu.addEventListener('mouseup', (e) => {
+for (let index = 0; index < menuDesktop.length; index++) {
+	menuDesktop.item(index).addEventListener('mouseup', (e) => {
 		menuDesktop.forEach(elementMenuUnSelected => { elementMenuUnSelected.style.borderBottom = "none" });
-		selectItemMenu.style.left = elementMenu.getBoundingClientRect().left - menuDesktop.item(0).getBoundingClientRect().left - 1 + "px";
+		if (e.target.innerHTML === "HOME") {
+			setTimeout(() => {
+				scroll(0, 0);
+			}, 0);
+		}
 	})
-});
+}
 
 
-menuDesktop.item(3).addEventListener("mousedown", () => scroll(0, 14));
+
 
 
 let intervalPresentetion = setInterval(LoadPresentation, 130);
@@ -196,9 +200,9 @@ const detectCollisions = () => {
 
 const borderCollisionDetection = () => {
 	const collisionLimitXLeft = (1);
-	const collisionLimitXRight = window.innerWidth - 1;
+	const collisionLimitXRight = window.innerWidth - 30;
 	const collisionLimitYTop = 80;
-	const collisionLimitYBottom = window.innerHeight - 64;
+	const collisionLimitYBottom = window.innerHeight - 70;
 
 	const speedReset = 0.95;
 	let bubble;
@@ -253,17 +257,55 @@ const nameTagMenu = [
 ]
 
 let positionMenuselected = 0;
+let indexMenuCurrent = 0;
+let indexMenuBefore = 0;
+let numberOfSectionsDisplaced = 0;
+let sizeSection = 815;
 for (let index = 0; index < menuMobil.length; index++) {
 	menuMobil.item(index).addEventListener('mousedown', (e) => {
-		menuMobil.forEach(section => {
-			section.style.filter = "invert(1)";
-		});
+		sections.forEach(section => {
+			section.style.opacity = 0;
+		})
+		indexMenuBefore = indexMenuCurrent;
+		indexMenuCurrent = index;
+		numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
+		scroll(0, sizeSection * index);
 		setTimeout(() => {
-			e.target.style.filter = "invert(0)";
-			menuMobilSelect.innerText = nameTagMenu[index];
-		}, 300);
-		
-		positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width/16) / 5 * (index + 1)) - 7.2;
-		menuMobilSelect.style.left = `${positionMenuselected}rem`;		
+			sections.forEach(section => {
+				section.style.opacity = 1;
+			})
+		}, 600);
 	})
+
 }
+
+window.addEventListener("resize", () => {
+	positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width / 16) / 5 * (indexMenuCurrent + 1)) - (menuMobilSelect.getBoundingClientRect().width / 16) - 0.2;
+	menuMobilSelect.style.left = `${positionMenuselected}rem`;
+})
+
+document.addEventListener("scroll", () => {
+	if (scrollY) {
+		let designMobil = window.getComputedStyle(menuMobilContainer, null).getPropertyValue("display") == "none" ? false : true;
+
+		for (let index = 0; index < sections.length; index++) {
+			if (sections[index].getBoundingClientRect().y < 200 && sections[index].getBoundingClientRect().y > -20) {
+				if (designMobil) {
+					positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width / 16) / 5 * (index + 1)) - (menuMobilSelect.getBoundingClientRect().width / 16) - 0.2;
+					menuMobilSelect.style.left = `${positionMenuselected}rem`;
+					setTimeout(() => {
+						menuMobil.forEach(section => {
+							section.style.filter = "invert(1)";
+						});
+						menuMobil[index].style.filter = "invert(0)";
+						menuMobilSelect.innerText = nameTagMenu[index];
+					}, 400);
+				} else {
+					selectItemMenu.style.left = menuDesktopArea.item(index).getBoundingClientRect().left - menuDesktopArea.item(0).getBoundingClientRect().left - 1 + "px";
+				}
+			}
+		}
+
+	}
+})
+

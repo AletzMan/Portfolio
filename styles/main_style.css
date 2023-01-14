@@ -446,14 +446,47 @@ img, picture, video, iframe, figure {
 }
 
 .project {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
   width: 30rem;
   height: 15rem;
-  border: 1px solid white;
+  border: 3px solid var(--color_deactivated);
   background-color: darkcyan;
 }
+.project__title {
+  width: 100%;
+  height: 100%;
+  grid-column: 1/span 3;
+  grid-row: 1/2;
+  text-align: center;
+  align-self: center;
+  padding: 0.3rem 0 0 0;
+  color: var(--color_activated);
+  background-color: var(--color_backdark);
+}
+.project__technologies {
+  grid-column: 1/2;
+  grid-row: 2/span 2;
+  width: 100%;
+  background: linear-gradient(var(--color_backdark), var(--color_backmedium));
+}
 .project__image {
-  width: 70%;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
+  grid-column: 2/span 2;
+  grid-row: 2/3;
+  transition: transform 0.3s linear;
+}
+.project__image:hover {
+  transform: translateX(-25%) scale(150%);
+}
+.project__description {
+  width: 100%;
+  background-color: var(--color_font);
+  grid-column: 2/span 2;
+  grid-row: 3/4;
 }
 
 .contact {
@@ -485,7 +518,7 @@ img, picture, video, iframe, figure {
 .footer__copyright {
   display: none;
   align-self: center;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: var(--color_font);
   margin: 0 0 0.5rem 0.5rem;
 }

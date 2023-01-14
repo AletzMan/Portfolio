@@ -442,7 +442,7 @@ img, picture, video, iframe, figure {
   width: 100%;
   justify-content: center;
   gap: 2rem;
-  margin: 1rem 0 0 0;
+  margin: 7rem 0 0 0;
 }
 
 .project {
@@ -450,6 +450,10 @@ img, picture, video, iframe, figure {
   height: 15rem;
   border: 1px solid white;
   background-color: darkcyan;
+}
+.project__image {
+  width: 70%;
+  object-fit: cover;
 }
 
 .contact {

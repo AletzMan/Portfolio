@@ -338,22 +338,18 @@ $sizeContainerMenuMobil: 35rem;
     width: 100%;
     justify-content: center;
     gap: 2rem;
-    margin: 1rem 0 0 0;
+    margin: 7rem 0 0 0;
 }
 .project {
     width: 30rem;
     height: 15rem;
     border: 1px solid white;
     background-color: darkcyan;
+    &__image {
+        width: 70%;
+        object-fit:cover;
+    }
 }
-
-
-
-
-
-
-
-
 
 .contact {
     height: 45.5rem;
@@ -501,7 +497,11 @@ $sizeContainerMenuMobil: 35rem;
 }
 
 @keyframes animationLogos {
-    0%{transform: rotate(-10deg);}
-    100%{transform: rotate(10deg);}
+    0% {
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(10deg);
+    }
 }
 

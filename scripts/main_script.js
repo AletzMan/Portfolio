@@ -81,7 +81,7 @@ class TagBubble {
 			//newTagMove.style.backgroundColor = 'transparent';
 			newTagMove.style.boxShadow = '-10px -10px 20px 7px #FFFFFF20 inset';
 			newTagMove.style.color = '#FFFFFF20';
-			newTagMove.style.filter = 'blur(0px)';
+			newTagMove.style.filter = 'blur(0px)'; 
 		});
 		this.initPosMouseX = 0;
 		this.initPosMouseY = 0;

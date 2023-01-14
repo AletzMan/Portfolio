@@ -165,7 +165,7 @@ img, picture, video, iframe, figure {
 }
 
 .section {
-  width: 90vw;
+  width: 90%;
   height: 45rem;
   margin: 6rem auto;
   justify-items: center;
@@ -179,7 +179,7 @@ img, picture, video, iframe, figure {
 }
 @media only screen and (min-width: 992px) {
   .section {
-    width: 70%;
+    width: 72%;
     height: 47rem;
     padding-top: 6rem;
   }
@@ -344,25 +344,27 @@ img, picture, video, iframe, figure {
 
 .logo {
   width: 60%;
-  min-height: 2rem;
-  animation: animationLogos 2s linear alternate infinite;
+  min-height: 1rem;
+  animation: animationLogos 7s linear alternate infinite;
 }
 @media only screen and (min-width: 768px) {
   .logo {
-    width: 3.7rem;
+    width: 70%;
   }
 }
 
 .technologies {
-  font-size: 1.2rem;
-  color: var(--color_font);
-  font-family: var(--font-General);
+  font-size: 1rem;
   display: none;
   width: 100%;
-  height: 50%;
+  height: 100%;
+  min-width: 7rem;
+  color: var(--color_font);
+  font-family: var(--font-General);
   border-left: 2px solid var(--color_font);
   background-color: var(--color_backdark);
   font-weight: 500;
+  word-wrap: break-word;
   cursor: pointer;
 }
 .technologies:hover {
@@ -376,46 +378,53 @@ img, picture, video, iframe, figure {
 
 .logos {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   margin: 1rem 0 0 0;
   background: linear-gradient(0deg, var(--color_back_section) 0%, var(--color_backmedium) 100%);
 }
 @media only screen and (min-width: 992px) {
   .logos {
-    margin: 0rem 0 0 0;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 2rem 0 0 0;
   }
 }
 .logos__name {
   display: flex;
   flex-direction: column;
+  width: 80%;
+  height: 90%;
+  margin: 0.5rem;
   text-transform: uppercase;
   color: var(--color_font);
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   align-items: center;
   justify-content: center;
-  box-shadow: none;
-  border-radius: 50%;
-  min-height: 3rem;
-  width: 70%;
-  height: 90%;
 }
 @media only screen and (min-width: 768px) {
   .logos__name {
     font-size: 1rem;
-    width: 8rem;
-    height: 8rem;
-    box-shadow: -10px -10px 20px 7px var(--color_font_section) inset;
   }
 }
-@media only screen and (min-width: 992px) {
-  .logos__name {
-    width: 8.9rem;
-    height: 8.9rem;
+.logos__bubble {
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0 0.5rem 0;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -10px -10px 20px 7px var(--color_font_section) inset;
+  border-radius: 50%;
+}
+@media only screen and (min-width: 768px) {
+  .logos__bubble {
+    width: 7rem;
+    height: 7rem;
   }
 }
 .logos--webdev {
@@ -554,7 +563,7 @@ img, picture, video, iframe, figure {
 }
 @keyframes animationLogos {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(-10deg);
   }
   100% {
     transform: rotate(10deg);

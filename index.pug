@@ -1,13 +1,15 @@
 -var github = "https://github.com/AletzMan";
 -var linkedin = "https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/";
 
--var technologies = ["html", "css", "javascript", "sass", "pug", "git", "github", "csharp", "netcore"];
+-var technologies = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
+-var technologiesNames = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "c#", "netcore", "xamarin forms", "xaml", "c","visual studio code", "visual studio", "labview", "teststand", "lab/windows cvi"];
 -var sourceLogos = "./assets/icons/";
 
 mixin createLogosImages
     each val, index in technologies
-        div(class="logos__name") #[img(class="logos--"+technologies[index]+" logo" src=sourceLogos+technologies[index]+"-logo.svg" alt="Logo "+technologies[index] loading="lazy" draggable="false")] #[br]
-            span=technologies[index]  
+        div(class="logos__name") 
+            div(class="logos__bubble") #[img(class="logos--"+technologies[index]+" logo" src=sourceLogos+technologies[index]+"-logo.svg" alt="Logo "+technologies[index] loading="lazy" draggable="false")] #[br]
+            span=technologiesNames[index]  
         
 
 doctype html
@@ -48,11 +50,11 @@ html(lang="en")
         section(class="skills section" id="section__skills")
             h2(class="skills__title title") SKILLS
             div(class="skills__logos logos")
-                button(class="logos--webdev technologies" href="#") Web Developer
-                button(class="logos--mobil technologies" href="#") Mobil Developer
-                button(class="logos--desktop technologies" href="#") Desktop Developer
+                button(class="logos--webdev technologies" href="#") Web
+                button(class="logos--mobil technologies" href="#") Mobil
+                button(class="logos--desktop technologies" href="#") Desktopr
                 button(class="logos--test technologies" href="#") Test and Measurement Systems
-                button(class="logos--all technologies" href="#") All Technologies
+                button(class="logos--all technologies" href="#") Development platforms
                 +createLogosImages                
         section(class="projects section" id="section__projects")
             h2(class="projects__title title") PROJECTS
@@ -62,6 +64,13 @@ html(lang="en")
             h2(class="contact__title title") CONTACT
         footer(class="footer")
             p(class="footer__copyright") Alejandro Garcia Alonso
+            div(class="footer__networks")
+                a(class="home__link--github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
+                    img(class="home__icon--github" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
+                    span(class="github__name") GitHub
+                a(class="home__link--linkedin"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
+                    img(class="home__icon--linkedin" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
+                    span(class="linkedin__name") Linkedin
             div(class="footer__menumobil menumobil")
                 div(class="menumobil__link--select") HOME
                 ul(class="menumobil__links")

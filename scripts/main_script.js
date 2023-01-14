@@ -252,7 +252,7 @@ let positionMenuselected = 0;
 let indexMenuCurrent = 0;
 let indexMenuBefore = 0;
 let numberOfSectionsDisplaced = 0;
-let sizeSection = 815;
+
 for (let index = 0; index < menuMobil.length; index++) {
 	menuMobil.item(index).addEventListener('mousedown', (e) => {
 		sections.forEach(section => {
@@ -261,14 +261,18 @@ for (let index = 0; index < menuMobil.length; index++) {
 		indexMenuBefore = indexMenuCurrent;
 		indexMenuCurrent = index;
 		numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
-		scroll(0, sizeSection * index);
+		
+		let scrollPosition = 0;
+		for (let numberSection = 0; numberSection < index; numberSection++) {
+			scrollPosition += (sections[numberSection].getBoundingClientRect().height) + 96;
+		}
+		scroll(0, scrollPosition);
 		setTimeout(() => {
 			sections.forEach(section => {
 				section.style.opacity = 1;
 			})
 		}, 600);
 	})
-
 }
 
 window.addEventListener("resize", () => {

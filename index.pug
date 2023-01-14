@@ -41,12 +41,12 @@ html(lang="en")
                 span(class="description__profesion")
             span(class="home__idea") "Turning ideas and desing into code"        
             img(class="home__photo" src="./assets/photos/my_photo.jpg" alt="photo of Alejandro Garcia" loading="lazy" draggable="false")
-            a(class="home__link--github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
-                img(class="home__icon--github" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
-                span(class="github__name") GitHub
-            a(class="home__link--linkedin"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
-                img(class="home__icon--linkedin" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
-                span(class="linkedin__name") Linkedin
+            a(class="home__link--github networks" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
+                img(class="home__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
+                span(class="github__name networks__name") GitHub
+            a(class="home__link--linkedin networks"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
+                img(class="home__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
+                span(class="linkedin__name networks__name") Linkedin
         section(class="skills section" id="section__skills")
             h2(class="skills__title title") SKILLS
             div(class="skills__logos logos")
@@ -58,6 +58,18 @@ html(lang="en")
                 +createLogosImages                
         section(class="projects section" id="section__projects")
             h2(class="projects__title title") PROJECTS
+            div(class="projects__container")
+                div(class="project")
+                div(class="project")
+                div(class="project")
+                div(class="project")
+                div(class="project")
+                div(class="project")
+                div(class="project")
+                div(class="project")
+                //    img(class="project__image" src="./assets/icons/project_1.svg" alt="photo of project" loading="lazy" draggable="false")
+                //    p(class="project__description")
+
         section(class="about section" id="section__about")
             h2(class="about__title title") ABOUT ME
         section(class="contact section" id="section__contact")
@@ -65,12 +77,12 @@ html(lang="en")
         footer(class="footer")
             p(class="footer__copyright") Alejandro Garcia Alonso
             div(class="footer__networks")
-                a(class="home__link--github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
-                    img(class="home__icon--github" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
-                    span(class="github__name") GitHub
-                a(class="home__link--linkedin"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
-                    img(class="home__icon--linkedin" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
-                    span(class="linkedin__name") Linkedin
+                a(class="footer__link--github networks" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
+                    img(class="footer__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
+                a(class="footer__link--linkedin networks"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
+                    img(class="footer__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="icon of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
+                a(class="footer__link--mail networks"  href="mailto:alejo_2986@hotmail.com" title="Send Mail" target="_blank" rel="noopener noreferrer")   
+                    img(class="footer__icon--mail networks__logo" src="./assets/icons/mail-icon.svg" alt="icon of linkedin mail" loading="lazy" draggable="false")
             div(class="footer__menumobil menumobil")
                 div(class="menumobil__link--select") HOME
                 ul(class="menumobil__links")

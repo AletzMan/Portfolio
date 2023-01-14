@@ -280,7 +280,6 @@ var positionMenuselected = 0;
 var indexMenuCurrent = 0;
 var indexMenuBefore = 0;
 var numberOfSectionsDisplaced = 0;
-var sizeSection = 815;
 
 var _loop = function _loop(_index4) {
   menuMobil.item(_index4).addEventListener('mousedown', function (e) {
@@ -290,7 +289,13 @@ var _loop = function _loop(_index4) {
     indexMenuBefore = indexMenuCurrent;
     indexMenuCurrent = _index4;
     numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
-    scroll(0, sizeSection * _index4);
+    var scrollPosition = 0;
+
+    for (var numberSection = 0; numberSection < _index4; numberSection++) {
+      scrollPosition += sections[numberSection].getBoundingClientRect().height + 96;
+    }
+
+    scroll(0, scrollPosition);
     setTimeout(function () {
       sections.forEach(function (section) {
         section.style.opacity = 1;

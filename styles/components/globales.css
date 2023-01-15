@@ -50,24 +50,28 @@ img, picture, video, iframe, figure {
 }
 
 :root {
-  /*--color_backdark: #222831;
+  --color_backdark: #222831;
   --color_backmedium: #393E46;
   --color_backlight: #626a77;
-  --color_deactivated: #3f341c;
-  --color_activated: #FFD369;
+  --color_deactivated: #ecb63755;
+  --color_activated: #ecb637;
   --color_font: #EEEEEE;
-  --color_font_section: #EEEEEE44;
-  --font_Display: 'DotGothic16', sans-serif;
-  --font-General: 'Raleway', sans-serif;*/
-  --color_backdark: #111111;
-  --color_backmedium: #282b21;
-  --color_backlight: #3E432E;
-  --color_deactivated: #616F39;
-  --color_activated: #A7D129;
-  --color_font: #EEEEEE;
-  --color_font_section: #FFFFFF20;
-  --color_back_section: #00000099;
+  --color_font_section: #EEEEEE55;
+  --color_back_section: #222831BB;
   --font_Display: "DotGothic16", sans-serif;
   --font-General: "Raleway", sans-serif;
   --font-Title: "Prosto One", cursive;
+  /*
+      --color_backdark: #111111;
+      --color_backmedium: #282b21;
+      --color_backlight: #3E432E;
+      --color_deactivated: #616F39;
+      --color_activated: #A7D129;
+      --color_font: #EEEEEE;
+      --color_font_section: #FFFFFF20;
+      --color_back_section: #00000099;
+      --font_Display: 'DotGothic16', sans-serif;
+      --font-General: 'Raleway', sans-serif;
+      --font-Title: 'Prosto One', cursive;
+  */
 }

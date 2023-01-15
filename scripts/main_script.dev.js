@@ -9,7 +9,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var menuDesktop = document.querySelectorAll(".header__menu a");
 var menuDesktopArea = document.querySelectorAll(".header__menu li");
 var selectItemMenu = document.querySelector(".menu__selection");
-var presentation = document.querySelector(".home__description");
+var presentation = document.querySelector(".description__profesion");
 var sections = document.querySelectorAll(".section");
 var sectionHome = document.querySelector(".home");
 var menuMobilSelect = document.querySelector(".menumobil__link--select");
@@ -24,13 +24,16 @@ var nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>"
 
 onload = function onload() {
   initAnimation();
+  scroll(0, 0);
 };
 
 for (var index = 0; index < menuDesktop.length; index++) {
   menuDesktop.item(index).addEventListener('mouseup', function (e) {
     menuDesktop.forEach(function (elementMenuUnSelected) {
       elementMenuUnSelected.style.borderBottom = "none";
+      elementMenuUnSelected.style.color = "#EEEEEE";
     });
+    e.target.style.color = "var(--color_activated)";
 
     if (e.target.innerHTML === "HOME") {
       setTimeout(function () {
@@ -45,7 +48,7 @@ var numLetter = 0;
 
 function LoadPresentation() {
   if (numLetter < textPresentation.length) {
-    presentation.children[1].innerHTML += textPresentation[numLetter];
+    presentation.innerHTML += textPresentation[numLetter];
     numLetter += 1;
   } else {
     clearInterval(intervalPresentetion);
@@ -289,12 +292,14 @@ var _loop = function _loop(_index4) {
     indexMenuBefore = indexMenuCurrent;
     indexMenuCurrent = _index4;
     numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
+    console.log(sections[_index4].getBoundingClientRect().height);
     var scrollPosition = 0;
 
     for (var numberSection = 0; numberSection < _index4; numberSection++) {
-      scrollPosition += sections[numberSection].getBoundingClientRect().height + 96;
+      scrollPosition += sections[numberSection].getBoundingClientRect().height + 80;
     }
 
+    scrollPosition -= 16;
     scroll(0, scrollPosition);
     setTimeout(function () {
       sections.forEach(function (section) {

@@ -1,7 +1,7 @@
 const menuDesktop = document.querySelectorAll(".header__menu a");
 const menuDesktopArea = document.querySelectorAll(".header__menu li");
 const selectItemMenu = document.querySelector(".menu__selection");
-const presentation = document.querySelector(".home__description");
+const presentation = document.querySelector(".description__profesion");
 const sections = document.querySelectorAll(".section");
 const sectionHome = document.querySelector(".home");
 const menuMobilSelect = document.querySelector(".menumobil__link--select");
@@ -20,12 +20,16 @@ const nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img
 
 onload = () => {
 	initAnimation();
-
+	scroll(0, 0);
 }
 
 for (let index = 0; index < menuDesktop.length; index++) {
 	menuDesktop.item(index).addEventListener('mouseup', (e) => {
-		menuDesktop.forEach(elementMenuUnSelected => { elementMenuUnSelected.style.borderBottom = "none" });
+		menuDesktop.forEach(elementMenuUnSelected => { 
+			elementMenuUnSelected.style.borderBottom = "none";
+			elementMenuUnSelected.style.color = "#EEEEEE"; 
+		});
+		e.target.style.color = "var(--color_activated)"; 
 		if (e.target.innerHTML === "HOME") {
 			setTimeout(() => {
 				scroll(0, 0);
@@ -39,7 +43,7 @@ let intervalPresentetion = setInterval(LoadPresentation, 130);
 let numLetter = 0;
 function LoadPresentation() {
 	if (numLetter < textPresentation.length) {
-		presentation.children[1].innerHTML += textPresentation[numLetter];
+		presentation.innerHTML += textPresentation[numLetter];
 		numLetter += 1;
 	} else {
 		clearInterval(intervalPresentetion);
@@ -262,10 +266,12 @@ for (let index = 0; index < menuMobil.length; index++) {
 		indexMenuCurrent = index;
 		numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
 		
+		console.log(sections[index].getBoundingClientRect().height);
 		let scrollPosition = 0;
 		for (let numberSection = 0; numberSection < index; numberSection++) {
-			scrollPosition += (sections[numberSection].getBoundingClientRect().height) + 96;
+			scrollPosition += (sections[numberSection].getBoundingClientRect().height) + (80);
 		}
+		scrollPosition -= 16;
 		scroll(0, scrollPosition);
 		setTimeout(() => {
 			sections.forEach(section => {
@@ -301,7 +307,6 @@ document.addEventListener("scroll", () => {
 				}
 			}
 		}
-
 	}
 })
 

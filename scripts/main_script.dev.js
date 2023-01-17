@@ -49,7 +49,6 @@ onload = function onload() {
 for (var index = 0; index < menuDesktop.length; index++) {
   menuDesktop.item(index).addEventListener('mouseup', function (e) {
     menuDesktop.forEach(function (elementMenuUnSelected) {
-      elementMenuUnSelected.style.borderBottom = "none";
       elementMenuUnSelected.style.color = "var(--color_font)";
     });
     setTimeout(function () {
@@ -65,7 +64,8 @@ for (var index = 0; index < menuDesktop.length; index++) {
 }
 
 setTimeout(function () {
-  var intervalPresentetion = setInterval(LoadPresentation, 130);
+  var time = 100;
+  var intervalPresentetion = setInterval(LoadPresentation, time);
   var numLetter = 0;
   var reverse = false;
   var textReverse = '';
@@ -89,7 +89,10 @@ setTimeout(function () {
         reverse = false;
         numLetter = 0;
         textNumber += 1;
-        textNumber = textNumber > textPresentation.length - 1 ? 0 : textNumber;
+
+        if (textNumber > textPresentation.length - 1) {
+          textNumber = 0;
+        }
       }
     }
   }
@@ -480,22 +483,22 @@ document.addEventListener("scroll", function () {
     var designMobil = window.getComputedStyle(menuMobilContainer, null).getPropertyValue("display") == "none" ? false : true;
 
     var _loop4 = function _loop4(_index9) {
-      if (sections[_index9].getBoundingClientRect().y < 200 && sections[_index9].getBoundingClientRect().y > -20) {
+      if (sections[_index9].getBoundingClientRect().y < 300 && sections[_index9].getBoundingClientRect().y > -20) {
         if (designMobil) {
           positionMenuselected = menuMobilContainer.getBoundingClientRect().width / 16 / 5 * (_index9 + 1) - menuMobilSelect.getBoundingClientRect().width / 16 - 0.2;
           menuMobilSelect.style.left = "".concat(positionMenuselected, "rem");
           setTimeout(function () {
             menuMobil.forEach(function (section) {
-              section.style.filter = "invert(1)";
+              section.style.filter = "brightness(0) invert(1)";
             });
-            menuMobil[_index9].style.filter = "invert(0)";
+            menuMobil[_index9].style.filter = "brightness(1)";
             menuMobilSelect.innerText = nameTagMenu[_index9];
           }, 400);
         } else {
           selectItemMenu.style.left = menuDesktopArea.item(_index9).getBoundingClientRect().left - menuDesktopArea.item(0).getBoundingClientRect().left - 1 + "px";
           menuDesktop.forEach(function (elementMenuUnSelected) {
-            //elementMenuUnSelected.style.borderBottom = "none";
             elementMenuUnSelected.style.color = "var(--color_font)";
+            elementMenuUnSelected.classList.add(".menu__selection--hover");
           });
           menuDesktop.item(_index9).style.color = "var(--color_activated)";
         }

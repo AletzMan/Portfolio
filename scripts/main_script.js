@@ -38,10 +38,11 @@ onload = () => {
 	CreateLogoSkill(0);
 }
 
+
+
 for (let index = 0; index < menuDesktop.length; index++) {
 	menuDesktop.item(index).addEventListener('mouseup', (e) => {
 		menuDesktop.forEach(elementMenuUnSelected => {
-			elementMenuUnSelected.style.borderBottom = "none";
 			elementMenuUnSelected.style.color = "var(--color_font)";
 		});
 		setTimeout(() => {
@@ -56,7 +57,8 @@ for (let index = 0; index < menuDesktop.length; index++) {
 }
 
 setTimeout(() => {
-	let intervalPresentetion = setInterval(LoadPresentation, 130);
+	let time = 100;
+	let intervalPresentetion = setInterval(LoadPresentation, time);
 	let numLetter = 0;
 	let reverse = false;
 	let textReverse = '';
@@ -66,21 +68,23 @@ setTimeout(() => {
 			presentation.innerHTML += textPresentation[textNumber][numLetter];
 			textReverse = textPresentation[textNumber];
 			console.log("DENTRO")
-			numLetter += 1;			
+			numLetter += 1;
 		} else {
 			reverse = true;
 		}
-		if(reverse) {
+		
+		if (reverse) {
 			presentation.innerHTML = textReverse.substring(0, numLetter);
 			numLetter -= 1;
-			if(presentation.innerHTML.length == 0) {
+			if (presentation.innerHTML.length == 0) {
 				reverse = false;
-				numLetter = 0;				
+				numLetter = 0;
 				textNumber += 1;
-				textNumber = textNumber > textPresentation.length - 1?0: textNumber;
-				
+				if (textNumber > textPresentation.length - 1) {
+					textNumber = 0;
+				}
 			}
-		}		
+		}
 	}
 }, 1600);
 
@@ -143,7 +147,6 @@ class TagBubble {
 			}
 		});
 	}
-
 	updatePosition(timeElapsed) {
 		this.posX += this.speedX * timeElapsed;
 		this.posY += this.speedY * timeElapsed;
@@ -200,7 +203,6 @@ const detectCollisions = () => {
 		objectOne = bubblesContainer[i];
 		for (let j = i + 1; j < bubblesContainer.length; j++) {
 			objectTwo = bubblesContainer[j];
-
 			if (intersectionCircles(objectOne.posX, objectOne.posY, objectOne.width / 2, objectTwo.posX, objectTwo.posY, objectTwo.width / 2)) {
 				objectOne.isColliding = true;
 				objectTwo.isColliding = true;
@@ -211,7 +213,6 @@ const detectCollisions = () => {
 				let speed = relativeVelocityVector.x * collisionVectorNorm.x + relativeVelocityVector.y * collisionVectorNorm.y;
 
 				if (speed < 0) break;
-
 				let impulse = 2 * speed / (objectOne.mass + objectTwo.mass);
 				objectOne.speedX -= (impulse * objectTwo.mass * collisionVectorNorm.x);
 				objectOne.speedY -= (impulse * objectTwo.mass * collisionVectorNorm.y);
@@ -468,22 +469,22 @@ document.addEventListener("scroll", () => {
 		let designMobil = window.getComputedStyle(menuMobilContainer, null).getPropertyValue("display") == "none" ? false : true;
 
 		for (let index = 0; index < sections.length; index++) {
-			if (sections[index].getBoundingClientRect().y < 200 && sections[index].getBoundingClientRect().y > -20) {
+			if (sections[index].getBoundingClientRect().y < 300 && sections[index].getBoundingClientRect().y > -20) {
 				if (designMobil) {
 					positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width / 16) / 5 * (index + 1)) - (menuMobilSelect.getBoundingClientRect().width / 16) - 0.2;
 					menuMobilSelect.style.left = `${positionMenuselected}rem`;
 					setTimeout(() => {
 						menuMobil.forEach(section => {
-							section.style.filter = "invert(1)";
+							section.style.filter = "brightness(0) invert(1)";
 						});
-						menuMobil[index].style.filter = "invert(0)";
+						menuMobil[index].style.filter = "brightness(1)";
 						menuMobilSelect.innerText = nameTagMenu[index];
 					}, 400);
 				} else {
 					selectItemMenu.style.left = menuDesktopArea.item(index).getBoundingClientRect().left - menuDesktopArea.item(0).getBoundingClientRect().left - 1 + "px";
 					menuDesktop.forEach(elementMenuUnSelected => {
-						//elementMenuUnSelected.style.borderBottom = "none";
 						elementMenuUnSelected.style.color = "var(--color_font)";
+						elementMenuUnSelected.classList.add(".menu__selection--hover");
 					});
 					menuDesktop.item(index).style.color = "var(--color_activated)";
 				}

@@ -4,6 +4,8 @@ const selectItemMenu = document.querySelector(".menu__selection");
 const presentation = document.querySelector(".description__profesion");
 const sections = document.querySelectorAll(".section");
 const sectionHome = document.querySelector(".home");
+const header = document.querySelector(".header");
+const footer = document.querySelector(".footer");
 const typeSkills = document.querySelectorAll(".technologies");
 const containerSkills = document.querySelector(".logos");
 const containerProjects = document.querySelector(".projects__container");
@@ -16,10 +18,12 @@ const menuMobil = document.querySelectorAll(".link");
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
 
-const textPresentation = 'Front-End Developer';
+const textPresentation = ['Software Developer', 'Front-End Developer', 'Electrical Design'];
 const numbertags = 35;
 let containerTags = [];
 const nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
+const nameLogos = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
+
 
 const mobileDetect = () => {
 	let check = false;
@@ -51,17 +55,35 @@ for (let index = 0; index < menuDesktop.length; index++) {
 	})
 }
 
-
-let intervalPresentetion = setInterval(LoadPresentation, 130);
-let numLetter = 0;
-function LoadPresentation() {
-	if (numLetter < textPresentation.length) {
-		presentation.innerHTML += textPresentation[numLetter];
-		numLetter += 1;
-	} else {
-		clearInterval(intervalPresentetion);
+setTimeout(() => {
+	let intervalPresentetion = setInterval(LoadPresentation, 130);
+	let numLetter = 0;
+	let reverse = false;
+	let textReverse = '';
+	let textNumber = 0;
+	function LoadPresentation() {
+		if (numLetter < textPresentation[textNumber].length && !reverse) {
+			presentation.innerHTML += textPresentation[textNumber][numLetter];
+			textReverse = textPresentation[textNumber];
+			console.log("DENTRO")
+			numLetter += 1;			
+		} else {
+			reverse = true;
+		}
+		if(reverse) {
+			presentation.innerHTML = textReverse.substring(0, numLetter);
+			numLetter -= 1;
+			if(presentation.innerHTML.length == 0) {
+				reverse = false;
+				numLetter = 0;				
+				textNumber += 1;
+				textNumber = textNumber > textPresentation.length - 1?0: textNumber;
+				
+			}
+		}		
 	}
-}
+}, 1600);
+
 
 class TagBubble {
 	constructor(posX, posY, speedX, speedY, mass) {
@@ -75,30 +97,20 @@ class TagBubble {
 
 	createItem() {
 		const newTagMove = document.createElement("div");
-		newTagMove.textContent = nameTags[GetRandomNumber(0, 14)];
+		//newTagMove.textContent = nameTags[GetRandomNumber(0, 14)];
+		newTagMove.style.backgroundImage = "url('./assets/icons/" + nameLogos[GetRandomNumber(0, nameLogos.length - 1)] + "-logo.svg')";
 		newTagMove.classList = "tag__move";
 		newTagMove.style.left = `${this.posX}px`;
 		newTagMove.style.top = `${this.posY}px`;
 		containerTags.push(newTagMove);
 		sectionHome.appendChild(newTagMove);
 		let fontSize = parseFloat(window.getComputedStyle(newTagMove, null).getPropertyValue('font-size'));
-		newTagMove.style.width = `${Math.floor(newTagMove.getBoundingClientRect().width + 10)}px`;
+		newTagMove.style.width = `${Math.floor(newTagMove.getBoundingClientRect().width + 40)}px`;
 		newTagMove.style.paddingTop = `${(Math.floor(newTagMove.getBoundingClientRect().width / 2) - fontSize / 1.5)}px`;
 		newTagMove.style.height = `${Math.floor(newTagMove.getBoundingClientRect().width)}px`;
 
 		this.width = Math.floor(newTagMove.getBoundingClientRect().width);
 		this.height = Math.floor(newTagMove.getBoundingClientRect().height);
-
-		if (!mobileDetect()) {
-			newTagMove.addEventListener('mouseover', (e) => {
-				newTagMove.style.boxShadow = '-10px -10px 20px 7px var(--color_bubble_hover) inset';
-				newTagMove.style.color = 'var(--color_font)';
-			});
-			newTagMove.addEventListener('mouseout', (e) => {
-				newTagMove.style.boxShadow = '-10px -10px 20px 7px var(--color_font_section) inset';
-				newTagMove.style.color = 'var(--color_font_section)';
-			});
-		}
 
 		this.initPosMouseX = 0;
 		this.initPosMouseY = 0;
@@ -212,7 +224,7 @@ const detectCollisions = () => {
 
 const borderCollisionDetection = () => {
 	const collisionLimitXLeft = (1);
-	const collisionLimitXRight = window.innerWidth - 30;
+	const collisionLimitXRight = window.outerWidth - 30;
 	const collisionLimitYTop = 100;
 	const collisionLimitYBottom = window.innerHeight - 70;
 
@@ -258,7 +270,6 @@ function GetRandomNumberFloat(min, max) {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 const sourceLogos = "./assets/icons/";
-const sourcePhotos = "./assets/photos/project_";
 
 for (let index = 0; index < typeSkills.length; index++) {
 	typeSkills[index].addEventListener("click", (e) => {
@@ -309,13 +320,14 @@ const CreateLogoSkill = (numberSkill) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
+let projectsZoom = document.querySelectorAll(".project__options--zoom");
+const body = document.querySelector("body");
+const sourcePhotos = "./assets/photos/project_";
 
 const Title = [
 	"Draw Board",
 	"Test Sequence",
-	"Electronics page"
+	"Electronic Encyclopedia"
 ]
 const Technologies = [
 	["html", "css", "javascript", "pug", "sass"],
@@ -324,6 +336,12 @@ const Technologies = [
 	["c", "csharp", "xaml", "labview",],
 	["vscode", "vs", "git", "labview"]
 ]
+const Repositories = [
+	"https://aletzman.github.io/",
+	"https://github.com/AletzMan",
+	"https://aletzman.github.io/",
+]
+
 
 const CreateProject = () => {
 	for (let index = 0; index < 2; index++) {
@@ -337,20 +355,64 @@ const EditProjects = () => {
 	const projectsTitle = document.querySelectorAll(".project__title");
 	const projectsTechnologies = document.querySelectorAll(".project__technologies");
 	const projectsImage = document.querySelectorAll(".project__image");
-	const projectsOption = document.querySelectorAll(".project__options");
+	const projectsRepository = document.querySelectorAll(".project__options--repository");
+	const projectsPreview = document.querySelectorAll(".project__options--linkpreview");
+	projectsZoom = document.querySelectorAll(".project__options--zoom");
 
 	for (let index = 0; index < projects.length; index++) {
-		projectsTitle[index].innerHTML = Title[index];		
+		projectsTitle[index].innerHTML = Title[index];
 		Technologies[index].forEach(namelogo => {
 			const newImgTech = document.createElement("img");
-			newImgTech.src = sourceLogos + namelogo + "-logo.svg";			
+			newImgTech.src = sourceLogos + namelogo + "-logo.svg";
 			projectsTechnologies[index].appendChild(newImgTech);
 		});
 		projectsImage[index].src = sourcePhotos + index + ".jpg";
-
+		projectsRepository[index].href = Repositories[index];
 	}
+
+	AsignEvent();
 }
 
+let containerCreate = false;
+
+const AsignEvent = () => {
+	const projects = document.querySelector(".projects");
+
+	projectsZoom.forEach((element, index) => {
+		element.addEventListener("mouseup", () => {
+			containerCreate = false;
+			const newPreviewContainer = document.createElement("div");
+			newPreviewContainer.classList = "previewContainer";
+			newPreviewContainer.style.height = window.innerHeight + 18 + "px";
+			body.appendChild(newPreviewContainer);
+			newPreviewContainer.style.top = (scrollY) + "px";
+			newPreviewContainer.style.left = `0px`;
+			const newPreview = document.createElement("div");
+			newPreview.classList = "previewContainer__preview";
+			newPreviewContainer.appendChild(newPreview);
+			const newPreviewImage = document.createElement("img");
+			newPreviewImage.classList = "previewContainer__preview--image";
+			newPreviewImage.src = sourcePhotos + index + ".jpg";
+			newPreview.appendChild(newPreviewImage);
+
+			body.style.overflowX = "hidden";
+			body.style.overflowY = "hidden";
+			setTimeout(() => {
+				containerCreate = true;
+			}, 1200);
+		})
+	});
+}
+
+body.addEventListener("mouseup", () => {
+	if (containerCreate) {
+		do {
+			body.removeChild(body.lastChild);
+		} while (body.lastChild.className === "previewContainer");
+		body.style.overflowX = "auto";
+		body.style.overflowY = "auto";
+	}
+})
 
 
 

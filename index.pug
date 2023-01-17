@@ -40,7 +40,7 @@ html(lang="en")
                 p(class="description__name") Hey, #[br]My name is
                 p(class="name") Alejandro.
                 span(class="description__profesion")
-                span(class="home__idea") "Turning ideas and desing into code"        
+                span(class="home__idea") "Turning ideas and desing, into code"        
                 img(class="home__photo" src="./assets/photos/my_photo.jpg" alt="photo of Alejandro Garcia" loading="lazy" draggable="false")
                 a(class="home__link--github networks" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
                     img(class="home__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
@@ -51,6 +51,12 @@ html(lang="en")
         section(class="skills section" id="section__skills")
             h2(class="skills__title title") SKILLS
             div(class="skills__logos logos")
+                select(class="logos__select") 
+                    option(value="Web") Web
+                    option(value="Web") Mobil
+                    option(value="Web") Desktop
+                    option(value="Web") Test and Measurement
+                    option(value="Web") Development Platforms
                 input(type ="radio" name="skills" id="webdev" class="logos--webdev technologies" checked) 
                 label(for="webdev" class="label__tech" name="Web") Web
                 input(type ="radio" name="skills" id="mobil" class="logos--mobil technologies") 
@@ -58,7 +64,7 @@ html(lang="en")
                 input(type ="radio" name="skills" id="desktop" class="logos--desktop technologies") 
                 label(for="desktop" class="label__tech" name="Desktop") Desktop
                 input(type ="radio" name="skills" id="test" class="logos--test technologies") 
-                label(for="test" class="label__tech" name="Test and Measurement Systems") Test and Measurement Systems
+                label(for="test" class="label__tech" name="Test and Measurement") Test and Measurement
                 input(type ="radio" name="skills" id="platforms" class="logos--platforms technologies") 
                 label(for="platforms" class="label__tech" name="Development platforms") Development Platforms
                 //+createLogosImages                
@@ -75,11 +81,11 @@ html(lang="en")
                         //img( src="./assets/icons/sass-logo.svg" alt="photo of project" loading="lazy" draggable="false")
                     img(class="project__image" src="./assets/photos/project_1.jpg" alt="photo of project" loading="lazy" draggable="false")
                     div(class="project__options")
-                        button(class="project__options--zoom")
-                        a(class="project__options--repository networks" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
-                            img(class="footer__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
-                        a(class="project__options--linkpreview networks"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
-                            img(class="footer__icon--linkedin networks__logo" src="../assets/icons/preview-icon.svg" alt="icon of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
+                        button(class="project__options--zoom networks")
+                        a(class="project__options--repository networks" href=github title="Go To GitHub repository project" target="_blank" rel="noopener noreferrer")
+                            img(class="project__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of GitHub" loading="lazy" draggable="false")
+                        a(class="project__options--linkpreview networks"  href=linkedin title="Go To Preview Project" target="_blank" rel="noopener noreferrer")   
+                            img(class="project__icon--linkedin networks__logo" src="../assets/icons/preview-icon.svg" alt="Project" loading="lazy" draggable="false")
                 
         section(class="about section" id="section__about")
             h2(class="about__title title") ABOUT ME

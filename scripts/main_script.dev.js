@@ -12,6 +12,8 @@ var selectItemMenu = document.querySelector(".menu__selection");
 var presentation = document.querySelector(".description__profesion");
 var sections = document.querySelectorAll(".section");
 var sectionHome = document.querySelector(".home");
+var header = document.querySelector(".header");
+var footer = document.querySelector(".footer");
 var typeSkills = document.querySelectorAll(".technologies");
 var containerSkills = document.querySelector(".logos");
 var containerProjects = document.querySelector(".projects__container");
@@ -21,10 +23,11 @@ var menuMobilContainer = document.querySelector(".menumobil");
 var menuMobil = document.querySelectorAll(".link");
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
-var textPresentation = 'Front-End Developer';
+var textPresentation = ['Software Developer', 'Front-End Developer', 'Electrical Design'];
 var numbertags = 35;
 var containerTags = [];
 var nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
+var nameLogos = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
 
 var mobileDetect = function mobileDetect() {
   var check = false;
@@ -61,17 +64,36 @@ for (var index = 0; index < menuDesktop.length; index++) {
   });
 }
 
-var intervalPresentetion = setInterval(LoadPresentation, 130);
-var numLetter = 0;
+setTimeout(function () {
+  var intervalPresentetion = setInterval(LoadPresentation, 130);
+  var numLetter = 0;
+  var reverse = false;
+  var textReverse = '';
+  var textNumber = 0;
 
-function LoadPresentation() {
-  if (numLetter < textPresentation.length) {
-    presentation.innerHTML += textPresentation[numLetter];
-    numLetter += 1;
-  } else {
-    clearInterval(intervalPresentetion);
+  function LoadPresentation() {
+    if (numLetter < textPresentation[textNumber].length && !reverse) {
+      presentation.innerHTML += textPresentation[textNumber][numLetter];
+      textReverse = textPresentation[textNumber];
+      console.log("DENTRO");
+      numLetter += 1;
+    } else {
+      reverse = true;
+    }
+
+    if (reverse) {
+      presentation.innerHTML = textReverse.substring(0, numLetter);
+      numLetter -= 1;
+
+      if (presentation.innerHTML.length == 0) {
+        reverse = false;
+        numLetter = 0;
+        textNumber += 1;
+        textNumber = textNumber > textPresentation.length - 1 ? 0 : textNumber;
+      }
+    }
   }
-}
+}, 1600);
 
 var TagBubble =
 /*#__PURE__*/
@@ -92,31 +114,20 @@ function () {
     value: function createItem() {
       var _this = this;
 
-      var newTagMove = document.createElement("div");
-      newTagMove.textContent = nameTags[GetRandomNumber(0, 14)];
+      var newTagMove = document.createElement("div"); //newTagMove.textContent = nameTags[GetRandomNumber(0, 14)];
+
+      newTagMove.style.backgroundImage = "url('./assets/icons/" + nameLogos[GetRandomNumber(0, nameLogos.length - 1)] + "-logo.svg')";
       newTagMove.classList = "tag__move";
       newTagMove.style.left = "".concat(this.posX, "px");
       newTagMove.style.top = "".concat(this.posY, "px");
       containerTags.push(newTagMove);
       sectionHome.appendChild(newTagMove);
       var fontSize = parseFloat(window.getComputedStyle(newTagMove, null).getPropertyValue('font-size'));
-      newTagMove.style.width = "".concat(Math.floor(newTagMove.getBoundingClientRect().width + 10), "px");
+      newTagMove.style.width = "".concat(Math.floor(newTagMove.getBoundingClientRect().width + 40), "px");
       newTagMove.style.paddingTop = "".concat(Math.floor(newTagMove.getBoundingClientRect().width / 2) - fontSize / 1.5, "px");
       newTagMove.style.height = "".concat(Math.floor(newTagMove.getBoundingClientRect().width), "px");
       this.width = Math.floor(newTagMove.getBoundingClientRect().width);
       this.height = Math.floor(newTagMove.getBoundingClientRect().height);
-
-      if (!mobileDetect()) {
-        newTagMove.addEventListener('mouseover', function (e) {
-          newTagMove.style.boxShadow = '-10px -10px 20px 7px var(--color_bubble_hover) inset';
-          newTagMove.style.color = 'var(--color_font)';
-        });
-        newTagMove.addEventListener('mouseout', function (e) {
-          newTagMove.style.boxShadow = '-10px -10px 20px 7px var(--color_font_section) inset';
-          newTagMove.style.color = 'var(--color_font_section)';
-        });
-      }
-
       this.initPosMouseX = 0;
       this.initPosMouseY = 0;
       newTagMove.addEventListener('mousedown', function (e) {
@@ -253,7 +264,7 @@ var detectCollisions = function detectCollisions() {
 
 var borderCollisionDetection = function borderCollisionDetection() {
   var collisionLimitXLeft = 1;
-  var collisionLimitXRight = window.innerWidth - 30;
+  var collisionLimitXRight = window.outerWidth - 30;
   var collisionLimitYTop = 100;
   var collisionLimitYBottom = window.innerHeight - 70;
   var speedReset = 0.95;
@@ -297,7 +308,6 @@ function GetRandomNumberFloat(min, max) {
 
 
 var sourceLogos = "./assets/icons/";
-var sourcePhotos = "./assets/photos/project_";
 
 var _loop = function _loop(_index4) {
   typeSkills[_index4].addEventListener("click", function (e) {
@@ -338,8 +348,12 @@ var CreateLogoSkill = function CreateLogoSkill(numberSkill) {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 
-var Title = ["Draw Board", "Test Sequence", "Electronics page"];
+var projectsZoom = document.querySelectorAll(".project__options--zoom");
+var body = document.querySelector("body");
+var sourcePhotos = "./assets/photos/project_";
+var Title = ["Draw Board", "Test Sequence", "Electronic Encyclopedia"];
 var Technologies = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git", "github"], ["csharp", "netcore", "xamarin", "xaml"], ["c", "csharp", "xaml", "labview"], ["vscode", "vs", "git", "labview"]];
+var Repositories = ["https://aletzman.github.io/", "https://github.com/AletzMan", "https://aletzman.github.io/"];
 
 var CreateProject = function CreateProject() {
   for (var _index6 = 0; _index6 < 2; _index6++) {
@@ -355,7 +369,9 @@ var EditProjects = function EditProjects() {
   var projectsTitle = document.querySelectorAll(".project__title");
   var projectsTechnologies = document.querySelectorAll(".project__technologies");
   var projectsImage = document.querySelectorAll(".project__image");
-  var projectsOption = document.querySelectorAll(".project__options");
+  var projectsRepository = document.querySelectorAll(".project__options--repository");
+  var projectsPreview = document.querySelectorAll(".project__options--linkpreview");
+  projectsZoom = document.querySelectorAll(".project__options--zoom");
 
   var _loop2 = function _loop2(_index7) {
     projectsTitle[_index7].innerHTML = Title[_index7];
@@ -368,15 +384,57 @@ var EditProjects = function EditProjects() {
     });
 
     projectsImage[_index7].src = sourcePhotos + _index7 + ".jpg";
+    projectsRepository[_index7].href = Repositories[_index7];
   };
 
   for (var _index7 = 0; _index7 < projects.length; _index7++) {
     _loop2(_index7);
   }
-}; ////////////////////////////////////////////////////////////////////////////////////////////
+
+  AsignEvent();
+};
+
+var containerCreate = false;
+
+var AsignEvent = function AsignEvent() {
+  var projects = document.querySelector(".projects");
+  projectsZoom.forEach(function (element, index) {
+    element.addEventListener("mouseup", function () {
+      containerCreate = false;
+      var newPreviewContainer = document.createElement("div");
+      newPreviewContainer.classList = "previewContainer";
+      newPreviewContainer.style.height = window.innerHeight + 18 + "px";
+      body.appendChild(newPreviewContainer);
+      newPreviewContainer.style.top = scrollY + "px";
+      newPreviewContainer.style.left = "0px";
+      var newPreview = document.createElement("div");
+      newPreview.classList = "previewContainer__preview";
+      newPreviewContainer.appendChild(newPreview);
+      var newPreviewImage = document.createElement("img");
+      newPreviewImage.classList = "previewContainer__preview--image";
+      newPreviewImage.src = sourcePhotos + index + ".jpg";
+      newPreview.appendChild(newPreviewImage);
+      body.style.overflowX = "hidden";
+      body.style.overflowY = "hidden";
+      setTimeout(function () {
+        containerCreate = true;
+      }, 1200);
+    });
+  });
+};
+
+body.addEventListener("mouseup", function () {
+  if (containerCreate) {
+    do {
+      body.removeChild(body.lastChild);
+    } while (body.lastChild.className === "previewContainer");
+
+    body.style.overflowX = "auto";
+    body.style.overflowY = "auto";
+  }
+}); ////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////--------- MENU MOBIL ---------/////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
-
 
 var nameTagMenu = ["HOME", "SKILLS", "PROJECTS", "ABOUT", "CONTACT"];
 var positionMenuselected = 0;

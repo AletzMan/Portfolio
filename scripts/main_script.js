@@ -35,7 +35,7 @@ onload = () => {
 	CreateProject();
 	initAnimation();
 	scroll(0, 0);
-	CreateLogoSkill(0);
+	CreateLogoSkill(0); ac
 }
 
 
@@ -67,12 +67,11 @@ setTimeout(() => {
 		if (numLetter < textPresentation[textNumber].length && !reverse) {
 			presentation.innerHTML += textPresentation[textNumber][numLetter];
 			textReverse = textPresentation[textNumber];
-			console.log("DENTRO")
 			numLetter += 1;
 		} else {
 			reverse = true;
 		}
-		
+
 		if (reverse) {
 			presentation.innerHTML = textReverse.substring(0, numLetter);
 			numLetter -= 1;
@@ -455,7 +454,7 @@ for (let index = 0; index < menuMobil.length; index++) {
 			sections.forEach(section => {
 				section.style.opacity = 1;
 			})
-		}, 600);
+		}, 500);
 	})
 }
 
@@ -471,20 +470,25 @@ document.addEventListener("scroll", () => {
 		for (let index = 0; index < sections.length; index++) {
 			if (sections[index].getBoundingClientRect().y < 300 && sections[index].getBoundingClientRect().y > -20) {
 				if (designMobil) {
-					positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width / 16) / 5 * (index + 1)) - (menuMobilSelect.getBoundingClientRect().width / 16) - 0.2;
+					positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width / 16) / 5 * (index + 1)) - (menuMobilSelect.getBoundingClientRect().width / 16) - 0.4;
 					menuMobilSelect.style.left = `${positionMenuselected}rem`;
 					setTimeout(() => {
 						menuMobil.forEach(section => {
-							section.style.filter = "brightness(0) invert(1)";
+							section.style.filter = "invert(1)";
+							section.style.right = "0";
 						});
+
+						let paddingTitle = [1.75, 1.55, 0.75, 1.4, 0.8];
 						menuMobil[index].style.filter = "brightness(1)";
+						menuMobil[index].style.right = "2.5rem";
+						menuMobilSelect.style.paddingRight = `${paddingTitle[index]}rem`;
+						console.log(paddingTitle[index])
 						menuMobilSelect.innerText = nameTagMenu[index];
-					}, 400);
+					}, 200);
 				} else {
 					selectItemMenu.style.left = menuDesktopArea.item(index).getBoundingClientRect().left - menuDesktopArea.item(0).getBoundingClientRect().left - 1 + "px";
 					menuDesktop.forEach(elementMenuUnSelected => {
 						elementMenuUnSelected.style.color = "var(--color_font)";
-						elementMenuUnSelected.classList.add(".menu__selection--hover");
 					});
 					menuDesktop.item(index).style.color = "var(--color_activated)";
 				}

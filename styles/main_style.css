@@ -53,13 +53,13 @@ img, picture, video, iframe, figure {
   --color_backdark: #121212;
   --color_backmedium: #272727;
   --color_backlight: #373737;
-  --color_deactivated: #005fecBB;
-  --color_activated: #004ec4;
+  --color_deactivated: #64b4dabb;
+  --color_activated: #61d3e7;
   --color_font: #D6D6D6;
   --color_fontTitle: #a7a7a7;
   --color_font_section: #EEEEEE22;
   --color_back_section: #222831BB;
-  --color_bubble_hover: #005fec33;
+  --color_bubble_hover: #64b4da33;
   --font_Display: "DotGothic16", sans-serif;
   --font-General: "Raleway", sans-serif;
   --font-Title: "Prosto One", cursive;
@@ -794,10 +794,12 @@ img, picture, video, iframe, figure {
 }
 
 .link {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-top: 0.15rem;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.34rem;
   list-style: none;
+  transition: right 0.2s linear;
   filter: invert(1);
 }
 
@@ -816,14 +818,17 @@ img, picture, video, iframe, figure {
   }
 }
 .menumobil__links {
+  position: relative;
   display: flex;
   justify-content: space-around;
   margin: 0.1rem 0 0 0;
+  z-index: 2;
 }
 .menumobil__links--home {
   background-image: url("/assets/icons/home-icon.svg");
   background-size: cover;
   filter: invert(0);
+  right: 2.5rem;
 }
 .menumobil__links--skills {
   background-image: url("/assets/icons/skills-icon.svg");
@@ -852,18 +857,19 @@ img, picture, video, iframe, figure {
 .menumobil__link--select {
   position: absolute;
   width: 18.5%;
-  height: 4.1rem;
-  top: -1rem;
-  left: -0.2rem;
-  font-weight: 200;
+  height: 2.4rem;
+  top: 0.23rem;
+  left: 0.2rem;
+  font-weight: bolder;
   font-size: 0.8rem;
-  background: var(--color_backdark);
-  border-radius: 0;
+  color: var(--color_backdark);
+  background: var(--color_activated);
+  border-radius: 1.2rem;
   border: 1px solid var(--color_activated);
-  text-align: center;
-  padding: 0.25rem 0 0 0;
+  text-align: right;
+  padding: 0.7rem 1.75rem 0 0;
   transition: left 0.3s linear;
-  color: var(--color_font);
+  z-index: 1;
 }
 
 .tag__move {

@@ -2,6 +2,7 @@
 @import "components/_breakpoints.scss";
 //@use "sass:map";
 
+$sizecube: 1000px;
 
 $sizeContainerMenuMobil: 35rem;
 @mixin boxShadow() {
@@ -9,6 +10,65 @@ $sizeContainerMenuMobil: 35rem;
     box-shadow: -1px -1px 1px 0px var(--color_font_section) inset, -2px 2px 10px 2px var(--color_backdark) ;
 }
 
+.perspective {
+    position: fixed;
+    background-color: #070707;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    perspective: 1000px;
+    left: -500px;
+    perspective-origin: 120% 0%;
+    @include media(desktop-s) {
+        left:0;
+        perspective-origin: 50vw 50%;
+    }
+    &__container{
+        position: absolute;
+        width: 50vw;
+        height: 100vh;
+        transform-style: preserve-3d;
+        background-color: #3e555500;
+    }
+    &__back {
+        position: absolute;
+        width: $sizecube;
+        height: $sizecube/2;
+        background-color: rgb(26, 25, 25);
+        transform: rotateX(0deg) translateX(449.5px) translateZ(-450px) translateY(165px);
+    }
+    &__down {
+        position: absolute;
+        width: $sizecube;
+        height: $sizecube;
+        background-color: rgb(20, 20, 20);
+        transform: rotateX(90deg) translateX(450px) translateZ(-165px) translateY(50px);
+    }
+    &__left {
+        position: absolute;
+        width: $sizecube;
+        height: $sizecube/2;
+        background-color: rgb(32, 32, 32);
+        transform: rotateY(90deg) translateZ(-50px) translateY(165px) translateX(-50px);
+    }
+    &__right {
+        position: absolute;
+        width: $sizecube;
+        height: $sizecube/2;
+        background-color: rgb(32, 32, 32);
+        transform: rotateY(-90deg) translateZ(-950px) translateY(165px) translateX(50px);
+    }
+
+}
+/*
+body {
+    background-image: url('../assets/photos/fondo.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100vw 90vh;
+    backdrop-filter: blur(80px) grayscale(100%);
+   }
+*/
 .header {
     position: fixed;
     top: 0;

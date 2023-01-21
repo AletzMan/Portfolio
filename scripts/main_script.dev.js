@@ -12,6 +12,7 @@ var selectItemMenu = document.querySelector(".menu__selection");
 var presentation = document.querySelector(".description__profesion");
 var sections = document.querySelectorAll(".section");
 var sectionHome = document.querySelector(".home");
+var perspective = document.querySelector(".perspective");
 var header = document.querySelector(".header");
 var footer = document.querySelector(".footer");
 var typeSkills = document.querySelectorAll(".technologies");
@@ -24,7 +25,7 @@ var menuMobil = document.querySelectorAll(".link");
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
 var textPresentation = ['Software Developer', 'Front-End Developer', 'Electrical Design'];
-var numbertags = 45;
+var numbertags = 30;
 var containerTags = [];
 var nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
 var nameLogos = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
@@ -124,7 +125,7 @@ function () {
       newTagMove.style.left = "".concat(this.posX, "px");
       newTagMove.style.top = "".concat(this.posY, "px");
       containerTags.push(newTagMove);
-      sectionHome.appendChild(newTagMove);
+      perspective.appendChild(newTagMove);
       var fontSize = parseFloat(window.getComputedStyle(newTagMove, null).getPropertyValue('font-size'));
       newTagMove.style.width = "".concat(Math.floor(newTagMove.getBoundingClientRect().width + 40), "px");
       newTagMove.style.paddingTop = "".concat(Math.floor(newTagMove.getBoundingClientRect().width / 2) - fontSize / 1.5, "px");
@@ -190,7 +191,7 @@ var initAnimation = function initAnimation() {
 var createBubbleTags = function createBubbleTags() {
   for (var _index2 = 0; _index2 < numbertags; _index2++) {
     var positionTagX = GetRandomNumber(50, window.innerWidth - 50);
-    var positionTagY = GetRandomNumber(100, body.getBoundingClientRect().height - 20);
+    var positionTagY = GetRandomNumber(100, perspective.getBoundingClientRect().height - 20);
     bubblesContainer.push(new TagBubble(positionTagX, positionTagY, GetRandomNumber(-20, 70), GetRandomNumber(-20, 70), GetRandomNumber(1, 10)));
   }
 
@@ -269,7 +270,7 @@ var borderCollisionDetection = function borderCollisionDetection() {
   var collisionLimitXLeft = 1;
   var collisionLimitXRight = window.outerWidth - 30;
   var collisionLimitYTop = 100;
-  var collisionLimitYBottom = body.getBoundingClientRect().height - 70;
+  var collisionLimitYBottom = perspective.getBoundingClientRect().height - 70;
   var speedReset = 0.95;
   var bubble;
 

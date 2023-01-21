@@ -5,7 +5,7 @@ html {
 }
 body{
     position: relative;
-    background: var(--color_backmedium);
+    background: #070707;
     font-size: 100%;
     font-family: var(--font-General); 
     font-display: auto;
@@ -46,7 +46,7 @@ img , picture , video , iframe , figure{
     /* (Opcional) */ object-position: center center;
 }
 :root {
-    --color_backdark: #121212;
+    --color_backdark: #050505;
     --color_backmedium: #272727;
     --color_backlight: #373737;
     --color_deactivated: #64b4dabb;;

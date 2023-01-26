@@ -14,16 +14,16 @@
   </head>
   <body> 
     <header class="header">
-      <div class="header__container"><img class="header__logo" src="./assets/logos/logo-large.svg" alt="logo Alejandro Garcia" loading="lazy" draggable="false">
+      <nav class="header__container"><img class="header__logo" src="./assets/logos/logo-large.svg" alt="logo Alejandro Garcia" loading="lazy" draggable="false">
         <ul class="header__menu menu">
-          <li class="menu__list menu__list--home"><a class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer">HOME</a></li>
-          <li class="menu__list menu__list--skills"><a class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer"> SKILLS</a></li>
-          <li class="menu__list menu__list--projects"><a class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer"> PROJECTS</a></li>
-          <li class="menu__list menu__list--about"><a class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer"> ABOUT ME</a></li>
-          <li class="menu__list menu__list--contact"><a class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer"> CONTACT</a></li>
-          <div class="menu__selection"></div>
+          <li class="menu__list menu__list--home"><a class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer">Home</a></li>
+          <li class="menu__list menu__list--skills"><a class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer"> Skills</a></li>
+          <li class="menu__list menu__list--projects"><a class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer"> Projects</a></li>
+          <li class="menu__list menu__list--about"><a class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer"> About me</a></li>
+          <li class="menu__list menu__list--contact"><a class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer"> Contact</a></li>
+          <li class="menu__selection"></li>
         </ul>
-      </div>
+      </nav>
     </header>
     <div class="menumobil__content"></div>
     <div class="perspective">
@@ -32,13 +32,37 @@
         <div class="perspective__down"></div>
         <div class="perspective__right"></div>
         <div class="perspective__back"></div>
+        <div class="perspective__up"></div>
+        <div class="perspective__lamp">
+          <div class="perspective__lamp--wire"></div>
+          <div class="perspective__lamp--circle"></div>
+          <div class="perspective__lamp--conect"></div>
+          <div class="perspective__lamp--base"></div>
+          <div class="perspective__lamp--baseellipse"></div>
+          <div class="perspective__lamp--ellipse">
+            <svg class="perspective__lamp--light">
+              <polygon class="st0" points="600,650 0,650 260,50 340,50 "></polygon>
+              <defs>
+                <linearGradient id="grad" gradientTransform="rotate(90)">
+                  <stop offset="0" stop-color="#EE997755"></stop>
+                  <stop offset="1" stop-color="transparent"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="perspective__landscape landscape">
+          <div class="landscape__window">         
+            <p class="landscape__window--text"></p>
+          </div>
+        </div>
       </div>
     </div>
     <section class="home section" id="section__home">
       <h2 class="home__title title">HOME</h2>
       <div class="home__container">
         <p class="description__name">Hey, <br>My name is</p>
-        <p class="name">Alejandro.</p><span class="description__profesion"></span><span class="home__idea">"Turning ideas and desing, into code"        </span><img class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false"><a class="home__link--github networks" href="https://github.com/AletzMan" title="Go To GitHub" target="_blank" rel="noopener noreferrer"><img class="home__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false"><span class="github__name networks__name">GitHub</span></a><a class="home__link--linkedin networks" href="https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/" title="Go To Linkedin" target="_blank" rel="noopener noreferrer">  <img class="home__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false"><span class="linkedin__name networks__name">Linkedin</span></a>
+        <p class="name">Alejandro.</p><span class="home__idea">"Turning ideas and desing, into code"        </span><img class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false"><a class="home__link--github networks" href="https://github.com/AletzMan" title="Go To GitHub" target="_blank" rel="noopener noreferrer"><img class="home__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false"><span class="github__name networks__name">GitHub</span></a><a class="home__link--linkedin networks" href="https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/" title="Go To Linkedin" target="_blank" rel="noopener noreferrer">  <img class="home__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false"><span class="linkedin__name networks__name">Linkedin</span></a>
       </div>
     </section>
     <section class="skills section" id="section__skills">
@@ -48,8 +72,8 @@
           <option value="0">Web</option>
           <option value="1">Mobil</option>
           <option value="2">Desktop</option>
-          <option value="3">Test and Measurement</option>
-          <option value="4">Development Platforms</option>
+          <option value="3">Test & Measurement</option>
+          <option value="4">Tools & Platforms</option>
         </select>
         <input class="logos--webdev technologies" type="radio" name="skills" id="webdev" checked>
         <label class="label__tech" for="webdev" name="Web">Web</label>
@@ -58,9 +82,9 @@
         <input class="logos--desktop technologies" type="radio" name="skills" id="desktop">
         <label class="label__tech" for="desktop" name="Desktop">Desktop</label>
         <input class="logos--test technologies" type="radio" name="skills" id="test">
-        <label class="label__tech" for="test" name="Test and Measurement">Test and Measurement</label>
+        <label class="label__tech" for="test" name="Test &amp; Measurement">Test & Measurement</label>
         <input class="logos--platforms technologies" type="radio" name="skills" id="platforms">
-        <label class="label__tech" for="platforms" name="Development platforms">Development Platforms</label>
+        <label class="label__tech" for="platforms" name="Tools &amp; Platforms">Tools & Platforms</label>
         <!--+createLogosImages                -->
       </div>
     </section>
@@ -68,8 +92,12 @@
       <h2 class="projects__title title">PROJECTS</h2>
       <div class="projects__container">
         <div class="project">
-          <h3 class="project__title">Paint Board</h3>
+          <!--h3(class="project__title") Paint Board-->
           <div class="project__technologies"></div><img class="project__image" src="./assets/photos/project_1.jpg" alt="photo of project" loading="lazy" draggable="false" aria-label="zoom">
+          <div class="project__cortain">
+            <div class="project__cortain--one">PROJ</div>
+            <div class="project__cortain--two">ECT 1</div>
+          </div>
           <div class="project__options">
             <button class="project__options--zoom networks" aria-labelledby="image zoom" aria-label="zoom" title="image project zoom"></button><a class="project__options--repository networks" href="https://github.com/AletzMan" title="Go To GitHub repository project" target="_blank" rel="noopener noreferrer"><img class="project__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of GitHub" loading="lazy" draggable="false"></a><a class="project__options--linkpreview networks" href="https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/" title="Go To Preview Project" target="_blank" rel="noopener noreferrer">  <img class="project__icon--linkedin networks__logo" src="../assets/icons/preview-icon.svg" alt="Project" loading="lazy" draggable="false"></a>
           </div>
@@ -108,5 +136,9 @@
         </ul>
       </div>
     </footer>
+    <div class="seccion__bubbles"></div>
+    <div class="modal">
+      <button class="modal__button">CLOSE</button><img class="modal__image" src="./assets/photos/project_1.jpg">
+    </div>
   </body>
 </html>

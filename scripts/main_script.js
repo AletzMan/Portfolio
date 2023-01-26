@@ -1,10 +1,10 @@
 const menuDesktop = document.querySelectorAll(".header__menu a");
 const menuDesktopArea = document.querySelectorAll(".header__menu li");
 const selectItemMenu = document.querySelector(".menu__selection");
-const presentation = document.querySelector(".description__profesion");
+const presentation = document.querySelector(".landscape__window--text");
 const sections = document.querySelectorAll(".section");
 const sectionHome = document.querySelector(".home");
-const perspective = document.querySelector(".perspective");
+const perspective = document.querySelector(".seccion__bubbles");
 const header = document.querySelector(".header");
 const footer = document.querySelector(".footer");
 const typeSkills = document.querySelectorAll(".technologies");
@@ -13,6 +13,9 @@ const containerProjects = document.querySelector(".projects__container");
 const project = document.querySelector(".project");
 const menuMobilSelect = document.querySelector(".menumobil__link--select");
 const menuMobilContainer = document.querySelector(".menumobil");
+const modal = document.querySelector(".modal");
+const modalImage = document.querySelector(".modal__image");
+const modalButton = document.querySelector(".modal__button");
 const menuMobil = document.querySelectorAll(".link");
 
 
@@ -20,7 +23,8 @@ selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
 
 const textPresentation = ['Software Developer', 'Front-End Developer', 'Electrical Design'];
-const numbertags = 30;
+const numbertags = 20;
+const sizeTags = 45;
 let containerTags = [];
 const nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
 const nameLogos = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
@@ -56,39 +60,49 @@ for (let index = 0; index < menuDesktop.length; index++) {
 			}, 0);
 		}
 	})
+	menuDesktop.item(index).addEventListener('mouseover', (e) => {
+		e.target.style.color = "var(--color_activated)";
+	})
+	menuDesktop.item(index).addEventListener('mouseout', (e) => {
+		e.target.style.color = "var(--color_font)";
+	})
 }
 
 setTimeout(() => {
-	let time;
-	let intervalPresentetion = setInterval(LoadPresentation, 100);
+	let timeInit;
+	let timeElapsed;
 	let numLetter = 0;
 	let reverse = false;
 	let textReverse = '';
 	let textNumber = 0;
-	function LoadPresentation() {
+	let delayON = true;
+	const delay = 3500; 
+	setInterval(() => {
+		if (delayON) timeInit = new Date().getTime();
 		if (numLetter < textPresentation[textNumber].length && !reverse) {
 			presentation.innerHTML += textPresentation[textNumber][numLetter];
 			textReverse = textPresentation[textNumber];
 			numLetter += 1;
+			delayON = false;
 		} else {
-			time = new Date().getTime();
 			reverse = true;
+			timeElapsed = new Date().getTime() - timeInit;
 		}
-
-		if (reverse) {
+		if (reverse && timeElapsed > delay) {
 			presentation.innerHTML = textReverse.substring(0, numLetter);
 			numLetter -= 1;
-			if (presentation.innerHTML.length == 0) {
+			if (presentation.innerHTML.length === 0) {
 				reverse = false;
-				numLetter = 0;
 				textNumber += 1;
+				numLetter = 0;
+				delayON = true;
 				if (textNumber > textPresentation.length - 1) {
 					textNumber = 0;
-
 				}
 			}
 		}
-	}
+
+	}, 100);
 }, 1600);
 
 
@@ -112,7 +126,7 @@ class TagBubble {
 		containerTags.push(newTagMove);
 		perspective.appendChild(newTagMove);
 		let fontSize = parseFloat(window.getComputedStyle(newTagMove, null).getPropertyValue('font-size'));
-		newTagMove.style.width = `${Math.floor(newTagMove.getBoundingClientRect().width + 40)}px`;
+		newTagMove.style.width = `${Math.floor(newTagMove.getBoundingClientRect().width + sizeTags)}px`;
 		newTagMove.style.paddingTop = `${(Math.floor(newTagMove.getBoundingClientRect().width / 2) - fontSize / 1.5)}px`;
 		newTagMove.style.height = `${Math.floor(newTagMove.getBoundingClientRect().width)}px`;
 
@@ -277,8 +291,8 @@ const sourceLogos = "./assets/icons/";
 const selectSkills = document.querySelector('.logos__select');
 
 selectSkills.addEventListener('change', (e) => {
-		console.log(e.target.value)
-		CreateLogoSkill(e.target.value);
+	console.log(e.target.value)
+	CreateLogoSkill(e.target.value);
 })
 
 
@@ -337,13 +351,13 @@ const body = document.querySelector("body");
 const sourcePhotos = "./assets/photos/project_";
 
 const Title = [
-	"Draw Board",
-	"Test Sequence",
-	"Electronic Encyclopedia"
+	"Drawin g-Board",
+	"Test-Se quence",
+	"Electronic-E ncyclopedia"
 ]
 const Technologies = [
 	["html", "css", "javascript", "pug", "sass"],
-	["csharp", "netcore", "xaml", "sql", "mysql", "git", "github"],
+	["csharp", "netcore", "xaml", "sql", "mysql", "git"],
 	["csharp", "netcore", "xamarin", "xaml"],
 	["c", "csharp", "xaml", "labview",],
 	["vscode", "vs", "git", "labview"]
@@ -369,10 +383,12 @@ const EditProjects = () => {
 	const projectsImage = document.querySelectorAll(".project__image");
 	const projectsRepository = document.querySelectorAll(".project__options--repository");
 	const projectsPreview = document.querySelectorAll(".project__options--linkpreview");
+	const projectCortainOne = document.querySelectorAll(".project__cortain--one");
+	const projectCortainTwo = document.querySelectorAll(".project__cortain--two");
 	projectsZoom = document.querySelectorAll(".project__options--zoom");
 
 	for (let index = 0; index < projects.length; index++) {
-		projectsTitle[index].innerHTML = Title[index];
+		//projectsTitle[index].innerHTML = Title[index];
 		Technologies[index].forEach(namelogo => {
 			const newContainer = document.createElement("div");
 			newContainer.classList = "project__technologies--container";
@@ -389,50 +405,36 @@ const EditProjects = () => {
 		});
 		projectsImage[index].src = sourcePhotos + index + ".jpg";
 		projectsRepository[index].href = Repositories[index];
+		projectCortainOne[index].innerText = Title[index].split(' ')[0];
+		projectCortainTwo[index].innerText = Title[index].split(' ')[1];
 	}
-
 	AsignEvent();
 }
 
 let containerCreate = false;
-
 const AsignEvent = () => {
-	const projects = document.querySelector(".projects");
-
 	projectsZoom.forEach((element, index) => {
 		element.addEventListener("mouseup", () => {
-			containerCreate = false;
-			const newPreviewContainer = document.createElement("div");
-			newPreviewContainer.classList = "previewContainer";
-			newPreviewContainer.style.height = window.innerHeight + 18 + "px";
-			body.appendChild(newPreviewContainer);
-			newPreviewContainer.style.top = (scrollY) + "px";
-			newPreviewContainer.style.left = `0px`;
-			const newPreview = document.createElement("div");
-			newPreview.classList = "previewContainer__preview";
-			newPreviewContainer.appendChild(newPreview);
-			const newPreviewImage = document.createElement("img");
-			newPreviewImage.classList = "previewContainer__preview--image";
-			newPreviewImage.src = sourcePhotos + index + ".jpg";
-			newPreview.appendChild(newPreviewImage);
-
+			modalImage.src = sourcePhotos + index + ".jpg";
+			modal.style.transform = 'scale(1)';
 			body.style.overflowX = "hidden";
 			body.style.overflowY = "hidden";
-			setTimeout(() => {
-				containerCreate = true;
-			}, 1200);
 		})
 	});
 }
 
-body.addEventListener("mouseup", () => {
-	if (containerCreate) {
-		do {
-			body.removeChild(body.lastChild);
-		} while (body.lastChild.className === "previewContainer");
+window.addEventListener("mouseup", (event) => {
+	if (event.target == modal) {
+		modal.style.transform = 'scale(0)';
 		body.style.overflowX = "auto";
 		body.style.overflowY = "auto";
 	}
+})
+
+modalButton.addEventListener("mouseup", (event) => {
+		modal.style.transform = 'scale(0)';
+		body.style.overflowX = "auto";
+		body.style.overflowY = "auto";
 })
 
 

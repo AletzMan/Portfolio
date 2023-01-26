@@ -9,10 +9,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var menuDesktop = document.querySelectorAll(".header__menu a");
 var menuDesktopArea = document.querySelectorAll(".header__menu li");
 var selectItemMenu = document.querySelector(".menu__selection");
-var presentation = document.querySelector(".description__profesion");
+var presentation = document.querySelector(".landscape__window--text");
 var sections = document.querySelectorAll(".section");
 var sectionHome = document.querySelector(".home");
-var perspective = document.querySelector(".perspective");
+var perspective = document.querySelector(".seccion__bubbles");
 var header = document.querySelector(".header");
 var footer = document.querySelector(".footer");
 var typeSkills = document.querySelectorAll(".technologies");
@@ -21,11 +21,15 @@ var containerProjects = document.querySelector(".projects__container");
 var project = document.querySelector(".project");
 var menuMobilSelect = document.querySelector(".menumobil__link--select");
 var menuMobilContainer = document.querySelector(".menumobil");
+var modal = document.querySelector(".modal");
+var modalImage = document.querySelector(".modal__image");
+var modalButton = document.querySelector(".modal__button");
 var menuMobil = document.querySelectorAll(".link");
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
 var textPresentation = ['Software Developer', 'Front-End Developer', 'Electrical Design'];
-var numbertags = 30;
+var numbertags = 20;
+var sizeTags = 45;
 var containerTags = [];
 var nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
 var nameLogos = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
@@ -62,41 +66,52 @@ for (var index = 0; index < menuDesktop.length; index++) {
       }, 0);
     }
   });
+  menuDesktop.item(index).addEventListener('mouseover', function (e) {
+    e.target.style.color = "var(--color_activated)";
+  });
+  menuDesktop.item(index).addEventListener('mouseout', function (e) {
+    e.target.style.color = "var(--color_font)";
+  });
 }
 
 setTimeout(function () {
-  var time;
-  var intervalPresentetion = setInterval(LoadPresentation, 100);
+  var timeInit;
+  var timeElapsed;
   var numLetter = 0;
   var reverse = false;
   var textReverse = '';
   var textNumber = 0;
+  var delayON = true;
+  var delay = 3500;
+  setInterval(function () {
+    if (delayON) timeInit = new Date().getTime();
 
-  function LoadPresentation() {
     if (numLetter < textPresentation[textNumber].length && !reverse) {
       presentation.innerHTML += textPresentation[textNumber][numLetter];
       textReverse = textPresentation[textNumber];
       numLetter += 1;
+      delayON = false;
     } else {
-      time = new Date().getTime();
       reverse = true;
+      timeElapsed = new Date().getTime() - timeInit;
     }
 
-    if (reverse) {
+    if (reverse && timeElapsed > delay) {
       presentation.innerHTML = textReverse.substring(0, numLetter);
       numLetter -= 1;
 
-      if (presentation.innerHTML.length == 0) {
+      if (presentation.innerHTML.length === 0) {
         reverse = false;
-        numLetter = 0;
         textNumber += 1;
+        numLetter = 0;
+        delayON = true;
 
         if (textNumber > textPresentation.length - 1) {
           textNumber = 0;
         }
       }
     }
-  }
+  }, 100);
 }, 1600);
 
 var TagBubble =
@@ -127,7 +142,7 @@ function () {
       containerTags.push(newTagMove);
       perspective.appendChild(newTagMove);
       var fontSize = parseFloat(window.getComputedStyle(newTagMove, null).getPropertyValue('font-size'));
-      newTagMove.style.width = "".concat(Math.floor(newTagMove.getBoundingClientRect().width + 40), "px");
+      newTagMove.style.width = "".concat(Math.floor(newTagMove.getBoundingClientRect().width + sizeTags), "px");
       newTagMove.style.paddingTop = "".concat(Math.floor(newTagMove.getBoundingClientRect().width / 2) - fontSize / 1.5, "px");
       newTagMove.style.height = "".concat(Math.floor(newTagMove.getBoundingClientRect().width), "px");
       this.width = Math.floor(newTagMove.getBoundingClientRect().width);
@@ -361,8 +376,8 @@ var CreateLogoSkill = function CreateLogoSkill(numberSkill) {
 var projectsZoom = document.querySelectorAll(".project__options--zoom");
 var body = document.querySelector("body");
 var sourcePhotos = "./assets/photos/project_";
-var Title = ["Draw Board", "Test Sequence", "Electronic Encyclopedia"];
-var Technologies = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git", "github"], ["csharp", "netcore", "xamarin", "xaml"], ["c", "csharp", "xaml", "labview"], ["vscode", "vs", "git", "labview"]];
+var Title = ["Drawin g-Board", "Test-Se quence", "Electronic-E ncyclopedia"];
+var Technologies = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git"], ["csharp", "netcore", "xamarin", "xaml"], ["c", "csharp", "xaml", "labview"], ["vscode", "vs", "git", "labview"]];
 var Repositories = ["https://aletzman.github.io/", "https://github.com/AletzMan", "https://aletzman.github.io/"];
 
 var CreateProject = function CreateProject() {
@@ -381,11 +396,12 @@ var EditProjects = function EditProjects() {
   var projectsImage = document.querySelectorAll(".project__image");
   var projectsRepository = document.querySelectorAll(".project__options--repository");
   var projectsPreview = document.querySelectorAll(".project__options--linkpreview");
+  var projectCortainOne = document.querySelectorAll(".project__cortain--one");
+  var projectCortainTwo = document.querySelectorAll(".project__cortain--two");
   projectsZoom = document.querySelectorAll(".project__options--zoom");
 
   var _loop2 = function _loop2(_index7) {
-    projectsTitle[_index7].innerHTML = Title[_index7];
-
+    //projectsTitle[index].innerHTML = Title[index];
     Technologies[_index7].forEach(function (namelogo) {
       var newContainer = document.createElement("div");
       newContainer.classList = "project__technologies--container";
@@ -405,6 +421,8 @@ var EditProjects = function EditProjects() {
 
     projectsImage[_index7].src = sourcePhotos + _index7 + ".jpg";
     projectsRepository[_index7].href = Repositories[_index7];
+    projectCortainOne[_index7].innerText = Title[_index7].split(' ')[0];
+    projectCortainTwo[_index7].innerText = Title[_index7].split(' ')[1];
   };
 
   for (var _index7 = 0; _index7 < projects.length; _index7++) {
@@ -417,41 +435,27 @@ var EditProjects = function EditProjects() {
 var containerCreate = false;
 
 var AsignEvent = function AsignEvent() {
-  var projects = document.querySelector(".projects");
   projectsZoom.forEach(function (element, index) {
     element.addEventListener("mouseup", function () {
-      containerCreate = false;
-      var newPreviewContainer = document.createElement("div");
-      newPreviewContainer.classList = "previewContainer";
-      newPreviewContainer.style.height = window.innerHeight + 18 + "px";
-      body.appendChild(newPreviewContainer);
-      newPreviewContainer.style.top = scrollY + "px";
-      newPreviewContainer.style.left = "0px";
-      var newPreview = document.createElement("div");
-      newPreview.classList = "previewContainer__preview";
-      newPreviewContainer.appendChild(newPreview);
-      var newPreviewImage = document.createElement("img");
-      newPreviewImage.classList = "previewContainer__preview--image";
-      newPreviewImage.src = sourcePhotos + index + ".jpg";
-      newPreview.appendChild(newPreviewImage);
+      modalImage.src = sourcePhotos + index + ".jpg";
+      modal.style.transform = 'scale(1)';
       body.style.overflowX = "hidden";
       body.style.overflowY = "hidden";
-      setTimeout(function () {
-        containerCreate = true;
-      }, 1200);
     });
   });
 };
 
-body.addEventListener("mouseup", function () {
-  if (containerCreate) {
-    do {
-      body.removeChild(body.lastChild);
-    } while (body.lastChild.className === "previewContainer");
-
+window.addEventListener("mouseup", function (event) {
+  if (event.target == modal) {
+    modal.style.transform = 'scale(0)';
     body.style.overflowX = "auto";
     body.style.overflowY = "auto";
   }
+});
+modalButton.addEventListener("mouseup", function (event) {
+  modal.style.transform = 'scale(0)';
+  body.style.overflowX = "auto";
+  body.style.overflowY = "auto";
 }); ////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////--------- MENU MOBIL ---------/////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////

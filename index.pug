@@ -27,15 +27,15 @@ html(lang="en")
         title Alejandro Garcia
     body 
         header(class="header")
-            div(class="header__container")
+            nav(class="header__container")
                 img(class="header__logo" src="./assets/logos/logo-large.svg", alt="logo Alejandro Garcia" loading="lazy" draggable="false")
                 ul(class="header__menu menu")
-                    li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") HOME]
-                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  SKILLS]
-                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer")  PROJECTS]
-                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer")  ABOUT ME]
-                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer")  CONTACT]
-                    div(class="menu__selection")
+                    li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") Home]
+                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  Skills]
+                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer")  Projects]
+                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer")  About me]
+                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer")  Contact]
+                    li(class="menu__selection")
         div(class="menumobil__content")
         div(class="perspective")
             div(class="perspective__container")
@@ -43,12 +43,29 @@ html(lang="en")
                 div(class="perspective__down")
                 div(class="perspective__right")
                 div(class="perspective__back")
+                div(class="perspective__up")
+                div(class="perspective__lamp")
+                    div(class="perspective__lamp--wire")
+                    div(class="perspective__lamp--circle")
+                    div(class="perspective__lamp--conect")
+                    div(class="perspective__lamp--base")
+                    div(class="perspective__lamp--baseellipse")
+                    div(class="perspective__lamp--ellipse")
+                        svg(class="perspective__lamp--light")
+                            polygon(class="st0" points="600,650 0,650 260,50 340,50 ")
+                            defs
+                                linearGradient(id="grad" gradientTransform="rotate(90)")
+                                    stop(offset="0" stop-color="#EE997755")
+                                    stop(offset="1" stop-color="transparent")
+                   
+                div(class="perspective__landscape landscape")
+                    div(class="landscape__window")          
+                        p(class="landscape__window--text")
         section(id="section__home" class="home section")
             h2(class="home__title title") HOME
             div(class="home__container")
                 p(class="description__name") Hey, #[br]My name is
                 p(class="name") Alejandro.
-                span(class="description__profesion")
                 span(class="home__idea") "Turning ideas and desing, into code"        
                 img(class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false")
                 a(class="home__link--github networks" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
@@ -64,8 +81,8 @@ html(lang="en")
                     option(value="0") Web
                     option(value="1") Mobil
                     option(value="2") Desktop
-                    option(value="3") Test and Measurement
-                    option(value="4") Development Platforms
+                    option(value="3") Test & Measurement
+                    option(value="4") Tools & Platforms
                 input(type ="radio" name="skills" id="webdev" class="logos--webdev technologies" checked) 
                 label(for="webdev" class="label__tech" name="Web") Web
                 input(type ="radio" name="skills" id="mobil" class="logos--mobil technologies") 
@@ -73,17 +90,20 @@ html(lang="en")
                 input(type ="radio" name="skills" id="desktop" class="logos--desktop technologies") 
                 label(for="desktop" class="label__tech" name="Desktop") Desktop
                 input(type ="radio" name="skills" id="test" class="logos--test technologies") 
-                label(for="test" class="label__tech" name="Test and Measurement") Test and Measurement
+                label(for="test" class="label__tech" name="Test & Measurement") Test & Measurement
                 input(type ="radio" name="skills" id="platforms" class="logos--platforms technologies") 
-                label(for="platforms" class="label__tech" name="Development platforms") Development Platforms
+                label(for="platforms" class="label__tech" name="Tools & Platforms") Tools & Platforms
                 //+createLogosImages                
         section(class="projects section" id="section__projects")
             h2(class="projects__title title") PROJECTS
             div(class="projects__container")
                 div(class="project")
-                    h3(class="project__title") Paint Board
+                    //h3(class="project__title") Paint Board
                     div(class="project__technologies")
                     img(class="project__image" src="./assets/photos/project_1.jpg" alt="photo of project" loading="lazy" draggable="false" aria-label="zoom")
+                    div(class="project__cortain")
+                        div(class="project__cortain--one") PROJ
+                        div(class="project__cortain--two") ECT 1
                     div(class="project__options")
                         button(class="project__options--zoom networks" aria-labelledby="image zoom" aria-label="zoom" title="image project zoom")
                         a(class="project__options--repository networks" href=github title="Go To GitHub repository project" target="_blank" rel="noopener noreferrer")
@@ -132,4 +152,9 @@ html(lang="en")
                     li(class="menumobil__links--projects link")
                     li(class="menumobil__links--about link")
                     li(class="menumobil__links--contact link")
+        div(class="seccion__bubbles")
+        div(class="modal")
+            button(class="modal__button") CLOSE
+            img(src="./assets/photos/project_1.jpg" class="modal__image")
+            
                 

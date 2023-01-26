@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Prosto+One&family=Raleway");
+@import url("https://fonts.googleapis.com/css2?family=Philosopher&family=Inconsolata&family=Montserrat");
 
 html {
     scroll-behavior: smooth;
 }
 body{
+    
     position: relative;
-    background: #070707;
+    background: #181818;
     font-size: 100%;
     font-family: var(--font-General); 
     font-display: auto;
@@ -24,7 +25,15 @@ body{
         background: var(--color_backmedium); 
     }  
 }
-* , *::before , *::after {
+*  {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    /* Standard syntax */
+}
+*::before , *::after {
     padding: 0;
     margin: 0;
     border: 0;
@@ -47,6 +56,7 @@ img , picture , video , iframe , figure{
 }
 :root {
     --color_backdark: #050505;
+    --color_back: #0E0E0E;
     --color_backmedium: #272727;
     --color_backlight: #373737;
     --color_deactivated: #64b4dabb;;
@@ -57,8 +67,8 @@ img , picture , video , iframe , figure{
     --color_back_section: #222831BB;
     --color_bubble_hover: #64b4da33;
     --font_Display: 'DotGothic16', sans-serif;
-    --font-General: 'Raleway', sans-serif;
-    --font-Title: 'Prosto One', cursive;
+    --font-General: 'Montserrat', sans-serif;
+    --font-Title:  'Philosopher', sans-serif;
 /*
     --color_backdark: #222831;
     --color_backmedium: #393E46;

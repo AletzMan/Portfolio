@@ -92,13 +92,11 @@ html(lang="en")
                 input(type ="radio" name="skills" id="test" class="logos--test technologies") 
                 label(for="test" class="label__tech" name="Test & Measurement") Test & Measurement
                 input(type ="radio" name="skills" id="platforms" class="logos--platforms technologies") 
-                label(for="platforms" class="label__tech" name="Tools & Platforms") Tools & Platforms
-                //+createLogosImages                
+                label(for="platforms" class="label__tech" name="Tools & Platforms") Tools & Platforms                
         section(class="projects section" id="section__projects")
             h2(class="projects__title title") PROJECTS
             div(class="projects__container")
                 div(class="project")
-                    //h3(class="project__title") Paint Board
                     div(class="project__technologies")
                     img(class="project__image" src="./assets/photos/project_1.jpg" alt="photo of project" loading="lazy" draggable="false" aria-label="zoom")
                     div(class="project__cortain")
@@ -114,12 +112,19 @@ html(lang="en")
         section(class="about section" id="section__about")
             h2(class="about__title title") ABOUT ME
             div(class="about__container aboutme")
-                div(class="aboutme__description")
-                    p(class="aboutme__description--paragraph") Hi! My name is Alejandro Garcia. #[br]#[br] Since I was very young I was very interested in technology, first in electronics, I liked to disassemble electronic objects and see how they worked inside.
-                    p(class="aboutme__description--paragraph") Years went by and I decided to study a career in electronics, I started working in the electronics field and programming caught my attention, I started with microcontrollers and so I could combine my two passions, electronics and programming.
-                    p(class="aboutme__description--paragraph") I had the opportunity to work as a software developer in the electronics industry, programming test equipment for electronic cards (Functional Tests), and automation of production lines with PLC.
-                    p(class="aboutme__description--paragraph") I've been studying Web programming for 1 year, and since the first day I've been excited with this world, and waiting for the opportunity to work in this fascinating area, for the moment I'm in the Front-End area and little by little I'm getting into the Back-End.
-                img(class="aboutme__image" src="./assets/photos/aboutme-illustration.svg", alt="About illustator")
+                ul(class="about__timeline timeline")
+                    li(class="timeline__point")       
+                    li(class="timeline__point")       
+                    li(class="timeline__point")       
+                    li(class="timeline__point")       
+                    li(class="timeline__point")       
+                    li(class="timeline__point")      
+                p(class="aboutme__one aboutme__paragraph") Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.
+                p(class="aboutme__two aboutme__paragraph") Pasaron los años y decidí estudiar la carrera de electrónica, empecé a trabajar en el campo de la electrónica y me llamó la atención la programación, empecé con microcontroladores y así pude combinar mis dos pasiones, la electrónica y la programación.
+                p(class="aboutme__three aboutme__paragraph") Tuve la oportunidad de trabajar como desarrollador de software en la industria electrónica, programando equipos de prueba para tarjetas electrónicas (Pruebas Funcionales), y automatización de líneas de producción con PLC.
+                p(class="aboutme__four aboutme__paragraph") Llevo 1 año estudiando programación Web, y desde el primer día he estado entusiasmado con este mundo, y esperando la oportunidad de trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco me voy adentrando en el Back-End.
+                p(class="aboutme__five aboutme__paragraph") Llevo 1 año estudiando programación Web, y desde el primer día he estado entusiasmado con este mundo, y esperando la oportunidad de trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco me voy adentrando en el Back-End.
+                p(class="aboutme__six aboutme__paragraph") Llevo 1 año estudiando programación Web, y desde el primer día he estado entusiasmado con este mundo, y esperando la oportunidad de trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco me voy adentrando en el Back-End.
 
         section(class="contact section" id="section__contact")
             h2(class="contact__title title") CONTACT
@@ -152,8 +157,8 @@ html(lang="en")
                     li(class="menumobil__links--projects link")
                     li(class="menumobil__links--about link")
                     li(class="menumobil__links--contact link")
-        div(class="seccion__bubbles")
-        div(class="modal")
+        //div(class="seccion__bubbles")
+        //div(class="modal")
             button(class="modal__button") CLOSE
             img(src="./assets/photos/project_1.jpg" class="modal__image")
             

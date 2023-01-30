@@ -54,6 +54,7 @@ var mobileDetect = function mobileDetect() {
 };
 
 onload = function onload() {
+  mobileDetect();
   CreateLogoSkill(0);
   CreateProject();
   initAnimation();
@@ -449,7 +450,7 @@ var CreateLogoSkill = function CreateLogoSkill(numberSkill) {
 var projectsZoom = document.querySelectorAll(".project__options--zoom");
 var body = document.querySelector("body");
 var sourcePhotos = "./assets/photos/project_";
-var Title = ["Drawin g-Board", "Test-Se quence", "Electronic-E ncyclopedia"];
+var Title = [];
 var Technologies = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git"], ["csharp", "netcore", "xamarin", "xaml"], ["c", "csharp", "xaml", "labview"], ["vscode", "vs", "git", "labview"]];
 var Repositories = ["https://aletzman.github.io/", "https://github.com/AletzMan", "https://aletzman.github.io/"];
 
@@ -457,6 +458,12 @@ var CreateProject = function CreateProject() {
   for (var _index6 = 0; _index6 < 2; _index6++) {
     var newProject = project.cloneNode(true);
     containerProjects.appendChild(newProject);
+  }
+
+  if (mobileDetect()) {
+    Title = ["Drawing Board", "Test Sequence", "Electronic Encyclopedia"];
+  } else {
+    Title = ["Drawin g-Board", "Test-Se quence", "Electronic-E ncyclopedia"];
   }
 
   EditProjects();
@@ -474,6 +481,9 @@ var EditProjects = function EditProjects() {
   projectsZoom = document.querySelectorAll(".project__options--zoom");
 
   var _loop2 = function _loop2(_index7) {
+    projectCortainOne[_index7].style.display = mobileDetect() ? 'none' : 'block';
+    projectCortainTwo[_index7].style.display = mobileDetect() ? 'none' : 'block';
+    projectsTitle[_index7].style.display = !mobileDetect() ? 'none' : 'block';
     projectsTitle[_index7].innerHTML = Title[_index7];
 
     Technologies[_index7].forEach(function (namelogo) {

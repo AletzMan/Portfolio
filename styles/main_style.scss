@@ -826,6 +826,21 @@ $sizeContainerMenuMobil: 35rem;
         }
     }
 
+    &__title{
+        position: absolute;
+        top: -2rem;
+        width: 80%;
+        height: 4rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-align: center;
+        padding: 0.9rem 0 0 0;
+        color: var(--color_activated);
+        background-color: var(--color_back_section);
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--color_activated);
+    }
+
     &__image {
         width: 100%;
         object-fit: cover;
@@ -877,10 +892,9 @@ $sizeContainerMenuMobil: 35rem;
         font-weight: 900;
         font-size: 1.5rem;
         background-color: var(--color_back_section);
-        color: var(--color_font);
+        color: var(--color_activated);
         opacity: 1;
         position: absolute;
-        transform: scaleX(1);
         transform-origin: left;
         transition: transform 0.5s cubic-bezier(.73, .53, .39, .81);
         backdrop-filter: blur(5px);
@@ -898,7 +912,7 @@ $sizeContainerMenuMobil: 35rem;
         font-size: 1.5rem;
         background-color: var(--color_back_section);
         backdrop-filter: blur(5px);
-        color: var(--color_font);
+        color: var(--color_activated);
         opacity: 1;
         position: absolute;
         transform: translateX(0%);

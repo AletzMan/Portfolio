@@ -78,7 +78,7 @@ figure {
   --color_font: #E7E7E7;
   --color_fontTitle: #a7a7a7;
   --color_font_section: #EEEEEE22;
-  --color_back_section: #00ACB425;
+  --color_back_section: #04212299;
   --color_bubble_hover: #64b4da33;
   --font_Display: "DotGothic16", sans-serif;
   --font-General: "Montserrat", sans-serif;
@@ -846,6 +846,20 @@ figure {
     font-size: 0.8rem;
   }
 }
+.project__title {
+  position: absolute;
+  top: -2rem;
+  width: 80%;
+  height: 4rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.9rem 0 0 0;
+  color: var(--color_activated);
+  background-color: var(--color_back_section);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--color_activated);
+}
 .project__image {
   width: 100%;
   object-fit: cover;
@@ -893,10 +907,9 @@ figure {
   font-weight: 900;
   font-size: 1.5rem;
   background-color: var(--color_back_section);
-  color: var(--color_font);
+  color: var(--color_activated);
   opacity: 1;
   position: absolute;
-  transform: scaleX(1);
   transform-origin: left;
   transition: transform 0.5s cubic-bezier(0.73, 0.53, 0.39, 0.81);
   backdrop-filter: blur(5px);
@@ -913,7 +926,7 @@ figure {
   font-size: 1.5rem;
   background-color: var(--color_back_section);
   backdrop-filter: blur(5px);
-  color: var(--color_font);
+  color: var(--color_activated);
   opacity: 1;
   position: absolute;
   transform: translateX(0%);

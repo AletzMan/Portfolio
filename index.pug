@@ -19,7 +19,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(name="theme-color" content="#317EFB")
-        meta(name="portfolio software developer")
+        meta(name="portfolio software developer portafolio javascript")
         link(rel="apple-touch-icon" href="/example.png")
         link(rel="stylesheet", href="./styles/main_style.min.css")
         link(rel="shortcut icon" href="./assets/logos/logo-tab.svg")
@@ -28,7 +28,7 @@ html(lang="en")
     body 
         header(class="header")
             nav(class="header__container")
-                img(class="header__logo" src="./assets/logos/logo-large.svg", alt="logo Alejandro Garcia" loading="lazy" draggable="false")
+                img(class="header__logo" src="./assets/logos/logo-large.svg" alt="logo Alejandro Garcia" loading="lazy" draggable="false")
                 ul(class="header__menu menu")
                     li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") Home]
                     li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  Skills]
@@ -36,6 +36,10 @@ html(lang="en")
                     li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer")  About me]
                     li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer")  Contact]
                     li(class="menu__selection")
+            div(class="header__language language")                
+                input(class="language__check" type="checkbox")
+                div(class="language__button")
+                    img(class="language__icon" src="./assets/icons/language-icon.svg" alt="icon of language")
         div(class="menumobil__content")
         div(class="perspective")
             div(class="perspective__container")
@@ -113,19 +117,36 @@ html(lang="en")
             h2(class="about__title title") ABOUT ME
             div(class="about__container aboutme")
                 ul(class="about__timeline timeline")
-                    li(class="timeline__point")       
-                    li(class="timeline__point")       
-                    li(class="timeline__point")       
-                    li(class="timeline__point")       
-                    li(class="timeline__point")       
-                    li(class="timeline__point")      
-                p(class="aboutme__one aboutme__paragraph") Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.
-                p(class="aboutme__two aboutme__paragraph") Pasaron los años y decidí estudiar la carrera de electrónica, empecé a trabajar en el campo de la electrónica y me llamó la atención la programación, empecé con microcontroladores y así pude combinar mis dos pasiones, la electrónica y la programación.
-                p(class="aboutme__three aboutme__paragraph") Tuve la oportunidad de trabajar como desarrollador de software en la industria electrónica, programando equipos de prueba para tarjetas electrónicas (Pruebas Funcionales), y automatización de líneas de producción con PLC.
-                p(class="aboutme__four aboutme__paragraph") Llevo 1 año estudiando programación Web, y desde el primer día he estado entusiasmado con este mundo, y esperando la oportunidad de trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco me voy adentrando en el Back-End.
-                p(class="aboutme__five aboutme__paragraph") Llevo 1 año estudiando programación Web, y desde el primer día he estado entusiasmado con este mundo, y esperando la oportunidad de trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco me voy adentrando en el Back-End.
-                p(class="aboutme__six aboutme__paragraph") Llevo 1 año estudiando programación Web, y desde el primer día he estado entusiasmado con este mundo, y esperando la oportunidad de trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco me voy adentrando en el Back-End.
-
+                    li(class="timeline__point--one point")   
+                    li(class="timeline__point--two point")       
+                    li(class="timeline__point--three point")       
+                    li(class="timeline__point--four point")       
+                    li(class="timeline__point--five point")       
+                    li(class="timeline__point--six point")      
+                    li(class="timeline__point--seven point")  
+                    li(class="timeline__point--eight point")  
+                    li(class="timeline__point--nine point")  
+                    li(class="timeline__point--ten point") 
+                p(class="aboutme__one aboutme__paragraph") Soy una persona autodidacta, y apasionado por la programación. Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.
+                p(class="aboutme__two aboutme__paragraph") Decidí estudiar la carrera de electrónica, donde me encontré con los microcontroladores y así pude combinar mis dos actuales pasiones, la electrónica y la programación.
+                p(class="aboutme__three aboutme__paragraph") Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.
+                p(class="aboutme__four aboutme__paragraph") Emprendi mi negocio donde ofrecía servicios de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación de forma autodidacta, con ActionScript y Visual Basic.
+                p(class="aboutme__five aboutme__paragraph") Empecé a trabajar como técnico de ensamble mecanico, para la industria electrónica, donde se fabrican equipos de prueba y automatización para empresas que fabrican productos electrónicos.
+                p(class="aboutme__six aboutme__paragraph") Fui ascendido a técnico de hardware, donde realizaba el ruteo y cableado de la parte eléctrica y electrónica de los equipos.
+                p(class="aboutme__seven aboutme__paragraph") Me ascendieron a Ingeniero de Hardware, donde realizaba los diagramas eléctricos y la depuración de la parte eléctrica y electrónica.
+                div(class="aboutme__eight aboutme__paragraph") 
+                    span(class="aboutme__paragraph--title") 
+                        ul(class="aboutme__paragraph--list") 
+                            li Fui ascendido a  Ingeniero de Desarrollo mis responsabilidades:
+                            li Parte lógica de los equipos mediante programación (C, C#, LabView, TestStand, CVI, PLC Siemens(TIA Portal))
+                            li BOM(Bill Of Materials)
+                            li Realización de diagramas electricos
+                            li Depuración del código y parte electrica.
+                            li Manual del equipo
+                            li Entrega e instalación del equipo en sitio al cliente.
+                p(class="aboutme__nine aboutme__paragraph") Tuve la oportunidad de montar un negocio, y decidí trabajar como freelance, donde realizo trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.
+                p(class="aboutme__ten aboutme__paragraph") Desde entonces me he dedicado de manera autonoma a estudiar varios lenguajes de programación, me enfoque en Desarrollo Web, y desde el primer día he estado entusiasmado con este mundo, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End.#[br]#[br] Y sobre todo, nunca dejar de aprender. 
+                
         section(class="contact section" id="section__contact")
             h2(class="contact__title title") CONTACT
             div(class="contact__type")
@@ -133,13 +154,13 @@ html(lang="en")
                 div(class="contact__type--networks")
                     a(class="contact__link--github networks" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
                         img(class="contact__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
-                        span(class="contact__name--github") GitHub
+                        span(class="contact__name--github networks__name") GitHub
                     a(class="contact__link--linkedin networks"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
                         img(class="contact__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="icon of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
-                        span(class="contact__name--linkedin") Linkedin
+                        span(class="contact__name--linkedin networks__name") Linkedin
                     a(class="contact__link--mail networks"  href="mailto:alejo_2986@hotmail.com" title="Send Mail" target="_blank" rel="noopener noreferrer")   
                         img(class="contact__icon--mail networks__logo" src="./assets/icons/mail-icon.svg" alt="icon of linkedin mail" loading="lazy" draggable="false")
-                        span(class="contact__name--mail") E-mail
+                        span(class="contact__name--mail networks__name") E-mail
         footer(class="footer")
             p(class="footer__copyright") Made in #[img(class="footer__copyright--icon" title="México" src="./assets/icons/mexico-icon.ico" alt="mexico flag" loading="lazy" draggable="false")] by Alejandro Garcia Alonso
             div(class="footer__networks")
@@ -149,7 +170,7 @@ html(lang="en")
                     img(class="footer__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="icon of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
                 a(class="footer__link--mail networks"  href="mailto:alejo_2986@hotmail.com" title="Send Mail" target="_blank" rel="noopener noreferrer")   
                     img(class="footer__icon--mail networks__logo" src="./assets/icons/mail-icon.svg" alt="icon of linkedin mail" loading="lazy" draggable="false")
-            div(class="footer__menumobil menumobil")
+            nav(class="footer__menumobil menumobil")
                 div(class="menumobil__link--select") HOME
                 ul(class="menumobil__links")
                     li(class="menumobil__links--home link")
@@ -157,8 +178,8 @@ html(lang="en")
                     li(class="menumobil__links--projects link")
                     li(class="menumobil__links--about link")
                     li(class="menumobil__links--contact link")
-        //div(class="seccion__bubbles")
-        //div(class="modal")
+        div(class="seccion__bubbles")
+        div(class="modal")
             button(class="modal__button") CLOSE
             img(src="./assets/photos/project_1.jpg" class="modal__image")
             

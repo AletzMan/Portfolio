@@ -6,12 +6,19 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var menuDesktop = document.querySelectorAll(".header__menu a");
+var menuDesktop = document.querySelectorAll(".menu__list--link");
 var menuDesktopArea = document.querySelectorAll(".header__menu li");
 var selectItemMenu = document.querySelector(".menu__selection");
 var presentation = document.querySelector(".landscape__window--text");
 var sections = document.querySelectorAll(".section");
+var sectionsTitle = document.querySelectorAll(".title");
+var idea = document.querySelector(".home__idea");
+var description = document.querySelector(".description__name");
 var sectionHome = document.querySelector(".home");
+var labelSkills = document.querySelectorAll(".label__tech");
+var about = document.querySelectorAll(".aboutme__paragraph");
+var aboutDev = document.querySelector(".aboutme__paragraph--list");
+var contactMessage = document.querySelector(".contact__type--message");
 var perspective = document.querySelector(".seccion__bubbles");
 var header = document.querySelector(".header");
 var footer = document.querySelector(".footer");
@@ -24,15 +31,17 @@ var menuMobilContainer = document.querySelector(".menumobil");
 var modal = document.querySelector(".modal");
 var modalImage = document.querySelector(".modal__image");
 var modalButton = document.querySelector(".modal__button");
+var languageCheck = document.querySelector(".language__check");
 var menuMobil = document.querySelectorAll(".link");
 selectItemMenu.style.left = "0px";
 selectItemMenu.style.top = "0px";
-var textPresentation = ['Software Developer', 'Front-End Developer', 'Electrical Design'];
+var textPresentation = [];
 var numbertags = 20;
 var sizeTags = 45;
 var containerTags = [];
 var nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
 var nameLogos = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
+var selectedLanguage = "spanish";
 
 var mobileDetect = function mobileDetect() {
   var check = false;
@@ -49,6 +58,69 @@ onload = function onload() {
   CreateProject();
   initAnimation();
   scroll(0, 0);
+  selectLanguage();
+}; ////SELECT LANGUAGE//////
+
+
+var language = {
+  english: {
+    header: ["Home", "Skills", "Projects", "About Me", "Contact"],
+    section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
+    intro: ["Hey, <br> My name is", '"Turning ideas and design, into code"'],
+    skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools & Platforms"],
+    about: ["ALWAYS", "I am a self-taught person, and passionate about programming. From a very young age I was very interested in technology, first electronics, I liked to disassemble electronic objects and see how they worked inside.", "I decided to study electronics, where I came across microcontrollers and so I was able to combine my two current passions, electronics and programming.", "I started working in the electronics field as a diagnostic technician.", "I set up my own business, where I offered computer rental and repair services. Here I started to delve into the world of programming in a self-taught way, with ActionScript and Visual Basic.", "I started working as a mechanical assembly technician for the electronics industry, where test and automation equipment is manufactured for companies that manufacture electronic products.", "I was promoted to hardware technician, where I did the routing and wiring of the electrical and electronic part of the equipment.", "I was promoted to Hardware Engineer, where I did the electrical diagrams and debugging of the electrical and electronics.", [{
+      devsoft: ["I was promoted to Development Engineer, my responsibilities:", "Logical part of the equipment by programming (C, C#, LabView, TestStand, CVI, PLC Siemens(TIA Portal))", "BOM(Bill Of Materials)", "Realization of electrical diagrams", "Debugging of the code and electrical part", "Equipment manual", "Delivery and installation of the equipment on site to the customer"]
+    }], "I had the opportunity to start a business, and I decided to work as a freelance, where I do residential electrical installation work, and in the area of development with languages such as C #, for mobile and desktop applications.", "Since then I have dedicated myself independently to study several programming languages, I focus on Web Development, and from the first day I have been excited about this world, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to go deeper into the Back-End. And above all, never stop learning."],
+    contact: ["To know more about me, and to be able to work together you can find me at:"],
+    footer: ["Made in <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> by Alejandro Garcia Alonso"]
+  },
+  spanish: {
+    header: ["Inicio", "Habilidades", "Proyectos", "Sobre mi", "Contacto"],
+    section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
+    intro: ["Hola, <br> Mi nombre es", '"Convertir ideas y diseño en código"'],
+    skills: ["Web", "Mobil", "Desktop", "Prueba y Medición", "Herramientas y Plataformas"],
+    about: ["SIEMPRE", "Soy una persona autodidacta, y apasionado por la programación. Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.", "Decidí estudiar la carrera de electrónica, donde me encontré con los microcontroladores y así pude combinar mis dos actuales pasiones, la electrónica y la programación.", "Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.", "Emprendi mi negocio donde ofrecía servicios de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación de forma autodidacta, con ActionScript y Visual Basic.", "Empecé a trabajar como técnico de ensamble mecanico, para la industria electrónica, donde se fabrican equipos de prueba y automatización para empresas que fabrican productos electrónicos.", "Fui ascendido a técnico de hardware, donde realizaba el ruteo y cableado de la parte eléctrica y electrónica de los equipos.", "Fui ascendido a Ingeniero de Hardware, donde realizaba los diagramas eléctricos y la depuración de la parte eléctrica y electrónica.", [{
+      devsoft: ["Fui ascendido a Ingeniero de Desarrollo, mis responsabilidades:", "Parte lógica de los equipos mediante programación (C, C#, LabView, TestStand, CVI, PLC Siemens(TIA Portal))", "BOM(Lista de materiales)", "Realización de esquemas eléctricos", "Depuración del código y parte electrica", "Manual del equipo", "Entrega e instalación del equipo en sitio al cliente"]
+    }], "Tuve la oportunidad de montar un negocio, y decidí trabajar como freelance, donde realizo trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.", "Desde entonces me he dedicado de manera autonoma a estudiar varios lenguajes de programación, me enfoque en Desarrollo Web, y desde el primer día he estado entusiasmado con este mundo, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End. Y sobre todo, nunca dejar de aprender."],
+    contact: ["Para saber más sobre mí, y poder trabajar juntos puedes encontrarme en:"],
+    footer: ["Hecho en <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> por Alejandro Garcia Alonso"]
+  }
+};
+languageCheck.addEventListener('change', function () {
+  selectedLanguage = languageCheck.checked ? "english" : "spanish";
+  setTimeout(function () {
+    selectLanguage();
+  }, 300);
+});
+
+var selectLanguage = function selectLanguage() {
+  var lan = selectedLanguage == "spanish" ? language.spanish : language.english;
+  menuDesktop.forEach(function (menu, index) {
+    menu.innerText = lan.header[index];
+  });
+  sectionsTitle.forEach(function (section, index) {
+    section.innerText = lan.section[index];
+  });
+  description.innerHTML = lan.intro[0];
+  idea.innerHTML = lan.intro[1];
+  labelSkills.forEach(function (label, index) {
+    label.innerText = lan.skills[index];
+  });
+  about.forEach(function (paragraph, index) {
+    if (paragraph.nodeName === "P") {
+      paragraph.innerText = lan.about[index + 1];
+    } else {
+      for (var i = 0; i < aboutDev.childElementCount; i++) {
+        aboutDev.children[i].innerText = lan.about[8][0].devsoft[i];
+      }
+    }
+  });
+  contactMessage.innerHTML = lan.contact[0];
+  footer.children[0].innerHTML = lan.footer[0];
+};
+
+var contentPresentation = function contentPresentation() {
+  textPresentation = languageCheck.checked ? ['Software Developer', 'Front-End Developer', 'Electrical Design'] : ['Desarrollador de Sofware', 'Desarrollador Front-End', 'Diseño Electrico'];
 };
 
 for (var index = 0; index < menuDesktop.length; index++) {
@@ -84,6 +156,7 @@ setTimeout(function () {
   var delayON = true;
   var delay = 3500;
   setInterval(function () {
+    contentPresentation();
     if (delayON) timeInit = new Date().getTime();
 
     if (numLetter < textPresentation[textNumber].length && !reverse) {

@@ -474,7 +474,8 @@ var EditProjects = function EditProjects() {
   projectsZoom = document.querySelectorAll(".project__options--zoom");
 
   var _loop2 = function _loop2(_index7) {
-    //projectsTitle[index].innerHTML = Title[index];
+    projectsTitle[_index7].innerHTML = Title[_index7];
+
     Technologies[_index7].forEach(function (namelogo) {
       var newContainer = document.createElement("div");
       newContainer.classList = "project__technologies--container";
@@ -583,10 +584,10 @@ document.addEventListener("scroll", function () {
           menuMobilSelect.style.left = "".concat(positionMenuselected, "rem");
           setTimeout(function () {
             menuMobil.forEach(function (section) {
-              section.style.filter = "invert(1)";
+              //section.style.filter = "invert(1)";
               section.style.top = "0.65rem";
-            });
-            menuMobil[_index9].style.filter = "brightness(1)";
+            }); //menuMobil[index].style.filter = "brightness(1)";
+
             menuMobil[_index9].style.top = "0rem";
             menuMobilSelect.innerText = nameTagMenu[_index9];
           }, 200);

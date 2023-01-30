@@ -507,7 +507,7 @@ const EditProjects = () => {
 	projectsZoom = document.querySelectorAll(".project__options--zoom");
 
 	for (let index = 0; index < projects.length; index++) {
-		//projectsTitle[index].innerHTML = Title[index];
+		projectsTitle[index].innerHTML = Title[index];
 		Technologies[index].forEach(namelogo => {
 			const newContainer = document.createElement("div");
 			newContainer.classList = "project__technologies--container";
@@ -616,10 +616,10 @@ document.addEventListener("scroll", () => {
 					menuMobilSelect.style.left = `${positionMenuselected}rem`;
 					setTimeout(() => {
 						menuMobil.forEach(section => {
-							section.style.filter = "invert(1)";
+							//section.style.filter = "invert(1)";
 							section.style.top = "0.65rem";
 						});
-						menuMobil[index].style.filter = "brightness(1)";
+						//menuMobil[index].style.filter = "brightness(1)";
 						menuMobil[index].style.top = "0rem";
 						menuMobilSelect.innerText = nameTagMenu[index];
 					}, 200);

@@ -68,7 +68,7 @@ $sizeContainerMenuMobil: 35rem;
         position: absolute;
         width: $sizecube;
         height: $sizecube/1.6;
-        background-color:  var(--color_room_left);
+        background-color: var(--color_room_left);
         opacity: 1;
         transform: rotateY(90deg) translateZ(-50vw) translateY(36%) translateX(0%);
     }
@@ -77,7 +77,7 @@ $sizeContainerMenuMobil: 35rem;
         position: absolute;
         width: $sizecube;
         height: $sizecube/1.6;
-        background-color:  var(--color_room_right);
+        background-color: var(--color_room_right);
         opacity: 1;
         transform: rotateY(-90deg) translateZ(-50vw) translateY(36%) translateX(16%);
     }
@@ -88,10 +88,10 @@ $sizeContainerMenuMobil: 35rem;
         height: 150px;
         top: 0;
         background-color: #FFFF5500;
-        transform: translateZ(-71px) translateY(85%) translateX(calc(50vw - 50px));
+        transform: translateZ(-71px) translateY(-70%) translateX(calc(48.5vw - 50px));
 
         @include media(tablet) {
-            transform: translateZ(calc(11vw - 100px)) translateY(calc(60% + 5vh)) translateX(calc(50vw - 55px));
+            transform: translateZ(calc(11vw - 100px)) translateY(calc(35% + 5vh)) translateX(calc(50vw - 55px));
         }
 
         &--wire {
@@ -150,7 +150,7 @@ $sizeContainerMenuMobil: 35rem;
             left: 10%;
             top: 80%;
             border-radius: 100%;
-            background-color: #f7cab9;
+            background-color: #76dee4;
             filter: hue-rotate(45deg);
             animation: animationLight 10s linear infinite;
         }
@@ -269,6 +269,7 @@ $sizeContainerMenuMobil: 35rem;
         display: none;
         justify-self: flex-end;
         top: -0.1rem;
+
         @include media(tablet) {
             display: flex;
         }
@@ -284,10 +285,11 @@ $sizeContainerMenuMobil: 35rem;
 
     &--link {
         text-decoration: none;
-        font-weight: 600;
+        font-weight: 100;
         color: var(--color_font);
         font-size: 0.8rem;
         transition: width 2s linear;
+
         &:hover {
             cursor: pointer;
         }
@@ -316,6 +318,7 @@ $sizeContainerMenuMobil: 35rem;
     background-color: var(--color_backmedium);
     border: 1px solid var(--color_fontTitle);
     overflow: hidden;
+
     ::before {
         position: absolute;
         content: 'EN';
@@ -324,6 +327,7 @@ $sizeContainerMenuMobil: 35rem;
         color: var(--color_font);
         font-size: 0.6rem;
     }
+
     ::after {
         position: absolute;
         content: 'ES';
@@ -332,6 +336,7 @@ $sizeContainerMenuMobil: 35rem;
         color: var(--color_font);
         font-size: 0.6rem;
     }
+
     &__button {
         position: absolute;
         display: flex;
@@ -345,16 +350,19 @@ $sizeContainerMenuMobil: 35rem;
         transition: transform 0.3s linear;
         pointer-events: none;
     }
+
     &__check {
-        position:absolute;
+        position: absolute;
         width: 100%;
         height: 100%;
         opacity: 0;
         cursor: pointer;
-        &:checked + .language__button {
+
+        &:checked+.language__button {
             transform: translateY(1rem);
         }
     }
+
     &__icon {
         object-fit: cover;
         width: 83%;
@@ -488,12 +496,6 @@ $sizeContainerMenuMobil: 35rem;
         }
     }
 
-    &__icon--github {
-        width: 15%;
-        min-width: 2.5rem;
-        //margin-left: 0.35rem;
-    }
-
     &__link--linkedin {
         display: flex;
         flex-direction: column;
@@ -515,10 +517,7 @@ $sizeContainerMenuMobil: 35rem;
         }
     }
 
-    &__icon--linkedin {
-        width: 2.5rem;
-        //margin-left: 0.3rem;
-    }
+
 }
 
 .description__name {
@@ -574,19 +573,31 @@ $sizeContainerMenuMobil: 35rem;
 }
 
 .networks {
-    filter: grayscale(100%);
     text-decoration: none;
     transition: transform 0.15s linear;
 
     &:hover {
-        //filter: grayscale(0%) hue-rotate(140deg);
-        filter: grayscale(0%);
-        transform: scale(1.1);
-        &> .networks__name {
+        transform: scale(1.15);
+
+        &>.networks__name {
             color: var(--color_activated);
         }
+
+        & .networks__path {
+            fill: var(--color_activated);
+        }
     }
-   
+
+    &__logo {
+        width: 2.3rem;
+        min-width: 2.2rem;
+
+        & .networks__path {
+            fill: var(--color_font);
+        }
+
+    }
+
 }
 
 
@@ -633,7 +644,7 @@ $sizeContainerMenuMobil: 35rem;
     min-height: 3rem;
     padding: 0.85rem 0rem 0.85rem 0rem;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: var(--font-General);
     font-weight: 100;
     word-wrap: break-word;
@@ -827,7 +838,7 @@ $sizeContainerMenuMobil: 35rem;
         display: flex;
         flex-flow: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 10%;
         height: 60%;
         top: 5%;
@@ -840,18 +851,18 @@ $sizeContainerMenuMobil: 35rem;
         border-bottom: 1px solid var(--color_backdark);
 
         &--zoom {
-            width: 90%;
-            height: 2rem;
+            width: 2.5rem;
+            height: 2.5rem;
             background-color: transparent;
             background-image: url("../assets/icons/zoom-icon.svg");
-            background-size: contain;
+            background-size: 2.2rem;
             background-repeat: no-repeat;
             background-position: center;
             cursor: pointer;
-            filter: grayscale(1);
+            filter: grayscale(1) brightness(150%);
 
             &:hover {
-                filter: grayscale(0) hue-rotate(140deg);
+                filter: grayscale(0) ;
             }
         }
     }
@@ -872,6 +883,7 @@ $sizeContainerMenuMobil: 35rem;
         transform: scaleX(1);
         transform-origin: left;
         transition: transform 0.5s cubic-bezier(.73, .53, .39, .81);
+        backdrop-filter: blur(5px);
         z-index: 0;
     }
 
@@ -885,6 +897,7 @@ $sizeContainerMenuMobil: 35rem;
         font-weight: 900;
         font-size: 1.5rem;
         background-color: var(--color_back_section);
+        backdrop-filter: blur(5px);
         color: var(--color_font);
         opacity: 1;
         position: absolute;
@@ -1118,6 +1131,7 @@ $sizeContainerMenuMobil: 35rem;
         }
     }
 }
+
 .timeline__point--one {
     &::before {
         content: 'ALWAYS';
@@ -1207,11 +1221,12 @@ $sizeContainerMenuMobil: 35rem;
 
         &--networks {
             display: flex;
-            justify-content:space-between;
+            justify-content: space-between;
             align-items: center;
             width: 100%;
             max-width: 20rem;
             z-index: 1;
+            background-color: var(--color_backmedium);
         }
 
         &--message {
@@ -1228,10 +1243,9 @@ $sizeContainerMenuMobil: 35rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 10%;
-        min-width: 3.5rem;
-        background-color: var(--color_backmedium);
-        
+        width: 6rem;
+        padding: 1rem;
+
     }
 
     &__name--github,
@@ -1350,7 +1364,7 @@ $sizeContainerMenuMobil: 35rem;
     &__links--home {
         background-image: url("/assets/icons/home-icon.svg");
         background-size: cover;
-        filter: invert(0);
+        filter: invert(1);
         top: 0rem;
     }
 
@@ -1386,8 +1400,8 @@ $sizeContainerMenuMobil: 35rem;
     &__link--select {
         position: absolute;
         width: 20%;
-        height: 3.5rem;
-        top: 0rem;
+        height: 1.2rem;
+        bottom:  0rem;
         left: 0rem;
         font-weight: bolder;
         font-size: 0.80rem;
@@ -1396,7 +1410,7 @@ $sizeContainerMenuMobil: 35rem;
         border-radius: 0rem;
         border: 1px solid var(--color_activated);
         text-align: center;
-        padding: 2.1rem 0 0 0;
+        padding: 0.1rem 0 0 0;
         transition: left 0.3s linear;
         z-index: 1;
     }

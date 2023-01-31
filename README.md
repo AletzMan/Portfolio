@@ -18,6 +18,7 @@
 
 ----
 <h2>About:</h2>
+Realizado con JavaScript Vanilla,al realizar el proyecto me ayudó mucho a entender el concepto de DOM, y así poder crear objetos de forma dinámica. 
 
 <h2>Despliegue:</h2>
 Este proyecto se encuentra en GitHub Pages, puedes verlo aqui: 

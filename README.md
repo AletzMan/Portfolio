@@ -8,24 +8,13 @@
 
 ------------
 <h2 style="color:#99CC99" >Tecnologías Utilizadas:</h2>
-<div display:flex; flex-direction:column; gap:10px">
-    <div style="display:flex; align-items:center; gap:10px">
+<div display:flex; flex-direction:column; margin:15px">
         <img style="width:40px" src="https://www.w3.org/html/logo/downloads/HTML5_Badge.svg" title="Logo HTML"/>
-    </div>
-    <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" title="Logo CSS"/>
-    </div>
-    <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" title="Logo JavaScript"/>
-    </div>
-    <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg" title="Logo SASS"/>
-    </div>
-    <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://cdn.worldvectorlogo.com/logos/pug.svg" title="Logo Pug"/>
-    </div>
 </div>
 
 ----
 <h2 style="color:#99CC99" >About:</h2>
-

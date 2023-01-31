@@ -20,4 +20,4 @@
 <h2>About:</h2>
 
 <h2>Despliegue:</h2>
-Este proyecto se encuentra en GitHub Pages, puedes verlo aqui: ![Porfolio](https://aletzman.github.io/)
+Este proyecto se encuentra en GitHub Pages, puedes verlo aqui: [[Link to portfolio]](http://https://aletzman.github.io/ "Link to portfolio")

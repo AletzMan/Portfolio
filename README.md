@@ -1,6 +1,6 @@
 <h1 style="text-align: center; color:#ACACAC"> Portfolio Web :bookmark_tabs: </h1>
 <div style="text-align: center"> 
-    <img src="./assets/photos/project_1.jpg"/>
+    <img src="https://github.com/AletzMan/aletzman.github.io/blob/main/assets/photos/project_0.jpg"/>
 </div>
 <br>
 <p>Proyecto donde muestro mis más recientes trabajos, así como mis habilidades.</p> 

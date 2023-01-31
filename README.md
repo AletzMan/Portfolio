@@ -11,23 +11,18 @@
 <div display:flex; flex-direction:column; gap:10px">
     <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://www.w3.org/html/logo/downloads/HTML5_Badge.svg" title="Logo HTML"/>
-        <h3>HTML</h3>
     </div>
     <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" title="Logo CSS"/>
-        <h3>CSS</h3>
     </div>
     <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" title="Logo JavaScript"/>
-        <h3>JavasCript</h3>
     </div>
     <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg" title="Logo SASS"/>
-        <h3>SASS</h3>
     </div>
     <div style="display:flex; align-items:center; gap:10px">
         <img style="width:40px" src="https://cdn.worldvectorlogo.com/logos/pug.svg" title="Logo Pug"/>
-        <h3>Pug</h3>
     </div>
 </div>
 

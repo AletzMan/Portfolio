@@ -3,7 +3,7 @@
     <img src="https://github.com/AletzMan/aletzman.github.io/blob/main/assets/photos/project_0.jpg"/>
 </div>
 <br>
-<p>Proyecto donde muestro mis más recientes trabajos, así como mis habilidades.</p> 
+<h4>Proyecto donde muestro mis más recientes trabajos, así como mis habilidades.</h4> 
 <span style="color:#00ACB4">V2.0</span>
 
 ------------

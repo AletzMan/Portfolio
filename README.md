@@ -21,4 +21,5 @@
 
 <h2>Despliegue:</h2>
 Este proyecto se encuentra en GitHub Pages, puedes verlo aqui: 
+
 ![Portfolio](https://aletzman.github.io "Portfolio")

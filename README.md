@@ -10,7 +10,7 @@
 <h2 style="color:#99CC99" >Tecnologías Utilizadas:</h2>
 <div  style="width:40px; display:flex; flex-direction:column; gap:10px">
     <div style="display:flex; align-items:center; gap:10px">
-        <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge.svg" title="Logo HTML"/>
+        <img style="width:40px" src="https://www.w3.org/html/logo/downloads/HTML5_Badge.svg" title="Logo HTML"/>
         <h3>HTML</h3>
     </div>
     <div style="display:flex; align-items:center; gap:10px">

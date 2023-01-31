@@ -358,8 +358,8 @@ var detectCollisions = function detectCollisions() {
 var borderCollisionDetection = function borderCollisionDetection() {
   var collisionLimitXLeft = 1;
   var collisionLimitXRight = window.outerWidth - 30;
-  var collisionLimitYTop = 100;
-  var collisionLimitYBottom = perspective.getBoundingClientRect().height - 70;
+  var collisionLimitYTop = 57;
+  var collisionLimitYBottom = perspective.getBoundingClientRect().height - 57;
   var speedReset = 0.95;
   var bubble;
 

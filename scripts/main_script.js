@@ -363,8 +363,8 @@ const detectCollisions = () => {
 const borderCollisionDetection = () => {
 	const collisionLimitXLeft = (1);
 	const collisionLimitXRight = window.outerWidth - 30;
-	const collisionLimitYTop = 100;
-	const collisionLimitYBottom = perspective.getBoundingClientRect().height - 70;
+	const collisionLimitYTop = 57;
+	const collisionLimitYBottom = perspective.getBoundingClientRect().height - 57;
 	const speedReset = 0.95;
 	let bubble;
 	for (let i = 0; i < bubblesContainer.length; i++) {

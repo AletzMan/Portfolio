@@ -656,8 +656,10 @@ $sizeContainerMenuMobil: 35rem;
     cursor: pointer;
 
     &:hover {
-        color: var(--color_activated);
+        color: var(--color_backdark);
         opacity: 1;
+        background-color: var(--color_activated);        
+        font-weight: 600;
     }
 
     &::before {
@@ -987,6 +989,7 @@ $sizeContainerMenuMobil: 35rem;
         background-color: var(--color_deactivated);
         color: var(--color_font);
         font-size: 0.65rem;
+        font-weight: 100;
         overflow-y: auto;
 
         @include media(tablet) {

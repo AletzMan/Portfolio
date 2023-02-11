@@ -1,68 +1,42 @@
-const menuDesktop = document.querySelectorAll(".menu__list--link");
-const menuDesktopArea = document.querySelectorAll(".header__menu li");
-const selectItemMenu = document.querySelector(".menu__selection");
+const DESKTOP_MENU_LINKS = document.querySelectorAll(".menu__list--link");
+const DESKTOP_MENU_ITEMS = document.querySelectorAll(".menu__list");
+const SELECTED_MENU_ITEM = document.querySelector(".menu__selection");
 const presentation = document.querySelector(".landscape__window--text");
-const sections = document.querySelectorAll(".section");
-const sectionsTitle = document.querySelectorAll(".title");
-const idea = document.querySelector(".home__idea");
-const description = document.querySelector(".description__name");
-const sectionHome = document.querySelector(".home");
-const labelSkills = document.querySelectorAll(".label__tech");
-const about = document.querySelectorAll(".aboutme__paragraph");
-const aboutDev = document.querySelector(".aboutme__paragraph--list");
-const contactMessage = document.querySelector(".contact__type--message");
-const perspective = document.querySelector(".seccion__bubbles");
-const header = document.querySelector(".header");
-const footer = document.querySelector(".footer");
-const typeSkills = document.querySelectorAll(".technologies");
-const containerSkills = document.querySelector(".logos");
-const containerProjects = document.querySelector(".projects__container");
-const project = document.querySelector(".project");
-const menuMobilSelect = document.querySelector(".menumobil__link--select");
-const menuMobilContainer = document.querySelector(".menumobil");
-const modal = document.querySelector(".modal");
-const modalImage = document.querySelector(".modal__image");
-const modalButton = document.querySelector(".modal__button");
-const languageCheck = document.querySelector(".language__check");
-const menuMobil = document.querySelectorAll(".link");
+const SECTIONS = document.querySelectorAll(".section");
+const SECTION_TITLES = document.querySelectorAll(".title");
+const SLOGAN = document.querySelector(".home__slogan");
+const GREETINGS = document.querySelector(".home__greetings");
+const SKILL_CATEGORY_LABELS = document.querySelectorAll(".label__tech");
+const ABOUT_PARAGRAPHS = document.querySelectorAll(".aboutme__paragraph");
+const ABOUT_PARAGRAPHS_LIST = document.querySelector(".aboutme__paragraph--list");
+const CONTACT_MESSAGE = document.querySelector(".contact__type--message");
+const SECTION_BUBBLES = document.querySelector(".section__bubbles");
+const FOOTER = document.querySelector(".footer");
+const SKILLS_CATEGORIES = document.querySelectorAll(".technologies");
+const CONTAINER_SKILLS = document.querySelector(".logos");
+const PROJECT_CONTAINER = document.querySelector(".projects__container");
+const PROJECTS = document.querySelector(".project");
+const SELECTED_MOBILE_MENU = document.querySelector(".menumobil__link--select");
+const MOBILE_MENU_ITEMS = document.querySelector(".menumobil");
+const MODAL = document.querySelector(".modal");
+const MODAL_IMAGE = document.querySelector(".modal__image");
+const MODAL_BUTTON = document.querySelector(".modal__button");
+const SWITCH_LANGUAGE = document.querySelector(".language__check");
+const MOBIL_MENU_LINKS = document.querySelectorAll(".link");
 
 
-selectItemMenu.style.left = "0px";
-selectItemMenu.style.top = "0px";
+const NUMBER_BUBBLE = 20;
+const SIZE_BUBBLE = 45;
+const NAME_LOGOS = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
 
-let textPresentation = [];
-const numbertags = 20;
-const sizeTags = 45;
-let containerTags = [];
-const nameTags = ["<header>", "<section>", "<footer>", "<nav>", "<aside>", "<img>", "<button>", "<input>", "<picture>", "<table>", "<meta>", "<select>", "<span>", "<textarea>", "<video>"];
-const nameLogos = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
-let selectedLanguage = "spanish";
-
-const mobileDetect = () => {
-	let check = false;
-	(function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
-	return check;
-};
-
-onload = () => {
-	mobileDetect();
-	CreateLogoSkill(0);
-	CreateProject();
-	initAnimation();
-	scroll(0, 0);
-	selectLanguage();
-}
-
-
-////SELECT LANGUAGE//////
-const language = {
+const LANGUAGE = {
 	english: {
 		header: ["Home", "Skills", "Projects", "About Me", "Contact"],
 		section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
-		intro: ["Hey, <br> My name is", '"Turning ideas and design, into code"'],
+		intro: ["Hey, <br> My name is", '"Transforming concepts and design, into code"'],
 		skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools & Platforms"],
 		about: [
-			"ALWAYS",
+			"THE BEGINNING",
 			"I am a self-taught person, and passionate about programming. From a very young age I was very interested in technology, first electronics, I liked to disassemble electronic objects and see how they worked inside.",
 			"I decided to study electronics, where I came across microcontrollers and so I was able to combine my two current passions, electronics and programming.",
 			"I started working in the electronics field as a diagnostic technician.",
@@ -90,10 +64,10 @@ const language = {
 	spanish: {
 		header: ["Inicio", "Habilidades", "Proyectos", "Sobre mi", "Contacto"],
 		section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
-		intro: ["Hola, <br> Mi nombre es", '"Convertir ideas y diseño en código"'],
+		intro: ["Hola, <br> Mi nombre es", '"Transformando conceptos y diseño, en código"'],
 		skills: ["Web", "Mobil", "Desktop", "Prueba y Medición", "Herramientas y Plataformas"],
 		about: [
-			"SIEMPRE",
+			"EL PRINCIPIO",
 			"Soy una persona autodidacta, y apasionado por la programación. Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.",
 			"Decidí estudiar la carrera de electrónica, donde me encontré con los microcontroladores y así pude combinar mis dos actuales pasiones, la electrónica y la programación.",
 			"Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.",
@@ -120,42 +94,65 @@ const language = {
 	}
 }
 
-languageCheck.addEventListener('change', () => {
-	selectedLanguage = languageCheck.checked ? "english" : "spanish";
+let containerTags = [];
+let selectedLanguage = "spanish";
+let textPresentation = [];
+
+
+onload = () => {
+	SELECTED_MENU_ITEM.style.left = "0px";
+	SELECTED_MENU_ITEM.style.top = "0px";
+	CreateLogoSkill(0);
+	CreateProject();
+	initAnimation();
+	scroll(0, 0);
+	selectLanguage();
+}
+
+
+const mobileDetect = () => {
+	let check = false;
+	(function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
+	return check;
+};
+
+////SELECT LANGUAGE//////
+SWITCH_LANGUAGE.addEventListener('change', () => {
+	selectedLanguage = SWITCH_LANGUAGE.checked ? "english" : "spanish";
 	setTimeout(() => {
 		selectLanguage();
 	}, 300);
 })
 
 const selectLanguage = () => {
-	let lan = selectedLanguage == "spanish" ? language.spanish : language.english;
-	menuDesktop.forEach((menu, index) => {
+	let lan = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.english;
+	DESKTOP_MENU_LINKS.forEach((menu, index) => {
 		menu.innerText = lan.header[index];
 	})
-	sectionsTitle.forEach((section, index) => {
+	SECTION_TITLES.forEach((section, index) => {
 		section.innerText = lan.section[index];
 	})
-	description.innerHTML = lan.intro[0];
-	idea.innerHTML = lan.intro[1];
-	labelSkills.forEach((label, index) => {
+	GREETINGS.innerHTML = lan.intro[0];
+	SLOGAN.innerHTML = lan.intro[1];
+	SKILL_CATEGORY_LABELS.forEach((label, index) => {
 		label.innerText = lan.skills[index];
 	})
-	about.forEach((paragraph, index) => {
+	ABOUT_PARAGRAPHS.forEach((paragraph, index) => {
 		if (paragraph.nodeName === "P") {
 			paragraph.innerText = lan.about[index + 1];
 		} else {
-			for (let i = 0; i < aboutDev.childElementCount; i++) {
-				aboutDev.children[i].innerText = lan.about[8][0].devsoft[i];
+			for (let i = 0; i < ABOUT_PARAGRAPHS_LIST.childElementCount; i++) {
+				ABOUT_PARAGRAPHS_LIST.children[i].innerText = lan.about[8][0].devsoft[i];
 			}
 		}
 	})
-	contactMessage.innerHTML = lan.contact[0];
-	footer.children[0].innerHTML = lan.footer[0];
-
+	CONTACT_MESSAGE.innerHTML = lan.contact[0];
+	FOOTER.children[0].innerHTML = lan.footer[0];
 }
 
+
 const contentPresentation = () => {
-	textPresentation = languageCheck.checked ?
+	textPresentation = SWITCH_LANGUAGE.checked ?
 		['Software Developer', 'Front-End Developer', 'Electrical Design']
 		: ['Desarrollador de Sofware', 'Desarrollador Front-End', 'Diseño Electrico']
 }
@@ -165,9 +162,9 @@ const contentPresentation = () => {
 
 
 
-for (let index = 0; index < menuDesktop.length; index++) {
-	menuDesktop.item(index).addEventListener('mouseup', (e) => {
-		menuDesktop.forEach(elementMenuUnSelected => {
+for (let index = 0; index < DESKTOP_MENU_LINKS.length; index++) {
+	DESKTOP_MENU_LINKS.item(index).addEventListener('mouseup', (e) => {
+		DESKTOP_MENU_LINKS.forEach(elementMenuUnSelected => {
 			elementMenuUnSelected.style.color = "var(--color_font)";
 		});
 		setTimeout(() => {
@@ -179,10 +176,10 @@ for (let index = 0; index < menuDesktop.length; index++) {
 			}, 0);
 		}
 	})
-	menuDesktop.item(index).addEventListener('mouseover', (e) => {
+	DESKTOP_MENU_LINKS.item(index).addEventListener('mouseover', (e) => {
 		e.target.style.color = "var(--color_activated)";
 	})
-	menuDesktop.item(index).addEventListener('mouseout', (e) => {
+	DESKTOP_MENU_LINKS.item(index).addEventListener('mouseout', (e) => {
 		e.target.style.color = "var(--color_font)";
 	})
 }
@@ -237,31 +234,30 @@ class TagBubble {
 	}
 
 	createItem() {
-		const newTagMove = document.createElement("div");
-		//newTagMove.textContent = nameTags[GetRandomNumber(0, 14)];
-		newTagMove.style.backgroundImage = "url('./assets/icons/" + nameLogos[GetRandomNumber(0, nameLogos.length - 1)] + "-logo.svg')";
-		newTagMove.classList = "tag__move";
-		newTagMove.style.left = `${this.posX}px`;
-		newTagMove.style.top = `${this.posY}px`;
-		containerTags.push(newTagMove);
-		perspective.appendChild(newTagMove);
-		let fontSize = parseFloat(window.getComputedStyle(newTagMove, null).getPropertyValue('font-size'));
-		newTagMove.style.width = `${Math.floor(newTagMove.getBoundingClientRect().width + sizeTags)}px`;
-		newTagMove.style.paddingTop = `${(Math.floor(newTagMove.getBoundingClientRect().width / 2) - fontSize / 1.5)}px`;
-		newTagMove.style.height = `${Math.floor(newTagMove.getBoundingClientRect().width)}px`;
+		const NEW_BUBBLE = document.createElement("div");
+		NEW_BUBBLE.style.backgroundImage = "url('./assets/icons/" + NAME_LOGOS[GetRandomNumber(0, NAME_LOGOS.length - 1)] + "-logo.svg')";
+		NEW_BUBBLE.classList = "tag__move";
+		NEW_BUBBLE.style.left = `${this.posX}px`;
+		NEW_BUBBLE.style.top = `${this.posY}px`;
+		containerTags.push(NEW_BUBBLE);
+		SECTION_BUBBLES.appendChild(NEW_BUBBLE);
+		let fontSize = parseFloat(window.getComputedStyle(NEW_BUBBLE, null).getPropertyValue('font-size'));
+		NEW_BUBBLE.style.width = `${Math.floor(NEW_BUBBLE.getBoundingClientRect().width + SIZE_BUBBLE)}px`;
+		NEW_BUBBLE.style.paddingTop = `${(Math.floor(NEW_BUBBLE.getBoundingClientRect().width / 2) - fontSize / 1.5)}px`;
+		NEW_BUBBLE.style.height = `${Math.floor(NEW_BUBBLE.getBoundingClientRect().width)}px`;
 
-		this.width = Math.floor(newTagMove.getBoundingClientRect().width);
-		this.height = Math.floor(newTagMove.getBoundingClientRect().height);
+		this.width = Math.floor(NEW_BUBBLE.getBoundingClientRect().width);
+		this.height = Math.floor(NEW_BUBBLE.getBoundingClientRect().height);
 
 		this.initPosMouseX = 0;
 		this.initPosMouseY = 0;
-		newTagMove.addEventListener('mousedown', (e) => {
+		NEW_BUBBLE.addEventListener('mousedown', (e) => {
 			this.initPosMouseX = e.clientX;
 			this.initPosMouseY = e.clientY;
 		});
 		let directionX = 0;
 		let directionY = 0;
-		body.addEventListener('mouseup', (e) => {
+		BODY.addEventListener('mouseup', (e) => {
 			if (this.initPosMouseX != 0) {
 				if (this.initPosMouseX - e.clientX > 0) {
 					directionX = -10;
@@ -299,9 +295,9 @@ const initAnimation = () => {
 	window.requestAnimationFrame((timeStamp) => { animationLoop(timeStamp) });
 }
 const createBubbleTags = () => {
-	for (let index = 0; index < numbertags; index++) {
+	for (let index = 0; index < NUMBER_BUBBLE; index++) {
 		let positionTagX = GetRandomNumber(50, window.innerWidth - 50);
-		let positionTagY = GetRandomNumber(100, perspective.getBoundingClientRect().height - 20);
+		let positionTagY = GetRandomNumber(100, SECTION_BUBBLES.getBoundingClientRect().height - 20);
 		bubblesContainer.push(new TagBubble(positionTagX, positionTagY, GetRandomNumber(-20, 70), GetRandomNumber(-20, 70), GetRandomNumber(1, 10)));
 	}
 	for (let i = 0; i < bubblesContainer.length; i++) {
@@ -361,30 +357,30 @@ const detectCollisions = () => {
 }
 
 const borderCollisionDetection = () => {
-	const collisionLimitXLeft = (1);
-	const collisionLimitXRight = window.outerWidth - 30;
-	const collisionLimitYTop = 57;
-	const collisionLimitYBottom = perspective.getBoundingClientRect().height - 57;
-	const speedReset = 0.95;
+	const COLLISION_LIMIT_X_LEFT = (1);
+	const COLLISION_LIMIT_X_RIGHT = window.outerWidth - 30;
+	const COLLISION_LIMIT_Y_TOP = 57;
+	const COLLISION_LIMIT_Y_BOTTOM = SECTION_BUBBLES.getBoundingClientRect().height - 57;
+	const SPEED_RESET = 0.95;
 	let bubble;
 	for (let i = 0; i < bubblesContainer.length; i++) {
 		bubble = bubblesContainer[i];
 
 
-		if (bubble.posX < collisionLimitXLeft) {
-			bubble.speedX = Math.abs(bubble.speedX) * speedReset;
-			bubble.posX = collisionLimitXLeft;
-		} else if (bubble.posX > collisionLimitXRight - bubble.width) {
-			bubble.speedX = -Math.abs(bubble.speedX) * speedReset;
-			bubble.posX = collisionLimitXRight - bubble.width;
+		if (bubble.posX < COLLISION_LIMIT_X_LEFT) {
+			bubble.speedX = Math.abs(bubble.speedX) * SPEED_RESET;
+			bubble.posX = COLLISION_LIMIT_X_LEFT;
+		} else if (bubble.posX > COLLISION_LIMIT_X_RIGHT - bubble.width) {
+			bubble.speedX = -Math.abs(bubble.speedX) * SPEED_RESET;
+			bubble.posX = COLLISION_LIMIT_X_RIGHT - bubble.width;
 		}
 
-		if (bubble.posY < collisionLimitYTop) {
-			bubble.speedY = Math.abs(bubble.speedY) * speedReset;
-			bubble.posY = collisionLimitYTop;
-		} else if (bubble.posY > collisionLimitYBottom - bubble.height) {
-			bubble.speedY = -Math.abs(bubble.speedY) * speedReset;
-			bubble.posY = collisionLimitYBottom - bubble.height;
+		if (bubble.posY < COLLISION_LIMIT_Y_TOP) {
+			bubble.speedY = Math.abs(bubble.speedY) * SPEED_RESET;
+			bubble.posY = COLLISION_LIMIT_Y_TOP;
+		} else if (bubble.posY > COLLISION_LIMIT_Y_BOTTOM - bubble.height) {
+			bubble.speedY = -Math.abs(bubble.speedY) * SPEED_RESET;
+			bubble.posY = COLLISION_LIMIT_Y_BOTTOM - bubble.height;
 		}
 	}
 }
@@ -407,17 +403,17 @@ function GetRandomNumberFloat(min, max) {
 /////////////////////////////--------- SECTION SKILLS ---------/////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-const sourceLogos = "./assets/icons/";
-const selectSkills = document.querySelector('.logos__select');
+const SOURCE_LOGOS = "./assets/icons/";
+const SELECT_SKILLS = document.querySelector('.skills__select');
 
-selectSkills.addEventListener('change', (e) => {
+SELECT_SKILLS.addEventListener('change', (e) => {
 	console.log(e.target.value)
 	CreateLogoSkill(e.target.value);
 })
 
 
-for (let index = 0; index < typeSkills.length; index++) {
-	typeSkills[index].addEventListener("click", (e) => {
+for (let index = 0; index < SKILLS_CATEGORIES.length; index++) {
+	SKILLS_CATEGORIES[index].addEventListener("click", (e) => {
 		CreateLogoSkill(index);
 	})
 }
@@ -428,7 +424,7 @@ const SKILLS = [
 	["c", "csharp", "xaml", "labview", "siemens", "git", "github"],
 	["vscode", "vs", "git", "labview", "teststand", "cvi", "tiaportal"]
 ]
-const SKILLSNAME = [
+const SKILL_NAMES = [
 	["html", "css", "javascript", "pug", "sass", "git", "git hub", "visual studio code"],
 	["c#", "netcore", "xaml", "git", "github", "visual studio"],
 	["c#", "netcore", "xamarin forms", "xaml", "visual studio", "git", "github"],
@@ -439,25 +435,25 @@ const CreateLogoSkill = (numberSkill) => {
 
 
 	do {
-		containerSkills.removeChild(containerSkills.lastChild);
-	} while (containerSkills.lastChild.className === "logos__name");
+		CONTAINER_SKILLS.removeChild(CONTAINER_SKILLS.lastChild);
+	} while (CONTAINER_SKILLS.lastChild.className === "skills__name");
 
 	for (let index = 0; index < SKILLS[numberSkill].length; index++) {
-		const newLogoTech = document.createElement("div");
-		newLogoTech.classList = "logos__name";
-		containerSkills.appendChild(newLogoTech);
-		newLogoTech.style.zIndex = "1";
-		const newLogoBubble = document.createElement("div");
-		newLogoBubble.classList = "logos__bubble";
-		newLogoTech.appendChild(newLogoBubble);
-		const newLogoImage = document.createElement("img");
-		newLogoImage.classList = "logo";
-		newLogoImage.src = sourceLogos + SKILLS[numberSkill][index] + "-logo.svg";
-		newLogoImage.alt = "logo " + SKILLS[numberSkill][index];
-		newLogoBubble.appendChild(newLogoImage);
-		const newLogoName = document.createElement("span");
-		newLogoName.textContent = SKILLSNAME[numberSkill][index];
-		newLogoTech.appendChild(newLogoName);
+		const NEW_LOGO_TECH = document.createElement("div");
+		NEW_LOGO_TECH.classList = "skills__name";
+		CONTAINER_SKILLS.appendChild(NEW_LOGO_TECH);
+		NEW_LOGO_TECH.style.zIndex = "1";
+		const NEW_LOGO_BUBBLE = document.createElement("div");
+		NEW_LOGO_BUBBLE.classList = "skills__bubble";
+		NEW_LOGO_TECH.appendChild(NEW_LOGO_BUBBLE);
+		const NEW_LOGO_IMAGE = document.createElement("img");
+		NEW_LOGO_IMAGE.classList = "logo";
+		NEW_LOGO_IMAGE.src = SOURCE_LOGOS + SKILLS[numberSkill][index] + "-logo.svg";
+		NEW_LOGO_IMAGE.alt = "logo " + SKILLS[numberSkill][index];
+		NEW_LOGO_BUBBLE.appendChild(NEW_LOGO_IMAGE);
+		const NEW_LOGO_NAME = document.createElement("span");
+		NEW_LOGO_NAME.textContent = SKILL_NAMES[numberSkill][index];
+		NEW_LOGO_TECH.appendChild(NEW_LOGO_NAME);
 	}
 }
 
@@ -467,18 +463,18 @@ const CreateLogoSkill = (numberSkill) => {
 
 
 let projectsZoom = document.querySelectorAll(".project__options--zoom");
-const body = document.querySelector("body");
-const sourcePhotos = "./assets/photos/project_";
+const BODY = document.querySelector("body");
+const SOURCE_PHOTOS = "./assets/photos/project_";
 
 let Title = [];
-const Technologies = [
+const TECHNOLOGIES = [
 	["html", "css", "javascript", "pug", "sass"],
 	["csharp", "netcore", "xaml", "sql", "mysql", "git"],
 	["csharp", "netcore", "xamarin", "xaml"],
 	["c", "csharp", "xaml", "labview",],
 	["vscode", "vs", "git", "labview"]
 ];
-const Repositories = [
+const REPOSITORIES = [
 	"https://aletzman.github.io/",
 	"https://github.com/AletzMan",
 	"https://aletzman.github.io/",
@@ -486,11 +482,11 @@ const Repositories = [
 
 
 const CreateProject = () => {
-	for (let index = 0; index < 2; index++) {
-		const newProject = project.cloneNode(true);
-		containerProjects.appendChild(newProject);
+	for (let index = 0; index < REPOSITORIES.length - 1; index++) {
+		const NEW_PROJECT = PROJECTS.cloneNode(true);
+		PROJECT_CONTAINER.appendChild(NEW_PROJECT);
 	}
-	
+
 	if (mobileDetect()) {
 		Title = [
 			"Drawing Board",
@@ -504,46 +500,46 @@ const CreateProject = () => {
 			"Electronic-E ncyclopedia"
 		];
 	}
-	
+
 	EditProjects();
 }
 const EditProjects = () => {
-	const projects = document.querySelectorAll(".project");
-	const projectsTitle = document.querySelectorAll(".project__title");
-	const projectsTechnologies = document.querySelectorAll(".project__technologies");
-	const projectsImage = document.querySelectorAll(".project__image");
-	const projectsRepository = document.querySelectorAll(".project__options--repository");
+	const PROJECTS = document.querySelectorAll(".project");
+	const PROJECTS_TITLE = document.querySelectorAll(".project__title");
+	const PROJECTS_TECHNOLOGIES = document.querySelectorAll(".project__technologies");
+	const PROJECT_IMAGE = document.querySelectorAll(".project__image");
+	const PROJECT_REPOSITORY = document.querySelectorAll(".project__options--repository");
 	const projectsPreview = document.querySelectorAll(".project__options--linkpreview");
-	const projectCortainOne = document.querySelectorAll(".project__cortain--one");
-	const projectCortainTwo = document.querySelectorAll(".project__cortain--two");
+	const PROJECT_CORTAIN_ONE = document.querySelectorAll(".project__cortain--one");
+	const PROJECT_CORTAIN_TWO = document.querySelectorAll(".project__cortain--two");
 	projectsZoom = document.querySelectorAll(".project__options--zoom");
 
 
-	
 
-	for (let index = 0; index < projects.length; index++) {
-		projectCortainOne[index].style.display = mobileDetect()?'none':'block';
-		projectCortainTwo[index].style.display = mobileDetect()?'none':'block';
-		projectsTitle[index].style.display = !mobileDetect()?'none':'block';
-		projectsTitle[index].innerHTML = Title[index];
-		Technologies[index].forEach(namelogo => {
-			const newContainer = document.createElement("div");
-			newContainer.classList = "project__technologies--container";
-			projectsTechnologies[index].appendChild(newContainer);
-			const newImgTech = document.createElement("img");
-			newImgTech.src = sourceLogos + namelogo + "-logo.svg";
-			newImgTech.alt = "logo" + namelogo;
-			newImgTech.classList = "project__technologies--image";
-			newContainer.appendChild(newImgTech);
-			const newImgDescription = document.createElement("span");
-			newImgDescription.textContent = namelogo;
-			newImgDescription.classList = "project__technologies--label";
-			newContainer.appendChild(newImgDescription);
+
+	for (let index = 0; index < PROJECTS.length; index++) {
+		PROJECT_CORTAIN_ONE[index].style.display = mobileDetect() ? 'none' : 'block';
+		PROJECT_CORTAIN_TWO[index].style.display = mobileDetect() ? 'none' : 'block';
+		PROJECTS_TITLE[index].style.display = !mobileDetect() ? 'none' : 'block';
+		PROJECTS_TITLE[index].innerHTML = Title[index];
+		TECHNOLOGIES[index].forEach(namelogo => {
+			const NEW_CONTAINER_TECH = document.createElement("div");
+			NEW_CONTAINER_TECH.classList = "project__technologies--container";
+			PROJECTS_TECHNOLOGIES[index].appendChild(NEW_CONTAINER_TECH);
+			const NEW_IMAGE_TECH = document.createElement("img");
+			NEW_IMAGE_TECH.src = SOURCE_LOGOS + namelogo + "-logo.svg";
+			NEW_IMAGE_TECH.alt = "logo" + namelogo;
+			NEW_IMAGE_TECH.classList = "project__technologies--image";
+			NEW_CONTAINER_TECH.appendChild(NEW_IMAGE_TECH);
+			const NEW_IMAGE_DESCRIPTION = document.createElement("span");
+			NEW_IMAGE_DESCRIPTION.textContent = namelogo;
+			NEW_IMAGE_DESCRIPTION.classList = "project__technologies--label";
+			NEW_CONTAINER_TECH.appendChild(NEW_IMAGE_DESCRIPTION);
 		});
-		projectsImage[index].src = sourcePhotos + index + ".jpg";
-		projectsRepository[index].href = Repositories[index];
-		projectCortainOne[index].innerText = Title[index].split(' ')[0];
-		projectCortainTwo[index].innerText = Title[index].split(' ')[1];
+		PROJECT_IMAGE[index].src = SOURCE_PHOTOS + index + ".jpg";
+		PROJECT_REPOSITORY[index].href = REPOSITORIES[index];
+		PROJECT_CORTAIN_ONE[index].innerText = Title[index].split(' ')[0];
+		PROJECT_CORTAIN_TWO[index].innerText = Title[index].split(' ')[1];
 	}
 	AsignEvent();
 }
@@ -552,26 +548,26 @@ let containerCreate = false;
 const AsignEvent = () => {
 	projectsZoom.forEach((element, index) => {
 		element.addEventListener("mouseup", () => {
-			modalImage.src = sourcePhotos + index + ".jpg";
-			modal.style.transform = 'scale(1)';
-			body.style.overflowX = "hidden";
-			body.style.overflowY = "hidden";
+			MODAL_IMAGE.src = SOURCE_PHOTOS + index + ".jpg";
+			MODAL.style.transform = 'scale(1)';
+			BODY.style.overflowX = "hidden";
+			BODY.style.overflowY = "hidden";
 		})
 	});
 }
 
 window.addEventListener("mouseup", (event) => {
-	if (event.target == modal) {
-		modal.style.transform = 'scale(0)';
-		body.style.overflowX = "auto";
-		body.style.overflowY = "auto";
+	if (event.target == MODAL) {
+		MODAL.style.transform = 'scale(0)';
+		BODY.style.overflowX = "auto";
+		BODY.style.overflowY = "auto";
 	}
 })
 
-modalButton.addEventListener("mouseup", (event) => {
-	modal.style.transform = 'scale(0)';
-	body.style.overflowX = "auto";
-	body.style.overflowY = "auto";
+MODAL_BUTTON.addEventListener("mouseup", (event) => {
+	MODAL.style.transform = 'scale(0)';
+	BODY.style.overflowX = "auto";
+	BODY.style.overflowY = "auto";
 })
 
 
@@ -581,7 +577,7 @@ modalButton.addEventListener("mouseup", (event) => {
 /////////////////////////////--------- MENU MOBIL ---------/////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-const nameTagMenu = [
+const NAME_TAG_MENU = [
 	"HOME",
 	"SKILLS",
 	"PROJECTS",
@@ -594,24 +590,24 @@ let indexMenuCurrent = 0;
 let indexMenuBefore = 0;
 let numberOfSectionsDisplaced = 0;
 
-for (let index = 0; index < menuMobil.length; index++) {
-	menuMobil.item(index).addEventListener('mousedown', (e) => {
-		sections.forEach(section => {
+for (let index = 0; index < MOBIL_MENU_LINKS.length; index++) {
+	MOBIL_MENU_LINKS.item(index).addEventListener('mousedown', (e) => {
+		SECTIONS.forEach(section => {
 			section.style.opacity = 0;
 		})
 		indexMenuBefore = indexMenuCurrent;
 		indexMenuCurrent = index;
 		numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
 
-		console.log(sections[index].getBoundingClientRect().height);
+		console.log(SECTIONS[index].getBoundingClientRect().height);
 		let scrollPosition = 0;
 		for (let numberSection = 0; numberSection < index; numberSection++) {
-			scrollPosition += (sections[numberSection].getBoundingClientRect().height) + (80);
+			scrollPosition += (SECTIONS[numberSection].getBoundingClientRect().height) + (80);
 		}
 		scrollPosition -= 16;
 		scroll(0, scrollPosition);
 		setTimeout(() => {
-			sections.forEach(section => {
+			SECTIONS.forEach(section => {
 				section.style.opacity = 1;
 			})
 		}, 500);
@@ -619,34 +615,32 @@ for (let index = 0; index < menuMobil.length; index++) {
 }
 
 window.addEventListener("resize", () => {
-	positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width / 16) / 5 * (indexMenuCurrent + 1)) - (menuMobilSelect.getBoundingClientRect().width / 16) - 0.2;
-	menuMobilSelect.style.left = `${positionMenuselected}rem`;
+	positionMenuselected = ((MOBILE_MENU_ITEMS.getBoundingClientRect().width / 16) / 5 * (indexMenuCurrent + 1)) - (SELECTED_MOBILE_MENU.getBoundingClientRect().width / 16) - 0.2;
+	SELECTED_MOBILE_MENU.style.left = `${positionMenuselected}rem`;
 })
 
 document.addEventListener("scroll", () => {
 	if (scrollY) {
-		let designMobil = window.getComputedStyle(menuMobilContainer, null).getPropertyValue("display") == "none" ? false : true;
+		let designMobil = window.getComputedStyle(MOBILE_MENU_ITEMS, null).getPropertyValue("display") == "none" ? false : true;
 
-		for (let index = 0; index < sections.length; index++) {
-			if (sections[index].getBoundingClientRect().y < 350 && sections[index].getBoundingClientRect().y > -20) {
+		for (let index = 0; index < SECTIONS.length; index++) {
+			if (SECTIONS[index].getBoundingClientRect().y < 350 && SECTIONS[index].getBoundingClientRect().y > -20) {
 				if (designMobil) {
-					positionMenuselected = ((menuMobilContainer.getBoundingClientRect().width / 16) / 5 * (index + 1)) - (menuMobilSelect.getBoundingClientRect().width / 16) - 0;
-					menuMobilSelect.style.left = `${positionMenuselected}rem`;
+					positionMenuselected = ((MOBILE_MENU_ITEMS.getBoundingClientRect().width / 16) / 5 * (index + 1)) - (SELECTED_MOBILE_MENU.getBoundingClientRect().width / 16) - 0;
+					SELECTED_MOBILE_MENU.style.left = `${positionMenuselected}rem`;
 					setTimeout(() => {
-						menuMobil.forEach(section => {
-							//section.style.filter = "invert(1)";
+						MOBIL_MENU_LINKS.forEach(section => {
 							section.style.top = "0.65rem";
 						});
-						//menuMobil[index].style.filter = "brightness(1)";
-						menuMobil[index].style.top = "0rem";
-						menuMobilSelect.innerText = nameTagMenu[index];
+						MOBIL_MENU_LINKS[index].style.top = "0rem";
+						SELECTED_MOBILE_MENU.innerText = NAME_TAG_MENU[index];
 					}, 200);
 				} else {
-					selectItemMenu.style.left = menuDesktopArea.item(index).getBoundingClientRect().left - menuDesktopArea.item(0).getBoundingClientRect().left - 1 + "px";
-					menuDesktop.forEach(elementMenuUnSelected => {
+					SELECTED_MENU_ITEM.style.left = DESKTOP_MENU_ITEMS.item(index).getBoundingClientRect().left - DESKTOP_MENU_ITEMS.item(0).getBoundingClientRect().left - 1 + "px";
+					DESKTOP_MENU_LINKS.forEach(elementMenuUnSelected => {
 						elementMenuUnSelected.style.color = "var(--color_font)";
 					});
-					menuDesktop.item(index).style.color = "var(--color_activated)";
+					DESKTOP_MENU_LINKS.item(index).style.color = "var(--color_activated)";
 				}
 			}
 		}

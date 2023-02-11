@@ -65,37 +65,35 @@
     <section class="home section" id="section__home">
       <h2 class="home__title title">HOME</h2>
       <div class="home__container">
-        <p class="description__name">Hey, <br>My name is</p>
-        <p class="name">Alejandro.</p><span class="home__idea">"Turning ideas and desing, into code"        </span><img class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false"><a class="home__link--github networks" href="https://github.com/AletzMan" title="Go To GitHub" target="_blank" rel="noopener noreferrer">
+        <p class="home__greetings">Hey, <br>My name is</p>
+        <p class="home__name">Alejandro.</p><span class="home__slogan">"Turning ideas and desing, into code"        </span><img class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false"><a class="home__link--github networks" href="https://github.com/AletzMan" title="Go To GitHub" target="_blank" rel="noopener noreferrer">
           <svg class="home__icon--github networks__logo" viewBox="0 0 2500 2432">
             <path class="networks__path" d="M1245.2,0C557.6,0,0,557.5,0,1245.2c0,550.2,356.8,1016.9,851.5,1181.5c62.2,11.5,85.1-27,85.1-59.9 c0-29.7-1.2-127.8-1.7-231.8c-346.4,75.3-419.5-146.9-419.5-146.9c-56.6-143.9-138.3-182.2-138.3-182.2c-113-77.3,8.5-75.7,8.5-75.7 c125,8.8,190.9,128.3,190.9,128.3c111.1,190.4,291.3,135.3,362.3,103.5c11.2-80.5,43.4-135.4,79.1-166.5 c-276.6-31.5-567.3-138.3-567.3-615.4c0-135.9,48.6-247,128.3-334.2c-12.9-31.4-55.5-158,12.1-329.5c0,0,104.6-33.5,342.5,127.6 c99.3-27.6,205.8-41.4,311.7-41.9c105.8,0.5,212.4,14.3,311.9,41.9c237.7-161.1,342.1-127.6,342.1-127.6 c67.8,171.5,25.1,298.2,12.2,329.5c79.8,87.2,128.1,198.3,128.1,334.2c0,478.2-291.3,583.6-568.6,614.4 c44.7,38.6,84.5,114.4,84.5,230.6c0,166.6-1.4,300.7-1.4,341.7c0,33.1,22.4,72,85.5,59.7c494.5-164.8,850.8-631.4,850.8-1181.4 C2490.3,557.5,1932.8,0,1245.2,0"></path>
-          </svg>
-          <!--img(class="home__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")--><span class="github__name networks__name">GitHub</span></a><a class="home__link--linkedin networks" href="https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/" title="Go To Linkedin" target="_blank" rel="noopener noreferrer">  
+          </svg><span class="github__name networks__name">GitHub</span></a><a class="home__link--linkedin networks" href="https://www.linkedin.com/in/alejandro-garcia-alonso-596788b8/" title="Go To Linkedin" target="_blank" rel="noopener noreferrer">  
           <svg class="home__icon--linkedin networks__logo" viewBox="0 0 2490 2500">
             <path class="networks__path" d="M2306,5H184C82.4,5,0,84.9,0,183.4v2133.3c0,98.5,82.4,178.3,184,178.3h2122c101.6,0,184-79.8,184-178.3V183.4 C2490,84.9,2407.6,5,2306,5z M756.7,2088.8H384.1v-1121h372.6V2088.8z M570.5,814.8h-2.4c-125.1,0-205.9-86.1-205.9-193.7 c0-110,83.3-193.7,210.8-193.7c127.4,0,205.9,83.7,208.3,193.7C781.3,728.7,700.4,814.8,570.5,814.8z M2100.3,2088.7h-372.6v-599.6 c0-150.7-53.9-253.5-188.7-253.5c-103,0-164.3,69.3-191.2,136.3c-9.9,23.9-12.3,57.4-12.3,90.9v626H962.9c0,0,4.9-1015.8,0-1121 h372.7v158.6c49.6-76.4,138.2-184.9,335.8-184.9c245.1,0,428.9,160.2,428.9,504.5V2088.7z"></path>
-          </svg>
-          <!--img(class="home__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")--><span class="linkedin__name networks__name">Linkedin</span></a>
+          </svg><span class="linkedin__name networks__name">Linkedin</span></a>
       </div>
     </section>
     <section class="skills section" id="section__skills">
       <h2 class="skills__title title">SKILLS</h2>
       <div class="skills__logos logos">
-        <select class="logos__select"> 
+        <select class="skills__select"> 
           <option value="0">Web</option>
           <option value="1">Mobil</option>
           <option value="2">Desktop</option>
           <option value="3">Test & Measurement</option>
           <option value="4">Tools & Platforms</option>
         </select>
-        <input class="logos--webdev technologies" type="radio" name="skills" id="webdev" checked>
+        <input class="skills--webdev technologies" type="radio" name="skills" id="webdev" checked>
         <label class="label__tech" for="webdev" name="Web">Web</label>
-        <input class="logos--mobil technologies" type="radio" name="skills" id="mobil">
+        <input class="skills--mobil technologies" type="radio" name="skills" id="mobil">
         <label class="label__tech" for="mobil" name="Mobil">Mobil</label>
-        <input class="logos--desktop technologies" type="radio" name="skills" id="desktop">
+        <input class="skills--desktop technologies" type="radio" name="skills" id="desktop">
         <label class="label__tech" for="desktop" name="Desktop">Desktop</label>
-        <input class="logos--test technologies" type="radio" name="skills" id="test">
+        <input class="skills--test technologies" type="radio" name="skills" id="test">
         <label class="label__tech" for="test" name="Test &amp; Measurement">Test & Measurement</label>
-        <input class="logos--platforms technologies" type="radio" name="skills" id="platforms">
+        <input class="skills--platforms technologies" type="radio" name="skills" id="platforms">
         <label class="label__tech" for="platforms" name="Tools &amp; Platforms">Tools & Platforms                </label>
       </div>
     </section>
@@ -198,7 +196,7 @@
         </ul>
       </nav>
     </footer>
-    <div class="seccion__bubbles"></div>
+    <div class="section__bubbles"></div>
     <div class="modal">
       <button class="modal__button">CLOSE</button><img class="modal__image" src="./assets/photos/project_1.jpg">
     </div>

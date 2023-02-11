@@ -80,36 +80,34 @@ html(lang="en")
         section(id="section__home" class="home section")
             h2(class="home__title title") HOME
             div(class="home__container")
-                p(class="description__name") Hey, #[br]My name is
-                p(class="name") Alejandro.
-                span(class="home__idea") "Turning ideas and desing, into code"        
+                p(class="home__greetings") Hey, #[br]My name is
+                p(class="home__name") Alejandro.
+                span(class="home__slogan") "Turning ideas and desing, into code"        
                 img(class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false")
                 a(class="home__link--github networks" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
                     +logosSVG('git')
-                    //img(class="home__icon--github networks__logo" src="./assets/icons/github-icon-hover.svg" alt="icon of repositorio from  Alejandro Garcia" loading="lazy" draggable="false")
                     span(class="github__name networks__name") GitHub
                 a(class="home__link--linkedin networks"  href=linkedin title="Go To Linkedin" target="_blank" rel="noopener noreferrer")   
                     +logosSVG('linkedin')
-                    //img(class="home__icon--linkedin networks__logo" src="./assets/icons/linkedin-icon-hover.svg" alt="photo of linkedin from  Alejandro Garcia" loading="lazy" draggable="false")
                     span(class="linkedin__name networks__name") Linkedin
         section(class="skills section" id="section__skills")
             h2(class="skills__title title") SKILLS
             div(class="skills__logos logos")
-                select(class="logos__select") 
+                select(class="skills__select") 
                     option(value="0") Web
                     option(value="1") Mobil
                     option(value="2") Desktop
                     option(value="3") Test & Measurement
                     option(value="4") Tools & Platforms
-                input(type ="radio" name="skills" id="webdev" class="logos--webdev technologies" checked) 
+                input(type ="radio" name="skills" id="webdev" class="skills--webdev technologies" checked) 
                 label(for="webdev" class="label__tech" name="Web") Web
-                input(type ="radio" name="skills" id="mobil" class="logos--mobil technologies") 
+                input(type ="radio" name="skills" id="mobil" class="skills--mobil technologies") 
                 label(for="mobil" class="label__tech" name="Mobil") Mobil
-                input(type ="radio" name="skills" id="desktop" class="logos--desktop technologies") 
+                input(type ="radio" name="skills" id="desktop" class="skills--desktop technologies") 
                 label(for="desktop" class="label__tech" name="Desktop") Desktop
-                input(type ="radio" name="skills" id="test" class="logos--test technologies") 
+                input(type ="radio" name="skills" id="test" class="skills--test technologies") 
                 label(for="test" class="label__tech" name="Test & Measurement") Test & Measurement
-                input(type ="radio" name="skills" id="platforms" class="logos--platforms technologies") 
+                input(type ="radio" name="skills" id="platforms" class="skills--platforms technologies") 
                 label(for="platforms" class="label__tech" name="Tools & Platforms") Tools & Platforms                
         section(class="projects section" id="section__projects")
             h2(class="projects__title title") PROJECTS
@@ -192,7 +190,7 @@ html(lang="en")
                     li(class="menumobil__links--projects link")
                     li(class="menumobil__links--about link")
                     li(class="menumobil__links--contact link")
-        div(class="seccion__bubbles")
+        div(class="section__bubbles")
         div(class="modal")
             button(class="modal__button") CLOSE
             img(src="./assets/photos/project_1.jpg" class="modal__image")

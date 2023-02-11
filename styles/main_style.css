@@ -87,10 +87,10 @@ figure {
 
 /* Media Queries Mixin
 **********************/
-.seccion__bubbles {
+.section__bubbles {
   position: fixed;
   top: 0;
-  background-color: #d1252500;
+  left: 0;
   height: 100%;
   width: 100%;
   z-index: 0;
@@ -415,6 +415,7 @@ figure {
 }
 
 .title {
+  position: relative;
   width: 100%;
   height: 3.5rem;
   font-size: 2.5rem;
@@ -422,49 +423,38 @@ figure {
   color: var(--color_fontTitle);
   font-weight: 900;
   border-bottom: 1px solid var(--color_activated);
+  background-color: transparent;
+  backdrop-filter: blur(10px);
   letter-spacing: 0.05rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 .section {
   width: 90%;
   height: 100%;
-  min-height: calc(100vh - 7rem);
-  margin: 5rem auto;
+  min-height: calc(100vh - 9rem);
+  margin: 0rem auto 4.8rem auto;
   justify-items: center;
   transition: opacity 0.5s linear;
-  padding-top: 0rem;
+  padding-top: 4rem;
   z-index: 6;
 }
 @media only screen and (min-width: 768px) {
   .section {
     justify-items: flex-start;
-    padding-top: 4rem;
-    margin: 0rem auto;
   }
 }
 @media only screen and (min-width: 992px) {
   .section {
     width: 75%;
-    margin: -1rem auto;
-    padding-top: 4rem;
   }
 }
 
-.home {
-  margin-top: 3rem;
-}
-@media only screen and (min-width: 768px) {
-  .home {
-    margin-top: 0rem;
-  }
-}
 .home__container {
   display: grid;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 0rem;
   height: calc(100vh - 13rem);
-  min-height: calc(36rem);
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto-fit, min-max(3rem, 1fr));
 }
@@ -473,7 +463,57 @@ figure {
     margin: 1.5rem 0 0 0;
   }
 }
-.home__idea {
+.home__greetings {
+  position: relative;
+  grid-column: 1/span 2;
+  grid-row: 2/3;
+  margin: 0rem auto 1rem auto;
+  font-size: 1.8rem;
+  font-family: var(--font-Title);
+  word-wrap: break-word;
+  align-self: flex-start;
+  opacity: 0;
+  color: var(--color_font);
+  animation: animationIntoName 1.5s cubic-bezier(0.5, 0.53, 0, 1.73) 0.25s both;
+  z-index: 1;
+}
+.home__greetings br {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .home__greetings {
+    font-size: 2.8rem;
+    align-self: flex-end;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin: 0;
+  }
+  .home__greetings br {
+    display: block;
+  }
+}
+.home__name {
+  grid-column: 1/span 2;
+  grid-row: 2/3;
+  color: var(--color_activated);
+  font-size: 3.5rem;
+  font-weight: 600;
+  align-self: flex-end;
+  font-family: var(--font-Title);
+  margin: 0.5rem auto;
+  animation: animationIntoName 1.5s cubic-bezier(0.49, 0.58, 0.66, 1.14) both;
+  z-index: 1;
+}
+@media only screen and (min-width: 768px) {
+  .home__name {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    font-size: 4.5rem;
+    margin: 0rem 0 0 0;
+    align-self: flex-start;
+  }
+}
+.home__slogan {
   grid-column: 1/span 2;
   grid-row: 6/7;
   font-size: 1.2rem;
@@ -484,7 +524,7 @@ figure {
   z-index: 1;
 }
 @media only screen and (min-width: 768px) {
-  .home__idea {
+  .home__slogan {
     grid-column: 1/2;
     grid-row: 3/4;
     margin: 0rem 0 0 0;
@@ -497,7 +537,7 @@ figure {
   justify-self: start;
   grid-column: 1/span 2;
   grid-row: 1/2;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   border: 5px solid var(--color_activated);
   box-shadow: 1px 1px 10px 1px #000000;
   filter: grayscale(90%);
@@ -533,7 +573,7 @@ figure {
 }
 @media only screen and (min-width: 768px) {
   .home__link--github {
-    margin: 0rem 0 0 1rem;
+    margin: 0rem 0 0 1.5rem;
     grid-column: 2/3;
     grid-row: 6/7;
   }
@@ -554,61 +594,9 @@ figure {
 }
 @media only screen and (min-width: 768px) {
   .home__link--linkedin {
-    margin: 0rem 0 0 1rem;
+    margin: 0rem 0 0 1.5rem;
     grid-column: 1/2;
     grid-row: 6/7;
-  }
-}
-
-.description__name {
-  position: relative;
-  grid-column: 1/span 2;
-  grid-row: 2/3;
-  margin: 0rem auto 1rem auto;
-  font-size: 1.8rem;
-  font-family: var(--font-Title);
-  word-wrap: break-word;
-  align-self: flex-start;
-  opacity: 0;
-  color: var(--color_font);
-  animation: animationIntoName 1.5s cubic-bezier(0.5, 0.53, 0, 1.73) 0.25s both;
-  z-index: 1;
-}
-.description__name br {
-  display: none;
-}
-@media only screen and (min-width: 768px) {
-  .description__name {
-    font-size: 2.8rem;
-    align-self: flex-end;
-    grid-column: 1/2;
-    grid-row: 1/2;
-    margin: 0;
-  }
-  .description__name br {
-    display: block;
-  }
-}
-
-.name {
-  grid-column: 1/span 2;
-  grid-row: 2/3;
-  color: var(--color_activated);
-  font-size: 3.5rem;
-  font-weight: 600;
-  align-self: flex-end;
-  font-family: var(--font-Title);
-  margin: 0rem auto;
-  animation: animationIntoName 1.5s cubic-bezier(0.49, 0.58, 0.66, 1.14) both;
-  z-index: 1;
-}
-@media only screen and (min-width: 768px) {
-  .name {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    font-size: 4.5rem;
-    margin: 0rem 0 0 0;
-    align-self: flex-start;
   }
 }
 
@@ -617,10 +605,12 @@ figure {
   transition: transform 0.15s linear;
 }
 .networks:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
+  color: var(--color_activated);
 }
 .networks:hover > .networks__name {
   color: var(--color_activated);
+  transition: fill 0.2s linear;
 }
 .networks:hover .networks__path {
   fill: var(--color_activated);
@@ -630,6 +620,7 @@ figure {
   min-width: 2.2rem;
 }
 .networks__logo .networks__path {
+  transition: fill 0.2s linear;
   fill: var(--color_font);
 }
 
@@ -717,8 +708,16 @@ figure {
   row-gap: 0.5rem;
   margin: 3rem 0 0 0;
   background: var(--color_backdark);
+  border-left: 1px solid var(--color_font_section);
+  border-right: 1px solid var(--color_font_section);
+  border-top: 1px solid var(--color_font_section);
   z-index: 1;
+  background-color: var(--color_backdark);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color_activated);
+  border-left: 1px solid var(--color_font_section);
+  border-right: 1px solid var(--color_font_section);
+  border-top: 1px solid var(--color_font_section);
 }
 @media only screen and (min-width: 768px) {
   .logos {
@@ -727,7 +726,8 @@ figure {
     margin: 7vh 0 0 0;
   }
 }
-.logos__name {
+
+.skills__name {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -742,11 +742,11 @@ figure {
   animation: animationSkillsLogos 0.5s both linear;
 }
 @media only screen and (min-width: 768px) {
-  .logos__name {
+  .skills__name {
     font-size: 1rem;
   }
 }
-.logos__bubble {
+.skills__bubble {
   display: flex;
   width: 4rem;
   height: 4rem;
@@ -757,19 +757,19 @@ figure {
   border-radius: 50%;
 }
 @media only screen and (min-width: 768px) {
-  .logos__bubble {
+  .skills__bubble {
     width: 7rem;
     height: 7rem;
   }
 }
-.logos--webdev {
+.skills--webdev {
   color: var(--color_activated);
   border-left: none;
 }
-.logos--webdev:hover {
+.skills--webdev:hover {
   color: var(--color_font);
 }
-.logos__select {
+.skills__select {
   position: absolute;
   display: block;
   height: 2rem;
@@ -779,11 +779,14 @@ figure {
   font-size: 1.3rem;
   font-family: var(--font-General);
   color: var(--color_font);
-  background-color: var(--color_backlight);
+  background-color: var(--color_backdark);
   border-bottom: 1px solid var(--color_activated);
+  border-top: 1px solid var(--color_backlight);
+  border-right: 1px solid var(--color_backlight);
+  border-left: 1px solid var(--color_backlight);
 }
 @media only screen and (min-width: 768px) {
-  .logos__select {
+  .skills__select {
     display: none;
   }
 }
@@ -798,7 +801,6 @@ figure {
   margin: 4.5rem 0 0 0;
   z-index: 1;
 }
-
 .project {
   display: flex;
   position: relative;
@@ -806,7 +808,7 @@ figure {
   width: 30rem;
   height: 15rem;
   padding: 2rem;
-  background-color: var(--color_backdark);
+  background-color: var(--color_backmedium);
   border: 1px solid var(--color_font);
 }
 .project__technologies {
@@ -821,9 +823,10 @@ figure {
   bottom: -20.1%;
   padding: 0.3rem;
   background: var(--color_backdark);
-  border-top: 1px solid var(--color_activated);
-  border-left: 1px solid var(--color_backdark);
-  border-right: 1px solid var(--color_backdark);
+  border-top: 1px solid var(--color_font);
+  border-left: 1px solid var(--color_font);
+  border-right: 1px solid var(--color_font);
+  border-bottom: 2px solid var(--color_activated);
   z-index: 1;
 }
 .project__technologies--container {
@@ -880,10 +883,10 @@ figure {
   right: -5%;
   padding: 0.3rem;
   background: var(--color_backdark);
-  border-left: 1px solid var(--color_activated);
-  border-right: 1px solid var(--color_backdark);
-  border-top: 1px solid var(--color_backdark);
-  border-bottom: 1px solid var(--color_backdark);
+  border-top: 1px solid var(--color_font);
+  border-left: 1px solid var(--color_font);
+  border-right: 1px solid var(--color_font);
+  border-bottom: 2px solid var(--color_activated);
 }
 .project__options--zoom {
   width: 2.5rem;
@@ -983,7 +986,11 @@ figure {
   align-items: center;
   justify-content: center;
   background-color: var(--color_backdark);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color_activated);
+  border-left: 1px solid var(--color_font_section);
+  border-right: 1px solid var(--color_font_section);
+  border-top: 1px solid var(--color_font_section);
   z-index: 1;
 }
 .aboutme__paragraph {
@@ -1124,7 +1131,7 @@ figure {
 }
 
 .timeline__point--one::before {
-  content: "ALWAYS";
+  content: "1995";
   top: -3.2rem;
 }
 
@@ -1174,12 +1181,7 @@ figure {
 }
 
 .contact {
-  height: 45.5rem;
-}
-@media only screen and (min-width: 992px) {
-  .contact {
-    height: 57.5rem;
-  }
+  min-height: calc(100vh - 5rem);
 }
 .contact__type {
   display: flex;
@@ -1191,12 +1193,18 @@ figure {
 }
 .contact__type--networks {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  max-width: 20rem;
+  max-width: 25rem;
+  min-height: 7rem;
   z-index: 1;
-  background-color: var(--color_backmedium);
+  background-color: var(--color_backdark);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color_activated);
+  border-left: 1px solid var(--color_font_section);
+  border-right: 1px solid var(--color_font_section);
+  border-top: 1px solid var(--color_font_section);
 }
 .contact__type--message {
   width: 100%;
@@ -1351,7 +1359,7 @@ figure {
   height: 1.2rem;
   bottom: 0rem;
   left: 0rem;
-  font-weight: bolder;
+  font-weight: bold;
   font-size: 0.8rem;
   color: var(--color_backdark);
   background: var(--color_activated);

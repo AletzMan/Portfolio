@@ -22,6 +22,7 @@ $sizeContainerMenuMobil: 35rem;
     height: 100%;
     width: 100%;
     z-index: 0;
+    background-color: #e9971d00;
 }
 
 .perspective {
@@ -31,148 +32,8 @@ $sizeContainerMenuMobil: 35rem;
     width: 100%;
     z-index: -1;
     perspective: 300px;
-    left: 0;
+    left: -1;
     perspective-origin: 50vw 50vh;
-
-    &__container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-    }
-
-    &__back {
-        position: absolute;
-        width: $sizecube;
-        height: $sizecube/1.6;
-        background-color: var(--color_room_back);
-        opacity: 1;
-        transform: rotateX(0deg) translateX(0%) translateZ(-20vw) translateY(36%);
-    }
-
-    &__down {
-        position: absolute;
-        width: $sizecube;
-        height: $sizecube/1.6;
-        background-color: var(--color_room_down);
-        opacity: 1;
-        transform: rotateX(90deg) translateX(0vw) translateZ(-53.5vh) translateY(-38%);
-    }
-
-    &__up {
-        position: absolute;
-        width: $sizecube;
-        height: $sizecube/1.6;
-        background-color: var(--color_room_up);
-        opacity: 0;
-        transform: rotateX(90deg) translateX(0vw) translateZ(8.7vh) translateY(-26%);
-    }
-
-    &__left {
-        position: absolute;
-        width: $sizecube;
-        height: $sizecube/1.6;
-        background-color: var(--color_room_left);
-        opacity: 1;
-        transform: rotateY(90deg) translateZ(-50vw) translateY(36%) translateX(0%);
-    }
-
-    &__right {
-        position: absolute;
-        width: $sizecube;
-        height: $sizecube/1.6;
-        background-color: var(--color_room_right);
-        opacity: 1;
-        transform: rotateY(-90deg) translateZ(-50vw) translateY(36%) translateX(16%);
-    }
-
-    &__lamp {
-        position: absolute;
-        width: 100px;
-        height: 150px;
-        top: 0;
-        background-color: #FFFF5500;
-        transform: translateZ(-71px) translateY(-70%) translateX(calc(48.5vw - 50px));
-
-        @include media(tablet) {
-            transform: translateZ(calc(11vw - 100px)) translateY(calc(35% + 5vh)) translateX(calc(50vw - 55px));
-        }
-
-        &--wire {
-            position: absolute;
-            width: 2px;
-            height: 50%;
-            left: calc(50% - 1px);
-            background-color: rgb(14, 14, 14);
-        }
-
-        &--circle {
-            position: absolute;
-            width: 8px;
-            height: 5%;
-            left: calc(50% - 4px);
-            top: 50%;
-            border-radius: 5px 5px 0 0;
-            background-color: rgb(0, 0, 0);
-        }
-
-        &--conect {
-            position: absolute;
-            width: 20px;
-            height: 10%;
-            left: calc(50% - 10px);
-            top: 54%;
-            border-radius: 1rem 1rem 0 0;
-            background-color: rgb(8, 8, 8);
-        }
-
-        &--base {
-            position: absolute;
-            width: 80%;
-            height: 25%;
-            left: calc(10%);
-            top: 60%;
-            border-radius: 3rem 3rem 0 0;
-            background-color: rgb(14, 13, 13);
-        }
-
-        &--baseellipse {
-            position: absolute;
-            width: 80%;
-            height: 10%;
-            left: 10%;
-            top: 80%;
-            border-radius: 100%;
-            background-color: #000000;
-            border: 1px solid #272727;
-        }
-
-        &--ellipse {
-            position: absolute;
-            width: 80%;
-            height: 10%;
-            left: 10%;
-            top: 80%;
-            border-radius: 100%;
-            background-color: #76dee4;
-            filter: hue-rotate(45deg);
-            animation: animationLight 10s linear infinite;
-        }
-
-        &--light {
-            position: absolute;
-            width: 600px;
-            height: 800px;
-            top: -300%;
-            left: -325%;
-            opacity: 0.2;
-
-            //animation: animationLight 10s linear infinite;
-            & polygon {
-                fill: url('#grad');
-            }
-        }
-    }
 }
 
 .landscape {
@@ -183,7 +44,43 @@ $sizeContainerMenuMobil: 35rem;
     left: -50%;
     opacity: 1;
     transform-style: preserve-3d;
-    transform: rotateX(0deg) translateX(50%) translateZ(-20vw) translateY(70%);
+    transform: rotateX(0deg) translateX(50%) translateZ(-20vw) translateY(55%);
+    border-radius: 0.5em 0.5em 0 0;
+    z-index: 2;
+
+    &__bar {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3em;
+        background-color: var(--color_backlight);
+        border-radius: 0.5em 0.5em 0 0;
+    }
+
+    &__circle {
+        width: 2.1em;
+        height: 2.1em;
+        margin: 0 0.5em 0 0;
+        border-radius: 50%;
+        box-shadow: -0px -0px 15px 2px rgba($color: #000000, $alpha: 0.6) inset;
+    }
+
+    &__min {       
+        background-color: #68e91daa;
+    }
+    
+    &__max {
+        background-color: #e9971daa;        
+    }
+
+    &__close {
+        background-color: #e42525aa;
+    }
 
     &__window {
         position: absolute;
@@ -191,20 +88,33 @@ $sizeContainerMenuMobil: 35rem;
         align-items: flex-end;
         justify-content: center;
         width: 70%;
-        height: 90%;
+        height: 18em;
         left: 15%;
         top: 5%;
+        padding: 0 0 0 0.3em;
         background-color: var(--color_backdark);
-        border: 1.3rem groove #181818;
+        border: 0.05rem solid var(--color_backmedium);
         overflow: hidden;
+        z-index: 1;
+        @include media(tablet) {
+            justify-content: left;
+        }        
 
         &--text {
-            color: var(--color_activated);
+            color: var(--color_font);
             font-size: calc(4.5vw + 1rem);
             text-align: center;
+            font-weight: 100;
             margin: 1rem 0 0.2rem 0.5rem;
             font-family: 'Inconsolata', monospace;
             line-height: 6.5vw;
+            @include media(tablet) {
+                text-align: left;
+            }
+            &::before {
+                content: '›';
+                color: var(--color_activated);
+            }
 
             &::after {
                 position: absolute;
@@ -225,7 +135,15 @@ $sizeContainerMenuMobil: 35rem;
     }
 }
 
+@keyframes animationCursor {
+    0% {
+        content: "";
+    }
 
+    100% {
+        content: "|";
+    }
+}
 
 
 .header {
@@ -475,7 +393,7 @@ $sizeContainerMenuMobil: 35rem;
         font-weight: 600;
         align-self: flex-end;
         font-family: var(--font-Title);
-        margin: 0.5rem auto;
+        margin: 1rem auto;
         animation: animationIntoName 1.5s cubic-bezier(.49, .58, .66, 1.14) both;
         z-index: 1;
 
@@ -492,9 +410,13 @@ $sizeContainerMenuMobil: 35rem;
         grid-column: 1 / span 2;
         grid-row: 6 / 7;
         font-size: 1.2rem;
-        margin: -0.5rem auto;
+        width: 90%;
+        margin: 0.5rem auto;
         color: var(--color_font);
         align-self: flex-end;
+        background-color: transparent;
+        padding: 0.5em;
+        backdrop-filter: blur(10px);
         animation: animationSkillsLogos 1s linear 2.5s both;
         z-index: 1;
 
@@ -544,6 +466,9 @@ $sizeContainerMenuMobil: 35rem;
         grid-row: 7 / 8;
         z-index: 1;
         transform: translateY(200%);
+        background-color: transparent;
+        padding: 0.5em;
+        backdrop-filter: blur(10px);
         animation: animationLogosContact 1s both cubic-bezier(.72, .38, .03, 1.56);
 
         @include media(tablet) {
@@ -565,6 +490,9 @@ $sizeContainerMenuMobil: 35rem;
         grid-row: 7 / 8;
         z-index: 1;
         transform: translateY(200%);
+        background-color: transparent;
+        padding: 0.5em;
+        backdrop-filter: blur(10px);
         animation: animationLogosContact 1s both cubic-bezier(.5, .53, 0, 1.73) 0.5s;
 
         @include media(tablet) {
@@ -573,15 +501,26 @@ $sizeContainerMenuMobil: 35rem;
             grid-row: 6 / 7;
         }
     }
-
-
 }
 
+@keyframes animationLogosContact {
+    0% {
+        transform: translateY(200%);
+    }
 
+    80% {
+        transform: translateY(-40%);
+    }
+
+    100% {
+        transform: translateY(10%);
+    }
+}
 
 .networks {
     text-decoration: none;
     transition: transform 0.15s linear;
+
 
     &:hover {
         transform: scale(1.10);
@@ -589,7 +528,7 @@ $sizeContainerMenuMobil: 35rem;
 
         &>.networks__name {
             color: var(--color_activated);
-            transition: fill 0.2s linear;
+            transition: fill, color 0.4s linear;
         }
 
         & .networks__path {
@@ -662,6 +601,7 @@ $sizeContainerMenuMobil: 35rem;
     background-color: var(--color_backmedium);
     border-left: 1px solid var(--color_backdark);
     overflow: hidden;
+    transition: background-color, color 0.3s linear;
     z-index: 1;
     cursor: pointer;
 
@@ -764,6 +704,62 @@ $sizeContainerMenuMobil: 35rem;
 
     &__select {
         position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        top: -2em;
+        left: 0;
+
+        @include media(tablet) {
+            display: none;
+        }
+    }
+
+    &__back {
+        width: 6em;
+        height: 2em;
+        color: var(--color_font);
+        background-color: var(--color_back_section);
+        border: 1px solid var(--color_activated);
+        background-image: url("../assets/icons/arrow-back-icon.svg");
+        background-repeat: no-repeat;
+        background-size: 1em;
+        background-position: center;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(200%);
+        }
+    }
+
+    &__next {
+        width: 5em;
+        height: 2em;
+        color: var(--color_font);
+        background-color: var(--color_back_section);
+        border: 1px solid var(--color_activated);
+        transform: rotate(180deg);
+        background-image: url("../assets/icons/arrow-back-icon.svg");
+        background-repeat: no-repeat;
+        background-size: 1em;
+        background-position: center;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(200%);
+        }
+    }
+
+    &__selecttitle {
+        padding: 0.1rem 1rem 0 1rem;
+        background-color: var(--color_font_section);
+        color: var(--color_activated);
+        font-size: 1.2rem;
+    }
+
+    /*&__select {
+        position: absolute;
         display: block;
         height: 2rem;
         top: -2rem;
@@ -781,7 +777,7 @@ $sizeContainerMenuMobil: 35rem;
         @include media(tablet) {
             display: none;
         }
-    }
+    }*/
 }
 
 .projects {
@@ -806,7 +802,7 @@ $sizeContainerMenuMobil: 35rem;
     justify-content: center;
     width: 30rem;
     height: 15rem;
-    padding: 2rem;
+    padding: 0rem;
     background-color: var(--color_backmedium);
     border: 1px solid var(--color_font);
 
@@ -870,8 +866,7 @@ $sizeContainerMenuMobil: 35rem;
 
     &__image {
         width: 100%;
-        object-fit: cover;
-        transition: transform 0.3s linear;
+        object-fit: contain;
         border: 2px solid var(--color_font);
     }
 
@@ -1253,7 +1248,7 @@ $sizeContainerMenuMobil: 35rem;
         flex-direction: column;
         width: 100%;
         gap: 3rem;
-        margin: 8rem 0 0 0;
+        margin: 4rem 0 0 0;
         align-items: center;
 
         &--networks {
@@ -1463,12 +1458,11 @@ $sizeContainerMenuMobil: 35rem;
     transition: left 0.1 linear;
     border-radius: 50%;
     text-align: center;
-    box-shadow: -10px -10px 20px 7px var(--color_font_section) inset;
+    box-shadow: -10px -10px 20px 7px var(--color_bubble) inset;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 65%;
-    opacity: 0.25;
-    z-index: 0;
+    opacity: 0.15;
 
     &:hover {
         opacity: 1;
@@ -1518,15 +1512,7 @@ $sizeContainerMenuMobil: 35rem;
 
 @keyframes animationModal {}
 
-@keyframes animationCursor {
-    0% {
-        content: "";
-    }
 
-    100% {
-        content: "|";
-    }
-}
 
 @keyframes animationIntoName {
     0% {
@@ -1574,19 +1560,7 @@ $sizeContainerMenuMobil: 35rem;
     }
 }
 
-@keyframes animationLogosContact {
-    0% {
-        transform: translateY(200%);
-    }
 
-    80% {
-        transform: translateY(-40%);
-    }
-
-    100% {
-        transform: translateY(0%);
-    }
-}
 
 @keyframes animationPhoto {
     0% {

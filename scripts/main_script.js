@@ -27,14 +27,17 @@ const MOBIL_MENU_LINKS = document.querySelectorAll(".link");
 
 const NUMBER_BUBBLE = 20;
 const SIZE_BUBBLE = 45;
-const NAME_LOGOS = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
+const NAME_LOGOS = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "react", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
+
+
+
 
 const LANGUAGE = {
 	english: {
 		header: ["Home", "Skills", "Projects", "About Me", "Contact"],
 		section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
-		intro: ["Hey, <br> My name is", '"Transforming concepts and design, into code"'],
-		skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools & Platforms"],
+		intro: ["Hey👋, I'm", '"Transforming concepts and design, into code"'],
+		skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools"],
 		about: [
 			"THE BEGINNING",
 			"I am a self-taught person, and passionate about programming. From a very young age I was very interested in technology, first electronics, I liked to disassemble electronic objects and see how they worked inside.",
@@ -64,8 +67,8 @@ const LANGUAGE = {
 	spanish: {
 		header: ["Inicio", "Habilidades", "Proyectos", "Sobre mi", "Contacto"],
 		section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
-		intro: ["Hola, <br> Mi nombre es", '"Transformando conceptos y diseño, en código"'],
-		skills: ["Web", "Mobil", "Desktop", "Prueba y Medición", "Herramientas y Plataformas"],
+		intro: ["Hola👋, Soy", '"Transformando conceptos y diseño, en código"'],
+		skills: ["Web", "Móvil", "Escritorio", "Prueba y Medición", "Herramientas"],
 		about: [
 			"EL PRINCIPIO",
 			"Soy una persona autodidacta, y apasionado por la programación. Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.",
@@ -97,6 +100,7 @@ const LANGUAGE = {
 let containerTags = [];
 let selectedLanguage = "spanish";
 let textPresentation = [];
+let language = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.english;
 
 
 onload = () => {
@@ -119,35 +123,36 @@ const mobileDetect = () => {
 ////SELECT LANGUAGE//////
 SWITCH_LANGUAGE.addEventListener('change', () => {
 	selectedLanguage = SWITCH_LANGUAGE.checked ? "english" : "spanish";
+	language = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.english;
 	setTimeout(() => {
 		selectLanguage();
 	}, 300);
 })
 
 const selectLanguage = () => {
-	let lan = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.english;
+
 	DESKTOP_MENU_LINKS.forEach((menu, index) => {
-		menu.innerText = lan.header[index];
+		menu.innerText = language.header[index];
 	})
 	SECTION_TITLES.forEach((section, index) => {
-		section.innerText = lan.section[index];
+		section.innerText = language.section[index];
 	})
-	GREETINGS.innerHTML = lan.intro[0];
-	SLOGAN.innerHTML = lan.intro[1];
+	GREETINGS.innerHTML = language.intro[0];
+	SLOGAN.innerHTML = language.intro[1];
 	SKILL_CATEGORY_LABELS.forEach((label, index) => {
-		label.innerText = lan.skills[index];
+		label.innerText = language.skills[index];
 	})
 	ABOUT_PARAGRAPHS.forEach((paragraph, index) => {
 		if (paragraph.nodeName === "P") {
-			paragraph.innerText = lan.about[index + 1];
+			paragraph.innerText = language.about[index + 1];
 		} else {
 			for (let i = 0; i < ABOUT_PARAGRAPHS_LIST.childElementCount; i++) {
-				ABOUT_PARAGRAPHS_LIST.children[i].innerText = lan.about[8][0].devsoft[i];
+				ABOUT_PARAGRAPHS_LIST.children[i].innerText = language.about[8][0].devsoft[i];
 			}
 		}
 	})
-	CONTACT_MESSAGE.innerHTML = lan.contact[0];
-	FOOTER.children[0].innerHTML = lan.footer[0];
+	CONTACT_MESSAGE.innerHTML = language.contact[0];
+	FOOTER.children[0].innerHTML = language.footer[0];
 }
 
 
@@ -241,13 +246,16 @@ class TagBubble {
 		NEW_BUBBLE.style.top = `${this.posY}px`;
 		containerTags.push(NEW_BUBBLE);
 		SECTION_BUBBLES.appendChild(NEW_BUBBLE);
-		let fontSize = parseFloat(window.getComputedStyle(NEW_BUBBLE, null).getPropertyValue('font-size'));
+		//let fontSize = parseFloat(window.getComputedStyle(NEW_BUBBLE, null).getPropertyValue('font-size'));
 		NEW_BUBBLE.style.width = `${Math.floor(NEW_BUBBLE.getBoundingClientRect().width + SIZE_BUBBLE)}px`;
-		NEW_BUBBLE.style.paddingTop = `${(Math.floor(NEW_BUBBLE.getBoundingClientRect().width / 2) - fontSize / 1.5)}px`;
+		//NEW_BUBBLE.style.paddingTop = `${(Math.floor(NEW_BUBBLE.getBoundingClientRect().width / 2) - fontSize / 1.5)}px`;
 		NEW_BUBBLE.style.height = `${Math.floor(NEW_BUBBLE.getBoundingClientRect().width)}px`;
 
 		this.width = Math.floor(NEW_BUBBLE.getBoundingClientRect().width);
 		this.height = Math.floor(NEW_BUBBLE.getBoundingClientRect().height);
+
+		//console.log(SECTION_BUBBLES.getBoundingClientRect().width)
+		//console.log(SECTION_BUBBLES.getBoundingClientRect().height)
 
 		this.initPosMouseX = 0;
 		this.initPosMouseY = 0;
@@ -291,13 +299,17 @@ let oldTimeStamp = 0;
 let bubblesContainer = [];
 
 const initAnimation = () => {
-	createBubbleTags();
-	window.requestAnimationFrame((timeStamp) => { animationLoop(timeStamp) });
+	setTimeout(() => {
+		createBubbleTags();
+		window.requestAnimationFrame((timeStamp) => { animationLoop(timeStamp) });
+	}, 200);
 }
 const createBubbleTags = () => {
 	for (let index = 0; index < NUMBER_BUBBLE; index++) {
 		let positionTagX = GetRandomNumber(50, window.innerWidth - 50);
 		let positionTagY = GetRandomNumber(100, SECTION_BUBBLES.getBoundingClientRect().height - 20);
+
+
 		bubblesContainer.push(new TagBubble(positionTagX, positionTagY, GetRandomNumber(-20, 70), GetRandomNumber(-20, 70), GetRandomNumber(1, 10)));
 	}
 	for (let i = 0; i < bubblesContainer.length; i++) {
@@ -405,11 +417,34 @@ function GetRandomNumberFloat(min, max) {
 
 const SOURCE_LOGOS = "./assets/icons/";
 const SELECT_SKILLS = document.querySelector('.skills__select');
+const SELECT_BACK = document.querySelector('.skills__back');
+const SELECT_NEXT = document.querySelector('.skills__next');
+const SELECT_TEXT = document.querySelector('.skills__selecttitle');
 
-SELECT_SKILLS.addEventListener('change', (e) => {
-	console.log(e.target.value)
-	CreateLogoSkill(e.target.value);
-})
+
+let selectedSkill = 0;
+skillSelect();
+SELECT_BACK.addEventListener('click', () => {
+	if (selectedSkill > 0) {
+		selectedSkill--;
+		CreateLogoSkill(selectedSkill);
+		skillSelect();
+	}
+});
+SELECT_NEXT.addEventListener('click', () => {
+	if (selectedSkill < 4) {
+		selectedSkill++;
+		CreateLogoSkill(selectedSkill);
+		skillSelect();
+	}
+});
+function skillSelect() {
+	SELECT_TEXT.innerHTML = language.skills[selectedSkill];
+}
+
+
+
+
 
 
 for (let index = 0; index < SKILLS_CATEGORIES.length; index++) {
@@ -418,14 +453,14 @@ for (let index = 0; index < SKILLS_CATEGORIES.length; index++) {
 	})
 }
 const SKILLS = [
-	["html", "css", "javascript", "pug", "sass", "git", "github", "vscode"],
+	["html", "css", "javascript", "react", "sass", "pug", "git", "github", "vscode"],
 	["csharp", "netcore", "xaml", "git", "github", "vs"],
 	["csharp", "netcore", "xamarin", "xaml", "vs", "git", "github"],
 	["c", "csharp", "xaml", "labview", "siemens", "git", "github"],
 	["vscode", "vs", "git", "labview", "teststand", "cvi", "tiaportal"]
 ]
 const SKILL_NAMES = [
-	["html", "css", "javascript", "pug", "sass", "git", "git hub", "visual studio code"],
+	["html", "css", "javascript", "react js", "sass", "pug", "git", "git hub", "visual studio code"],
 	["c#", "netcore", "xaml", "git", "github", "visual studio"],
 	["c#", "netcore", "xamarin forms", "xaml", "visual studio", "git", "github"],
 	["c", "c#", "xaml", `labview (Graphic)`, "scl, kop", "git", "github"],
@@ -465,6 +500,7 @@ const CreateLogoSkill = (numberSkill) => {
 let projectsZoom = document.querySelectorAll(".project__options--zoom");
 const BODY = document.querySelector("body");
 const SOURCE_PHOTOS = "./assets/photos/project_";
+const SOURCE_PREVIEW_PHOTOS = "./assets/photos/preview_project_";
 
 let Title = [];
 const TECHNOLOGIES = [
@@ -536,7 +572,7 @@ const EditProjects = () => {
 			NEW_IMAGE_DESCRIPTION.classList = "project__technologies--label";
 			NEW_CONTAINER_TECH.appendChild(NEW_IMAGE_DESCRIPTION);
 		});
-		PROJECT_IMAGE[index].src = SOURCE_PHOTOS + index + ".jpg";
+		PROJECT_IMAGE[index].src = SOURCE_PREVIEW_PHOTOS + index + ".jpg";
 		PROJECT_REPOSITORY[index].href = REPOSITORIES[index];
 		PROJECT_CORTAIN_ONE[index].innerText = Title[index].split(' ')[0];
 		PROJECT_CORTAIN_TWO[index].innerText = Title[index].split(' ')[1];

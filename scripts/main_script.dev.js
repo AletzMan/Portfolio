@@ -33,13 +33,13 @@ var SWITCH_LANGUAGE = document.querySelector(".language__check");
 var MOBIL_MENU_LINKS = document.querySelectorAll(".link");
 var NUMBER_BUBBLE = 20;
 var SIZE_BUBBLE = 45;
-var NAME_LOGOS = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
+var NAME_LOGOS = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "react", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
 var LANGUAGE = {
   english: {
     header: ["Home", "Skills", "Projects", "About Me", "Contact"],
     section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
-    intro: ["Hey, <br> My name is", '"Transforming concepts and design, into code"'],
-    skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools & Platforms"],
+    intro: ["Hey👋, I'm", '"Transforming concepts and design, into code"'],
+    skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools"],
     about: ["THE BEGINNING", "I am a self-taught person, and passionate about programming. From a very young age I was very interested in technology, first electronics, I liked to disassemble electronic objects and see how they worked inside.", "I decided to study electronics, where I came across microcontrollers and so I was able to combine my two current passions, electronics and programming.", "I started working in the electronics field as a diagnostic technician.", "I set up my own business, where I offered computer rental and repair services. Here I started to delve into the world of programming in a self-taught way, with ActionScript and Visual Basic.", "I started working as a mechanical assembly technician for the electronics industry, where test and automation equipment is manufactured for companies that manufacture electronic products.", "I was promoted to hardware technician, where I did the routing and wiring of the electrical and electronic part of the equipment.", "I was promoted to Hardware Engineer, where I did the electrical diagrams and debugging of the electrical and electronics.", [{
       devsoft: ["I was promoted to Development Engineer, my responsibilities:", "Logical part of the equipment by programming (C, C#, LabView, TestStand, CVI, PLC Siemens(TIA Portal))", "BOM(Bill Of Materials)", "Realization of electrical diagrams", "Debugging of the code and electrical part", "Equipment manual", "Delivery and installation of the equipment on site to the customer"]
     }], "I had the opportunity to start a business, and I decided to work as a freelance, where I do residential electrical installation work, and in the area of development with languages such as C #, for mobile and desktop applications.", "Since then I have dedicated myself independently to study several programming languages, I focus on Web Development, and from the first day I have been excited about this world, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to go deeper into the Back-End. And above all, never stop learning."],
@@ -49,8 +49,8 @@ var LANGUAGE = {
   spanish: {
     header: ["Inicio", "Habilidades", "Proyectos", "Sobre mi", "Contacto"],
     section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
-    intro: ["Hola, <br> Mi nombre es", '"Transformando conceptos y diseño, en código"'],
-    skills: ["Web", "Mobil", "Desktop", "Prueba y Medición", "Herramientas y Plataformas"],
+    intro: ["Hola👋, Soy", '"Transformando conceptos y diseño, en código"'],
+    skills: ["Web", "Móvil", "Escritorio", "Prueba y Medición", "Herramientas"],
     about: ["EL PRINCIPIO", "Soy una persona autodidacta, y apasionado por la programación. Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.", "Decidí estudiar la carrera de electrónica, donde me encontré con los microcontroladores y así pude combinar mis dos actuales pasiones, la electrónica y la programación.", "Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.", "Emprendi mi negocio donde ofrecía servicios de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación de forma autodidacta, con ActionScript y Visual Basic.", "Empecé a trabajar como técnico de ensamble mecanico, para la industria electrónica, donde se fabrican equipos de prueba y automatización para empresas que fabrican productos electrónicos.", "Fui ascendido a técnico de hardware, donde realizaba el ruteo y cableado de la parte eléctrica y electrónica de los equipos.", "Fui ascendido a Ingeniero de Hardware, donde realizaba los diagramas eléctricos y la depuración de la parte eléctrica y electrónica.", [{
       devsoft: ["Fui ascendido a Ingeniero de Desarrollo, mis responsabilidades:", "Parte lógica de los equipos mediante programación (C, C#, LabView, TestStand, CVI, PLC Siemens(TIA Portal))", "BOM(Lista de materiales)", "Realización de esquemas eléctricos", "Depuración del código y parte electrica", "Manual del equipo", "Entrega e instalación del equipo en sitio al cliente"]
     }], "Tuve la oportunidad de montar un negocio, y decidí trabajar como freelance, donde realizo trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.", "Desde entonces me he dedicado de manera autonoma a estudiar varios lenguajes de programación, me enfoque en Desarrollo Web, y desde el primer día he estado entusiasmado con este mundo, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End. Y sobre todo, nunca dejar de aprender."],
@@ -61,6 +61,7 @@ var LANGUAGE = {
 var containerTags = [];
 var selectedLanguage = "spanish";
 var textPresentation = [];
+var language = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.english;
 
 onload = function onload() {
   SELECTED_MENU_ITEM.style.left = "0px";
@@ -85,35 +86,35 @@ var mobileDetect = function mobileDetect() {
 
 SWITCH_LANGUAGE.addEventListener('change', function () {
   selectedLanguage = SWITCH_LANGUAGE.checked ? "english" : "spanish";
+  language = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.english;
   setTimeout(function () {
     selectLanguage();
   }, 300);
 });
 
 var selectLanguage = function selectLanguage() {
-  var lan = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.english;
   DESKTOP_MENU_LINKS.forEach(function (menu, index) {
-    menu.innerText = lan.header[index];
+    menu.innerText = language.header[index];
   });
   SECTION_TITLES.forEach(function (section, index) {
-    section.innerText = lan.section[index];
+    section.innerText = language.section[index];
   });
-  GREETINGS.innerHTML = lan.intro[0];
-  SLOGAN.innerHTML = lan.intro[1];
+  GREETINGS.innerHTML = language.intro[0];
+  SLOGAN.innerHTML = language.intro[1];
   SKILL_CATEGORY_LABELS.forEach(function (label, index) {
-    label.innerText = lan.skills[index];
+    label.innerText = language.skills[index];
   });
   ABOUT_PARAGRAPHS.forEach(function (paragraph, index) {
     if (paragraph.nodeName === "P") {
-      paragraph.innerText = lan.about[index + 1];
+      paragraph.innerText = language.about[index + 1];
     } else {
       for (var i = 0; i < ABOUT_PARAGRAPHS_LIST.childElementCount; i++) {
-        ABOUT_PARAGRAPHS_LIST.children[i].innerText = lan.about[8][0].devsoft[i];
+        ABOUT_PARAGRAPHS_LIST.children[i].innerText = language.about[8][0].devsoft[i];
       }
     }
   });
-  CONTACT_MESSAGE.innerHTML = lan.contact[0];
-  FOOTER.children[0].innerHTML = lan.footer[0];
+  CONTACT_MESSAGE.innerHTML = language.contact[0];
+  FOOTER.children[0].innerHTML = language.footer[0];
 };
 
 var contentPresentation = function contentPresentation() {
@@ -209,13 +210,15 @@ function () {
       NEW_BUBBLE.style.left = "".concat(this.posX, "px");
       NEW_BUBBLE.style.top = "".concat(this.posY, "px");
       containerTags.push(NEW_BUBBLE);
-      SECTION_BUBBLES.appendChild(NEW_BUBBLE);
-      var fontSize = parseFloat(window.getComputedStyle(NEW_BUBBLE, null).getPropertyValue('font-size'));
-      NEW_BUBBLE.style.width = "".concat(Math.floor(NEW_BUBBLE.getBoundingClientRect().width + SIZE_BUBBLE), "px");
-      NEW_BUBBLE.style.paddingTop = "".concat(Math.floor(NEW_BUBBLE.getBoundingClientRect().width / 2) - fontSize / 1.5, "px");
+      SECTION_BUBBLES.appendChild(NEW_BUBBLE); //let fontSize = parseFloat(window.getComputedStyle(NEW_BUBBLE, null).getPropertyValue('font-size'));
+
+      NEW_BUBBLE.style.width = "".concat(Math.floor(NEW_BUBBLE.getBoundingClientRect().width + SIZE_BUBBLE), "px"); //NEW_BUBBLE.style.paddingTop = `${(Math.floor(NEW_BUBBLE.getBoundingClientRect().width / 2) - fontSize / 1.5)}px`;
+
       NEW_BUBBLE.style.height = "".concat(Math.floor(NEW_BUBBLE.getBoundingClientRect().width), "px");
       this.width = Math.floor(NEW_BUBBLE.getBoundingClientRect().width);
-      this.height = Math.floor(NEW_BUBBLE.getBoundingClientRect().height);
+      this.height = Math.floor(NEW_BUBBLE.getBoundingClientRect().height); //console.log(SECTION_BUBBLES.getBoundingClientRect().width)
+      //console.log(SECTION_BUBBLES.getBoundingClientRect().height)
+
       this.initPosMouseX = 0;
       this.initPosMouseY = 0;
       NEW_BUBBLE.addEventListener('mousedown', function (e) {
@@ -266,10 +269,12 @@ var oldTimeStamp = 0;
 var bubblesContainer = [];
 
 var initAnimation = function initAnimation() {
-  createBubbleTags();
-  window.requestAnimationFrame(function (timeStamp) {
-    animationLoop(timeStamp);
-  });
+  setTimeout(function () {
+    createBubbleTags();
+    window.requestAnimationFrame(function (timeStamp) {
+      animationLoop(timeStamp);
+    });
+  }, 200);
 };
 
 var createBubbleTags = function createBubbleTags() {
@@ -397,10 +402,29 @@ function GetRandomNumberFloat(min, max) {
 
 var SOURCE_LOGOS = "./assets/icons/";
 var SELECT_SKILLS = document.querySelector('.skills__select');
-SELECT_SKILLS.addEventListener('change', function (e) {
-  console.log(e.target.value);
-  CreateLogoSkill(e.target.value);
+var SELECT_BACK = document.querySelector('.skills__back');
+var SELECT_NEXT = document.querySelector('.skills__next');
+var SELECT_TEXT = document.querySelector('.skills__selecttitle');
+var selectedSkill = 0;
+skillSelect();
+SELECT_BACK.addEventListener('click', function () {
+  if (selectedSkill > 0) {
+    selectedSkill--;
+    CreateLogoSkill(selectedSkill);
+    skillSelect();
+  }
 });
+SELECT_NEXT.addEventListener('click', function () {
+  if (selectedSkill < 4) {
+    selectedSkill++;
+    CreateLogoSkill(selectedSkill);
+    skillSelect();
+  }
+});
+
+function skillSelect() {
+  SELECT_TEXT.innerHTML = language.skills[selectedSkill];
+}
 
 var _loop = function _loop(_index4) {
   SKILLS_CATEGORIES[_index4].addEventListener("click", function (e) {
@@ -412,8 +436,8 @@ for (var _index4 = 0; _index4 < SKILLS_CATEGORIES.length; _index4++) {
   _loop(_index4);
 }
 
-var SKILLS = [["html", "css", "javascript", "pug", "sass", "git", "github", "vscode"], ["csharp", "netcore", "xaml", "git", "github", "vs"], ["csharp", "netcore", "xamarin", "xaml", "vs", "git", "github"], ["c", "csharp", "xaml", "labview", "siemens", "git", "github"], ["vscode", "vs", "git", "labview", "teststand", "cvi", "tiaportal"]];
-var SKILL_NAMES = [["html", "css", "javascript", "pug", "sass", "git", "git hub", "visual studio code"], ["c#", "netcore", "xaml", "git", "github", "visual studio"], ["c#", "netcore", "xamarin forms", "xaml", "visual studio", "git", "github"], ["c", "c#", "xaml", "labview (Graphic)", "scl, kop", "git", "github"], ["visual studio code", "visual studio", "git", "labview", "teststand", "lab/windows cvi", "tia portal"]];
+var SKILLS = [["html", "css", "javascript", "react", "sass", "pug", "git", "github", "vscode"], ["csharp", "netcore", "xaml", "git", "github", "vs"], ["csharp", "netcore", "xamarin", "xaml", "vs", "git", "github"], ["c", "csharp", "xaml", "labview", "siemens", "git", "github"], ["vscode", "vs", "git", "labview", "teststand", "cvi", "tiaportal"]];
+var SKILL_NAMES = [["html", "css", "javascript", "react js", "sass", "pug", "git", "git hub", "visual studio code"], ["c#", "netcore", "xaml", "git", "github", "visual studio"], ["c#", "netcore", "xamarin forms", "xaml", "visual studio", "git", "github"], ["c", "c#", "xaml", "labview (Graphic)", "scl, kop", "git", "github"], ["visual studio code", "visual studio", "git", "labview", "teststand", "lab/windows cvi", "tia portal"]];
 
 var CreateLogoSkill = function CreateLogoSkill(numberSkill) {
   do {
@@ -445,6 +469,7 @@ var CreateLogoSkill = function CreateLogoSkill(numberSkill) {
 var projectsZoom = document.querySelectorAll(".project__options--zoom");
 var BODY = document.querySelector("body");
 var SOURCE_PHOTOS = "./assets/photos/project_";
+var SOURCE_PREVIEW_PHOTOS = "./assets/photos/preview_project_";
 var Title = [];
 var TECHNOLOGIES = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git"], ["csharp", "netcore", "xamarin", "xaml"], ["c", "csharp", "xaml", "labview"], ["vscode", "vs", "git", "labview"]];
 var REPOSITORIES = ["https://aletzman.github.io/", "https://github.com/AletzMan", "https://aletzman.github.io/"];
@@ -498,7 +523,7 @@ var EditProjects = function EditProjects() {
       NEW_CONTAINER_TECH.appendChild(NEW_IMAGE_DESCRIPTION);
     });
 
-    PROJECT_IMAGE[_index7].src = SOURCE_PHOTOS + _index7 + ".jpg";
+    PROJECT_IMAGE[_index7].src = SOURCE_PREVIEW_PHOTOS + _index7 + ".jpg";
     PROJECT_REPOSITORY[_index7].href = REPOSITORIES[_index7];
     PROJECT_CORTAIN_ONE[_index7].innerText = Title[_index7].split(' ')[0];
     PROJECT_CORTAIN_TWO[_index7].innerText = Title[_index7].split(' ')[1];

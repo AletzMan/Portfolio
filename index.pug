@@ -81,12 +81,6 @@ html(lang="en")
                     button(class="skills__back") 
                     span(class="skills__selecttitle") TYPE SKILL
                     button(class="skills__next") 
-                //select(class="skills__select") 
-                    option(value="0") Web
-                    option(value="1") Mobil
-                    option(value="2") Desktop
-                    option(value="3") Test & Measurement
-                    option(value="4") Tools & Platforms
                 input(type ="radio" name="skills" id="webdev" class="skills--webdev technologies" checked) 
                 label(for="webdev" class="label__tech" name="Web") Web
                 input(type ="radio" name="skills" id="mobil" class="skills--mobil technologies") 
@@ -101,18 +95,16 @@ html(lang="en")
             h2(class="projects__title title") PROJECTS
             div(class="projects__container")
                 div(class="project")
-                    div(class="project__technologies")
-                    img(class="project__image" src="./assets/photos/project_1.jpg" alt="photo of project" loading="lazy" draggable="false" aria-label="zoom")
-                    div(class="project__cortain")
-                        div(class="project__cortain--one") PROJ
-                        div(class="project__cortain--two") ECT 1
-                    div(class="project__options")
-                        button(class="project__options--zoom networks" aria-labelledby="image zoom" aria-label="zoom" title="image project zoom")
-                        a(class="project__options--repository networks" href=github title="Go To GitHub repository project" target="_blank" rel="noopener noreferrer")
-                            +logosSVG('git')
-                        a(class="project__options--linkpreview networks"  href=linkedin title="Go To Preview Project" target="_blank" rel="noopener noreferrer")   
-                            +logosSVG('view')
-                    div(class="project__title")
+                    div(class="project__container")
+                        div(class="project__title")
+                        div(class="project__technologies")
+                        img(class="project__image" src="./assets/photos/project_1.jpg" alt="photo of project" loading="lazy" draggable="false" aria-label="zoom")
+                        div(class="project__options")
+                            button(class="project__options--zoom networks" aria-labelledby="image zoom" aria-label="zoom" title="image project zoom")
+                            a(class="project__options--repository networks" href=github title="Go To GitHub repository project" target="_blank" rel="noopener noreferrer")
+                                +logosSVG('git')
+                            a(class="project__options--linkpreview networks"  href=linkedin title="Go To Preview Project" target="_blank" rel="noopener noreferrer")   
+                                +logosSVG('view')
         section(class="about section" id="section__about")
             h2(class="about__title title") ABOUT ME
             div(class="about__container aboutme")

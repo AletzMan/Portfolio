@@ -23,7 +23,7 @@ var FOOTER = document.querySelector(".footer");
 var SKILLS_CATEGORIES = document.querySelectorAll(".technologies");
 var CONTAINER_SKILLS = document.querySelector(".logos");
 var PROJECT_CONTAINER = document.querySelector(".projects__container");
-var PROJECTS = document.querySelector(".project");
+var PROJECTS = document.querySelectorAll(".project");
 var SELECTED_MOBILE_MENU = document.querySelector(".menumobil__link--select");
 var MOBILE_MENU_ITEMS = document.querySelector(".menumobil");
 var MODAL = document.querySelector(".modal");
@@ -476,16 +476,11 @@ var REPOSITORIES = ["https://aletzman.github.io/", "https://github.com/AletzMan"
 
 var CreateProject = function CreateProject() {
   for (var _index6 = 0; _index6 < REPOSITORIES.length - 1; _index6++) {
-    var NEW_PROJECT = PROJECTS.cloneNode(true);
+    var NEW_PROJECT = PROJECTS[0].cloneNode(true);
     PROJECT_CONTAINER.appendChild(NEW_PROJECT);
   }
 
-  if (mobileDetect()) {
-    Title = ["Drawing Board", "Test Sequence", "Electronic Encyclopedia"];
-  } else {
-    Title = ["Drawin g-Board", "Test-Se quence", "Electronic-E ncyclopedia"];
-  }
-
+  Title = ["Drawing Board", "Test Sequence", "Electronic Encyclopedia"];
   EditProjects();
 };
 
@@ -495,15 +490,15 @@ var EditProjects = function EditProjects() {
   var PROJECTS_TECHNOLOGIES = document.querySelectorAll(".project__technologies");
   var PROJECT_IMAGE = document.querySelectorAll(".project__image");
   var PROJECT_REPOSITORY = document.querySelectorAll(".project__options--repository");
-  var projectsPreview = document.querySelectorAll(".project__options--linkpreview");
-  var PROJECT_CORTAIN_ONE = document.querySelectorAll(".project__cortain--one");
-  var PROJECT_CORTAIN_TWO = document.querySelectorAll(".project__cortain--two");
+  var projectsPreview = document.querySelectorAll(".project__options--linkpreview"); //const PROJECT_CORTAIN_ONE = document.querySelectorAll(".project__cortain--one");
+  //const PROJECT_CORTAIN_TWO = document.querySelectorAll(".project__cortain--two");
+
   projectsZoom = document.querySelectorAll(".project__options--zoom");
 
   var _loop2 = function _loop2(_index7) {
-    PROJECT_CORTAIN_ONE[_index7].style.display = mobileDetect() ? 'none' : 'block';
-    PROJECT_CORTAIN_TWO[_index7].style.display = mobileDetect() ? 'none' : 'block';
-    PROJECTS_TITLE[_index7].style.display = !mobileDetect() ? 'none' : 'block';
+    //PROJECT_CORTAIN_ONE[index].style.display = mobileDetect() ? 'none' : 'block';
+    //PROJECT_CORTAIN_TWO[index].style.display = mobileDetect() ? 'none' : 'block';
+    //PROJECTS_TITLE[index].style.display = !mobileDetect() ? 'none' : 'block';
     PROJECTS_TITLE[_index7].innerHTML = Title[_index7];
 
     TECHNOLOGIES[_index7].forEach(function (namelogo) {
@@ -524,9 +519,8 @@ var EditProjects = function EditProjects() {
     });
 
     PROJECT_IMAGE[_index7].src = SOURCE_PREVIEW_PHOTOS + _index7 + ".jpg";
-    PROJECT_REPOSITORY[_index7].href = REPOSITORIES[_index7];
-    PROJECT_CORTAIN_ONE[_index7].innerText = Title[_index7].split(' ')[0];
-    PROJECT_CORTAIN_TWO[_index7].innerText = Title[_index7].split(' ')[1];
+    PROJECT_REPOSITORY[_index7].href = REPOSITORIES[_index7]; //PROJECT_CORTAIN_ONE[index].innerText = Title[index].split(' ')[0];
+    //PROJECT_CORTAIN_TWO[index].innerText = Title[index].split(' ')[1];
   };
 
   for (var _index7 = 0; _index7 < PROJECTS.length; _index7++) {
@@ -534,6 +528,52 @@ var EditProjects = function EditProjects() {
   }
 
   AsignEvent();
+  var PROJECT_CONTAINER = document.querySelectorAll(".project__container");
+
+  var _loop3 = function _loop3(_index8) {
+    /*	PROJECT_CONTAINER[index].addEventListener('mouseenter', (e) => {
+    		if ((e.offsetX < 160 && e.offsetX >= 0 && e.offsetY < 100) || (e.offsetY < 160 && e.offsetY >= 0 && e.offsetX < 100)) {
+    			PROJECT_CONTAINER[index].style.transform = 'rotateY(-5deg) rotateX(5deg)';
+    		}
+    		if ((e.offsetX > 160 && e.offsetX <= 315 && e.offsetY < 100) || (e.offsetY < 160 && e.offsetY >= 0 && e.offsetX > 100)) {
+    			PROJECT_CONTAINER[index].style.transform = 'rotateY(5deg) rotateX(5deg)';
+    		}
+    		if ((e.offsetX < 160 && e.offsetX >= 0 && e.offsetY > 100) || (e.offsetY > 160 && e.offsetY <= 315 && e.offsetX < 100)) {
+    			PROJECT_CONTAINER[index].style.transform = 'rotateY(-5deg) rotateX(-5deg)';
+    		}
+    		if ((e.offsetX > 160 && e.offsetX <= 315 && e.offsetY > 100) || (e.offsetY > 160 && e.offsetY <= 315 && e.offsetX > 100)) {
+    			PROJECT_CONTAINER[index].style.transform = 'rotateY(5deg) rotateX(-5deg)';
+    		}
+    	})*/
+    PROJECT_CONTAINER[_index8].addEventListener('mouseleave', function (e) {
+      PROJECT_CONTAINER[_index8].style.transform = 'rotate(0deg)'; //PROJECTS[index].classList.toggle('project__rotate');
+    });
+
+    PROJECT_CONTAINER[_index8].addEventListener('mousemove', function (e) {
+      console.log(PROJECT_CONTAINER[_index8].offsetY);
+      var mousePosX;
+      var mousePosY;
+
+      if (e.offsetX > 160) {
+        mousePosX = Math.abs(80 - e.offsetX / 2) * 2;
+      } else if (e.offsetX < 160) {
+        mousePosX = (160 - e.offsetX) * -1;
+      }
+
+      if (e.offsetY > 160) {
+        mousePosY = Math.abs(80 - e.offsetY / 2) * 2;
+      } else if (e.offsetY < 160) {
+        mousePosY = (160 - e.offsetY) * -1;
+      } //console.log(mousePosY/15)
+
+
+      PROJECT_CONTAINER[_index8].style.transform = "rotateY(".concat(mousePosX / 15 * -1, "deg) rotateX(").concat(mousePosY / 15, "deg)");
+    });
+  };
+
+  for (var _index8 = 0; _index8 < PROJECT_CONTAINER.length; _index8++) {
+    _loop3(_index8);
+  }
 };
 
 var containerCreate = false;
@@ -570,18 +610,18 @@ var indexMenuCurrent = 0;
 var indexMenuBefore = 0;
 var numberOfSectionsDisplaced = 0;
 
-var _loop3 = function _loop3(_index8) {
-  MOBIL_MENU_LINKS.item(_index8).addEventListener('mousedown', function (e) {
+var _loop4 = function _loop4(_index9) {
+  MOBIL_MENU_LINKS.item(_index9).addEventListener('mousedown', function (e) {
     SECTIONS.forEach(function (section) {
       section.style.opacity = 0;
     });
     indexMenuBefore = indexMenuCurrent;
-    indexMenuCurrent = _index8;
+    indexMenuCurrent = _index9;
     numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
-    console.log(SECTIONS[_index8].getBoundingClientRect().height);
+    console.log(SECTIONS[_index9].getBoundingClientRect().height);
     var scrollPosition = 0;
 
-    for (var numberSection = 0; numberSection < _index8; numberSection++) {
+    for (var numberSection = 0; numberSection < _index9; numberSection++) {
       scrollPosition += SECTIONS[numberSection].getBoundingClientRect().height + 80;
     }
 
@@ -595,8 +635,8 @@ var _loop3 = function _loop3(_index8) {
   });
 };
 
-for (var _index8 = 0; _index8 < MOBIL_MENU_LINKS.length; _index8++) {
-  _loop3(_index8);
+for (var _index9 = 0; _index9 < MOBIL_MENU_LINKS.length; _index9++) {
+  _loop4(_index9);
 }
 
 window.addEventListener("resize", function () {
@@ -607,30 +647,30 @@ document.addEventListener("scroll", function () {
   if (scrollY) {
     var designMobil = window.getComputedStyle(MOBILE_MENU_ITEMS, null).getPropertyValue("display") == "none" ? false : true;
 
-    var _loop4 = function _loop4(_index9) {
-      if (SECTIONS[_index9].getBoundingClientRect().y < 350 && SECTIONS[_index9].getBoundingClientRect().y > -20) {
+    var _loop5 = function _loop5(_index10) {
+      if (SECTIONS[_index10].getBoundingClientRect().y < 350 && SECTIONS[_index10].getBoundingClientRect().y > -20) {
         if (designMobil) {
-          positionMenuselected = MOBILE_MENU_ITEMS.getBoundingClientRect().width / 16 / 5 * (_index9 + 1) - SELECTED_MOBILE_MENU.getBoundingClientRect().width / 16 - 0;
+          positionMenuselected = MOBILE_MENU_ITEMS.getBoundingClientRect().width / 16 / 5 * (_index10 + 1) - SELECTED_MOBILE_MENU.getBoundingClientRect().width / 16 - 0;
           SELECTED_MOBILE_MENU.style.left = "".concat(positionMenuselected, "rem");
           setTimeout(function () {
             MOBIL_MENU_LINKS.forEach(function (section) {
               section.style.top = "0.65rem";
             });
-            MOBIL_MENU_LINKS[_index9].style.top = "0rem";
-            SELECTED_MOBILE_MENU.innerText = NAME_TAG_MENU[_index9];
+            MOBIL_MENU_LINKS[_index10].style.top = "0rem";
+            SELECTED_MOBILE_MENU.innerText = NAME_TAG_MENU[_index10];
           }, 200);
         } else {
-          SELECTED_MENU_ITEM.style.left = DESKTOP_MENU_ITEMS.item(_index9).getBoundingClientRect().left - DESKTOP_MENU_ITEMS.item(0).getBoundingClientRect().left - 1 + "px";
+          SELECTED_MENU_ITEM.style.left = DESKTOP_MENU_ITEMS.item(_index10).getBoundingClientRect().left - DESKTOP_MENU_ITEMS.item(0).getBoundingClientRect().left - 1 + "px";
           DESKTOP_MENU_LINKS.forEach(function (elementMenuUnSelected) {
             elementMenuUnSelected.style.color = "var(--color_font)";
           });
-          DESKTOP_MENU_LINKS.item(_index9).style.color = "var(--color_activated)";
+          DESKTOP_MENU_LINKS.item(_index10).style.color = "var(--color_activated)";
         }
       }
     };
 
-    for (var _index9 = 0; _index9 < SECTIONS.length; _index9++) {
-      _loop4(_index9);
+    for (var _index10 = 0; _index10 < SECTIONS.length; _index10++) {
+      _loop5(_index10);
     }
   }
 });

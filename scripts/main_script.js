@@ -15,7 +15,7 @@ const FOOTER = document.querySelector(".footer");
 const SKILLS_CATEGORIES = document.querySelectorAll(".technologies");
 const CONTAINER_SKILLS = document.querySelector(".logos");
 const PROJECT_CONTAINER = document.querySelector(".projects__container");
-const PROJECTS = document.querySelector(".project");
+const PROJECTS = document.querySelectorAll(".project");
 const SELECTED_MOBILE_MENU = document.querySelector(".menumobil__link--select");
 const MOBILE_MENU_ITEMS = document.querySelector(".menumobil");
 const MODAL = document.querySelector(".modal");
@@ -519,23 +519,16 @@ const REPOSITORIES = [
 
 const CreateProject = () => {
 	for (let index = 0; index < REPOSITORIES.length - 1; index++) {
-		const NEW_PROJECT = PROJECTS.cloneNode(true);
+		const NEW_PROJECT = PROJECTS[0].cloneNode(true);
 		PROJECT_CONTAINER.appendChild(NEW_PROJECT);
 	}
 
-	if (mobileDetect()) {
-		Title = [
-			"Drawing Board",
-			"Test Sequence",
-			"Electronic Encyclopedia"
-		];
-	} else {
-		Title = [
-			"Drawin g-Board",
-			"Test-Se quence",
-			"Electronic-E ncyclopedia"
-		];
-	}
+
+	Title = [
+		"Drawing Board",
+		"Test Sequence",
+		"Electronic Encyclopedia"
+	];
 
 	EditProjects();
 }
@@ -546,17 +539,17 @@ const EditProjects = () => {
 	const PROJECT_IMAGE = document.querySelectorAll(".project__image");
 	const PROJECT_REPOSITORY = document.querySelectorAll(".project__options--repository");
 	const projectsPreview = document.querySelectorAll(".project__options--linkpreview");
-	const PROJECT_CORTAIN_ONE = document.querySelectorAll(".project__cortain--one");
-	const PROJECT_CORTAIN_TWO = document.querySelectorAll(".project__cortain--two");
+	//const PROJECT_CORTAIN_ONE = document.querySelectorAll(".project__cortain--one");
+	//const PROJECT_CORTAIN_TWO = document.querySelectorAll(".project__cortain--two");
 	projectsZoom = document.querySelectorAll(".project__options--zoom");
 
 
 
 
 	for (let index = 0; index < PROJECTS.length; index++) {
-		PROJECT_CORTAIN_ONE[index].style.display = mobileDetect() ? 'none' : 'block';
-		PROJECT_CORTAIN_TWO[index].style.display = mobileDetect() ? 'none' : 'block';
-		PROJECTS_TITLE[index].style.display = !mobileDetect() ? 'none' : 'block';
+		//PROJECT_CORTAIN_ONE[index].style.display = mobileDetect() ? 'none' : 'block';
+		//PROJECT_CORTAIN_TWO[index].style.display = mobileDetect() ? 'none' : 'block';
+		//PROJECTS_TITLE[index].style.display = !mobileDetect() ? 'none' : 'block';
 		PROJECTS_TITLE[index].innerHTML = Title[index];
 		TECHNOLOGIES[index].forEach(namelogo => {
 			const NEW_CONTAINER_TECH = document.createElement("div");
@@ -574,10 +567,58 @@ const EditProjects = () => {
 		});
 		PROJECT_IMAGE[index].src = SOURCE_PREVIEW_PHOTOS + index + ".jpg";
 		PROJECT_REPOSITORY[index].href = REPOSITORIES[index];
-		PROJECT_CORTAIN_ONE[index].innerText = Title[index].split(' ')[0];
-		PROJECT_CORTAIN_TWO[index].innerText = Title[index].split(' ')[1];
+		//PROJECT_CORTAIN_ONE[index].innerText = Title[index].split(' ')[0];
+		//PROJECT_CORTAIN_TWO[index].innerText = Title[index].split(' ')[1];
 	}
 	AsignEvent();
+
+	const PROJECT_CONTAINER = document.querySelectorAll(".project__container");
+
+	for (let index = 0; index < PROJECT_CONTAINER.length; index++) {
+	/*	PROJECT_CONTAINER[index].addEventListener('mouseenter', (e) => {
+			if ((e.offsetX < 160 && e.offsetX >= 0 && e.offsetY < 100) || (e.offsetY < 160 && e.offsetY >= 0 && e.offsetX < 100)) {
+				PROJECT_CONTAINER[index].style.transform = 'rotateY(-5deg) rotateX(5deg)';
+			}
+			if ((e.offsetX > 160 && e.offsetX <= 315 && e.offsetY < 100) || (e.offsetY < 160 && e.offsetY >= 0 && e.offsetX > 100)) {
+				PROJECT_CONTAINER[index].style.transform = 'rotateY(5deg) rotateX(5deg)';
+			}
+			if ((e.offsetX < 160 && e.offsetX >= 0 && e.offsetY > 100) || (e.offsetY > 160 && e.offsetY <= 315 && e.offsetX < 100)) {
+				PROJECT_CONTAINER[index].style.transform = 'rotateY(-5deg) rotateX(-5deg)';
+			}
+			if ((e.offsetX > 160 && e.offsetX <= 315 && e.offsetY > 100) || (e.offsetY > 160 && e.offsetY <= 315 && e.offsetX > 100)) {
+				PROJECT_CONTAINER[index].style.transform = 'rotateY(5deg) rotateX(-5deg)';
+			}
+		})*/
+
+
+		PROJECT_CONTAINER[index].addEventListener('mouseleave', (e) => {
+
+			PROJECT_CONTAINER[index].style.transform = 'rotate(0deg)'
+
+			//PROJECTS[index].classList.toggle('project__rotate');
+		})
+		PROJECT_CONTAINER[index].addEventListener('mousemove', (e) => {
+			console.log(PROJECT_CONTAINER[index].offsetY);	
+			let mousePosX;
+			let mousePosY;
+			if (e.offsetX > 160) {
+				mousePosX = (Math.abs(80 - (e.offsetX/2)))*2
+				
+			} else if (e.offsetX < 160) {
+				mousePosX = (160 - e.offsetX)* -1;
+			}
+			if (e.offsetY > 160) {
+				mousePosY = (Math.abs(80 - (e.offsetY/2)))*2
+				
+			} else if (e.offsetY < 160) {
+				mousePosY = (160 - e.offsetY)* -1;
+			}
+			//console.log(mousePosY/15)
+			PROJECT_CONTAINER[index].style.transform = `rotateY(${(mousePosX/15)*-1}deg) rotateX(${(mousePosY/15)}deg)`;
+		})
+	}
+
+
 }
 
 let containerCreate = false;
@@ -605,6 +646,8 @@ MODAL_BUTTON.addEventListener("mouseup", (event) => {
 	BODY.style.overflowX = "auto";
 	BODY.style.overflowY = "auto";
 })
+
+
 
 
 

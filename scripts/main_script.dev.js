@@ -40,10 +40,34 @@ var LANGUAGE = {
     section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
     intro: ["Hey👋, I'm", '"Transforming concepts and design, into code"'],
     skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools"],
-    about: ["THE BEGINNING", "I am a self-taught person, and passionate about programming. From a very young age I was very interested in technology, first electronics, I liked to disassemble electronic objects and see how they worked inside.", "I decided to study electronics, where I came across microcontrollers and so I was able to combine my two current passions, electronics and programming.", "I started working in the electronics field as a diagnostic technician.", "I set up my own business, where I offered computer rental and repair services. Here I started to delve into the world of programming in a self-taught way, with ActionScript and Visual Basic.", "I started working as a mechanical assembly technician for the electronics industry, where test and automation equipment is manufactured for companies that manufacture electronic products.", "I was promoted to hardware technician, where I did the routing and wiring of the electrical and electronic part of the equipment.", "I was promoted to Hardware Engineer, where I did the electrical diagrams and debugging of the electrical and electronics.", [{
-      devsoft: ["I was promoted to Development Engineer, my responsibilities:", "Logical part of the equipment by programming (C, C#, LabView, TestStand, CVI, PLC Siemens(TIA Portal))", "BOM(Bill Of Materials)", "Realization of electrical diagrams", "Debugging of the code and electrical part", "Equipment manual", "Delivery and installation of the equipment on site to the customer"]
-    }], "I had the opportunity to start a business, and I decided to work as a freelance, where I do residential electrical installation work, and in the area of development with languages such as C #, for mobile and desktop applications.", "Since then I have dedicated myself independently to study several programming languages, I focus on Web Development, and from the first day I have been excited about this world, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to go deeper into the Back-End. And above all, never stop learning."],
-    contact: ["To know more about me, and to be able to work together you can find me at:"],
+    about: ["THE BEGINNING", "I am a self-taught person, since I was a child I was very interested in technology, especially electronics and programming.", "I studied electronics, where I learned about microcontrollers and was able to combine my two current passions, electronics and programming.", "I started working in the electronics field as a diagnostic technician.", "I started my own computer rental and repair business. Here I started to delve into the world of programming with ActionScript and Visual Basic.", "I worked as a mechanical assembly technician for the electronics industry, where test and automation equipment is manufactured.", "In the same company I got the position of hardware technician, where I did the routing and wiring of the electrical and electronic part of the equipment.", "I worked as a Hardware Engineer, where I made the electrical diagrams and the debugging of the electrical and electronic part.", "In the position of Development Engineer, with C, C# and PLC languages.", "I had the opportunity to start a business, and I decided to work as a freelance, where I do residential electrical installation work, and in the area of development with languages such as C #, for mobile and desktop applications.", "I have dedicated myself to study several programming languages, focusing on Web Development, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to go into the Back-End."],
+    contact: {
+      intro: "To know more about me, and to be able to work together you can find me at:",
+      name: {
+        label: "name",
+        placeholder: "Your name",
+        error: "Please, fill in the field"
+      },
+      email: {
+        label: "E-mail",
+        placeholder: "example@email.com",
+        error: {
+          empty: "Please, fill in the field",
+          format: "Invalid mail format"
+        }
+      },
+      message: {
+        label: "Message",
+        placeholder: "Your message",
+        error: "Please, fill in the field"
+      },
+      button: "Enviar",
+      notification: {
+        send: "Sending..",
+        sendOK: "Message sent successfully",
+        sendError: "The message could not be sent, please try again."
+      }
+    },
     footer: ["Made in <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> by Alejandro Garcia Alonso"]
   },
   spanish: {
@@ -51,10 +75,34 @@ var LANGUAGE = {
     section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
     intro: ["Hola👋, Soy", '"Transformando conceptos y diseño, en código"'],
     skills: ["Web", "Móvil", "Escritorio", "Prueba y Medición", "Herramientas"],
-    about: ["EL PRINCIPIO", "Soy una persona autodidacta, y apasionado por la programación. Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.", "Decidí estudiar la carrera de electrónica, donde me encontré con los microcontroladores y así pude combinar mis dos actuales pasiones, la electrónica y la programación.", "Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.", "Emprendi mi negocio donde ofrecía servicios de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación de forma autodidacta, con ActionScript y Visual Basic.", "Empecé a trabajar como técnico de ensamble mecanico, para la industria electrónica, donde se fabrican equipos de prueba y automatización para empresas que fabrican productos electrónicos.", "Fui ascendido a técnico de hardware, donde realizaba el ruteo y cableado de la parte eléctrica y electrónica de los equipos.", "Fui ascendido a Ingeniero de Hardware, donde realizaba los diagramas eléctricos y la depuración de la parte eléctrica y electrónica.", [{
-      devsoft: ["Fui ascendido a Ingeniero de Desarrollo, mis responsabilidades:", "Parte lógica de los equipos mediante programación (C, C#, LabView, TestStand, CVI, PLC Siemens(TIA Portal))", "BOM(Lista de materiales)", "Realización de esquemas eléctricos", "Depuración del código y parte electrica", "Manual del equipo", "Entrega e instalación del equipo en sitio al cliente"]
-    }], "Tuve la oportunidad de montar un negocio, y decidí trabajar como freelance, donde realizo trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.", "Desde entonces me he dedicado de manera autonoma a estudiar varios lenguajes de programación, me enfoque en Desarrollo Web, y desde el primer día he estado entusiasmado con este mundo, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End. Y sobre todo, nunca dejar de aprender."],
-    contact: ["Para saber más sobre mí, y poder trabajar juntos puedes encontrarme en:"],
+    about: ["EL PRINCIPIO", "Soy autodidacta, desde pequeño me interesó mucho la tecnología, especialmente la electrónica y la programación.", "Estudié electrónica, donde aprendí sobre microcontroladores y pude combinar mis dos pasiones actuales, la electrónica y la programación.", "Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.", "Emprendi mi negocio de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación con ActionScript y Visual Basic.", "Trabajé como técnico de montaje mecánico para la industria electrónica, donde se fabrican equipos de prueba y automatización.", "En la misma empresa obtuve el puesto de técnico de hardware, donde realizaba el ruteado y cableado de la parte eléctrica y electrónica de los equipos.", "Trabajé como Ingeniero de Hardware, donde realizaba los esquemas eléctricos y la depuración de la parte eléctrica y electrónica.", "En el puesto de Ingeniero de Desarrollo, con lenguajes C, C# y PLC", "Autonoma con trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.", "Me he dedicado a estudiar varios lenguajes de programación, enfocándome en Desarrollo Web, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End."],
+    contact: {
+      intro: "Para saber más sobre mí, y poder trabajar juntos puedes encontrarme en:",
+      name: {
+        label: "Nombre",
+        placeholder: "Su nombre",
+        error: "Por favor, rellene el campo"
+      },
+      email: {
+        label: "Correo",
+        placeholder: "ejemplo@correo.com",
+        error: {
+          empty: "Por favor, rellene el campo",
+          format: "Formato de correo no válid"
+        }
+      },
+      message: {
+        label: "Mensaje",
+        placeholder: "Su mensaje",
+        error: "Por favor, rellene el campo"
+      },
+      button: "Enviar",
+      notification: {
+        send: "Enviando..",
+        sendOK: "Mensaje enviado correctamente",
+        sendError: "No se ha podido enviar el mensaje, inténtelo de nuevo"
+      }
+    },
     footer: ["Hecho en <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> por Alejandro Garcia Alonso"]
   }
 };
@@ -107,18 +155,14 @@ var selectLanguage = function selectLanguage() {
   ABOUT_PARAGRAPHS.forEach(function (paragraph, index) {
     if (paragraph.nodeName === "P") {
       paragraph.innerText = language.about[index + 1];
-    } else {
-      for (var i = 0; i < ABOUT_PARAGRAPHS_LIST.childElementCount; i++) {
-        ABOUT_PARAGRAPHS_LIST.children[i].innerText = language.about[8][0].devsoft[i];
-      }
     }
   });
-  CONTACT_MESSAGE.innerHTML = language.contact[0];
+  CONTACT_MESSAGE.innerHTML = language.contact.intro;
   FOOTER.children[0].innerHTML = language.footer[0];
 };
 
 var contentPresentation = function contentPresentation() {
-  textPresentation = SWITCH_LANGUAGE.checked ? ['Software Developer', 'Front-End Developer', 'Electrical Design'] : ['Desarrollador de Sofware', 'Desarrollador Front-End', 'Diseño Electrico'];
+  textPresentation = SWITCH_LANGUAGE.checked ? ['Software Developer', 'Front-End Developer', 'Electrical Design'] : ['Desarrollador de Software', 'Desarrollador Front-End', 'Diseño Electrico'];
 };
 
 for (var index = 0; index < DESKTOP_MENU_LINKS.length; index++) {
@@ -484,21 +528,19 @@ var CreateProject = function CreateProject() {
   EditProjects();
 };
 
+var isZoomActivated = false;
+var isViewActivated = false;
+
 var EditProjects = function EditProjects() {
   var PROJECTS = document.querySelectorAll(".project");
   var PROJECTS_TITLE = document.querySelectorAll(".project__title");
   var PROJECTS_TECHNOLOGIES = document.querySelectorAll(".project__technologies");
   var PROJECT_IMAGE = document.querySelectorAll(".project__image");
   var PROJECT_REPOSITORY = document.querySelectorAll(".project__options--repository");
-  var projectsPreview = document.querySelectorAll(".project__options--linkpreview"); //const PROJECT_CORTAIN_ONE = document.querySelectorAll(".project__cortain--one");
-  //const PROJECT_CORTAIN_TWO = document.querySelectorAll(".project__cortain--two");
-
+  var projectsPreview = document.querySelectorAll(".project__options--linkpreview");
   projectsZoom = document.querySelectorAll(".project__options--zoom");
 
   var _loop2 = function _loop2(_index7) {
-    //PROJECT_CORTAIN_ONE[index].style.display = mobileDetect() ? 'none' : 'block';
-    //PROJECT_CORTAIN_TWO[index].style.display = mobileDetect() ? 'none' : 'block';
-    //PROJECTS_TITLE[index].style.display = !mobileDetect() ? 'none' : 'block';
     PROJECTS_TITLE[_index7].innerHTML = Title[_index7];
 
     TECHNOLOGIES[_index7].forEach(function (namelogo) {
@@ -519,40 +561,56 @@ var EditProjects = function EditProjects() {
     });
 
     PROJECT_IMAGE[_index7].src = SOURCE_PREVIEW_PHOTOS + _index7 + ".jpg";
-    PROJECT_REPOSITORY[_index7].href = REPOSITORIES[_index7]; //PROJECT_CORTAIN_ONE[index].innerText = Title[index].split(' ')[0];
-    //PROJECT_CORTAIN_TWO[index].innerText = Title[index].split(' ')[1];
+    PROJECT_REPOSITORY[_index7].href = REPOSITORIES[_index7];
   };
 
   for (var _index7 = 0; _index7 < PROJECTS.length; _index7++) {
     _loop2(_index7);
   }
 
-  AsignEvent();
   var PROJECT_CONTAINER = document.querySelectorAll(".project__container");
 
   var _loop3 = function _loop3(_index8) {
-    /*	PROJECT_CONTAINER[index].addEventListener('mouseenter', (e) => {
-    		if ((e.offsetX < 160 && e.offsetX >= 0 && e.offsetY < 100) || (e.offsetY < 160 && e.offsetY >= 0 && e.offsetX < 100)) {
-    			PROJECT_CONTAINER[index].style.transform = 'rotateY(-5deg) rotateX(5deg)';
-    		}
-    		if ((e.offsetX > 160 && e.offsetX <= 315 && e.offsetY < 100) || (e.offsetY < 160 && e.offsetY >= 0 && e.offsetX > 100)) {
-    			PROJECT_CONTAINER[index].style.transform = 'rotateY(5deg) rotateX(5deg)';
-    		}
-    		if ((e.offsetX < 160 && e.offsetX >= 0 && e.offsetY > 100) || (e.offsetY > 160 && e.offsetY <= 315 && e.offsetX < 100)) {
-    			PROJECT_CONTAINER[index].style.transform = 'rotateY(-5deg) rotateX(-5deg)';
-    		}
-    		if ((e.offsetX > 160 && e.offsetX <= 315 && e.offsetY > 100) || (e.offsetY > 160 && e.offsetY <= 315 && e.offsetX > 100)) {
-    			PROJECT_CONTAINER[index].style.transform = 'rotateY(5deg) rotateX(-5deg)';
-    		}
-    	})*/
     PROJECT_CONTAINER[_index8].addEventListener('mouseleave', function (e) {
-      PROJECT_CONTAINER[_index8].style.transform = 'rotate(0deg)'; //PROJECTS[index].classList.toggle('project__rotate');
+      PROJECT_CONTAINER[_index8].style.transform = 'rotate(0deg)';
+      PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(100%)';
+      PROJECT_CONTAINER[_index8].children[2].style.border = '1px solid var(--color_activated)';
+      PROJECT_CONTAINER[_index8].children[4].children.item(0).children.item(0).style.fill = 'var(--color_font)';
     });
 
     PROJECT_CONTAINER[_index8].addEventListener('mousemove', function (e) {
-      console.log(PROJECT_CONTAINER[_index8].offsetY);
       var mousePosX;
       var mousePosY;
+
+      if (e.offsetY > 65 && e.offsetY < 257) {
+        isZoomActivated = true;
+        isViewActivated = false;
+        PROJECT_CONTAINER[_index8].style.cursor = 'zoom-in';
+        PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(160%)';
+        PROJECT_CONTAINER[_index8].children[2].style.border = '3px solid var(--color_activated)';
+        AsignEvent(PROJECT_CONTAINER[_index8], _index8);
+      } else {
+        isZoomActivated = false;
+        isViewActivated = false;
+        PROJECT_CONTAINER[_index8].style.cursor = 'default';
+        PROJECT_CONTAINER[_index8].children[4].children.item(0).children.item(0).style.fill = 'var(--color_font)';
+        PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(100%)';
+        PROJECT_CONTAINER[_index8].children[2].style.border = '1px solid var(--color_activated)';
+
+        if (e.offsetY < 65 && e.offsetX > 270) {
+          isViewActivated = true;
+          PROJECT_CONTAINER[_index8].children[4].children.item(0).children.item(0).style.fill = 'var(--color_activated)';
+          PROJECT_CONTAINER[_index8].style.cursor = 'pointer';
+
+          PROJECT_CONTAINER[_index8].onclick = function () {
+            var url = REPOSITORIES[_index8];
+
+            if (isViewActivated) {
+              window.open(url);
+            }
+          };
+        }
+      }
 
       if (e.offsetX > 160) {
         mousePosX = Math.abs(80 - e.offsetX / 2) * 2;
@@ -567,7 +625,7 @@ var EditProjects = function EditProjects() {
       } //console.log(mousePosY/15)
 
 
-      PROJECT_CONTAINER[_index8].style.transform = "rotateY(".concat(mousePosX / 15 * -1, "deg) rotateX(").concat(mousePosY / 15, "deg)");
+      PROJECT_CONTAINER[_index8].style.transform = "rotateY(".concat(mousePosX / 10 * -1, "deg) rotateX(").concat(mousePosY / 10, "deg)");
     });
   };
 
@@ -578,16 +636,29 @@ var EditProjects = function EditProjects() {
 
 var containerCreate = false;
 
-var AsignEvent = function AsignEvent() {
-  projectsZoom.forEach(function (element, index) {
-    element.addEventListener("mouseup", function () {
+var AsignEvent = function AsignEvent(project, index) {
+  project.addEventListener("mouseup", function () {
+    if (isZoomActivated) {
       MODAL_IMAGE.src = SOURCE_PHOTOS + index + ".jpg";
       MODAL.style.transform = 'scale(1)';
       BODY.style.overflowX = "hidden";
       BODY.style.overflowY = "hidden";
-    });
+    }
   });
 };
+/*
+const AsignEvent = () => {
+projectsZoom.forEach((element, index) => {
+	element.addEventListener("mouseup", () => {
+		MODAL_IMAGE.src = SOURCE_PHOTOS + index + ".jpg";
+		MODAL.style.transform = 'scale(1)';
+		BODY.style.overflowX = "hidden";
+		BODY.style.overflowY = "hidden";
+	})
+});
+}
+*/
+
 
 window.addEventListener("mouseup", function (event) {
   if (event.target == MODAL) {
@@ -673,4 +744,171 @@ document.addEventListener("scroll", function () {
       _loop5(_index10);
     }
   }
+}); //////////////////////SEND EMAIL //////////////////
+///////////////////////////////////////////////////
+
+var btn = document.getElementById('button');
+var inputName = document.querySelector('.form__name');
+var inputEmail = document.querySelector('.form__email');
+var inputMessage = document.querySelector('.form__message');
+var loading = document.querySelector('.form__loading');
+var loadingLabel = document.querySelector('.form__labelloading');
+var errorName = document.querySelector('.form__errorname');
+var errorEmail = document.querySelector('.form__erroremail');
+var errorMessage = document.querySelector('.form__errormessage');
+var submitButton = document.querySelector('.form__button');
+var validation = document.querySelector('.validation');
+var formCanvas = document.querySelector('.validation__canvas');
+var validationButton = document.querySelector('.validation__button');
+var validationResult = document.querySelector('.validation__result');
+var OPERATION = ['+', '*', '+', '*'];
+var emailOK = false;
+var nameOK = false;
+var messsageOK = false;
+var validationOK = false;
+var selectedOperation = OPERATION[GetRandomNumber(0, 3)];
+var numberValidateOne = GetRandomNumber(0, 9);
+var numberValidateTwe = GetRandomNumber(0, 9);
+var operationResult = 0;
+/*///////// CAPTCHA /////////////
+setInterval(() => {
+	selectedOperation = OPERATION[GetRandomNumber(0, 3)]
+	numberValidateOne = GetRandomNumber(0, 9);
+	numberValidateTwe = GetRandomNumber(0, 9);
+	ctxValidate.clearRect(0, 0, 150, 150);
+	ctxValidate.fillStyle = "whitesmoke";
+	ctxValidate.fillText(`${numberValidateOne} ${selectedOperation} ${numberValidateTwe}`, 15, 40);
+}, 5000);
+
+const ctxValidate = formCanvas.getContext("2d");
+ctxValidate.font = "30px Arial";
+ctxValidate.fillStyle = "whitesmoke";
+ctxValidate.fillText(`${numberValidateOne} ${selectedOperation} ${numberValidateTwe}`, 15, 40);
+
+
+validationButton.addEventListener('mouseup', () => {
+	switch (selectedOperation) {
+		case '+':
+			operationResult = numberValidateOne + numberValidateTwe;
+			break;
+		case '*':
+			operationResult = numberValidateOne * numberValidateTwe;
+			break;
+		default:
+			break;
+	}
+	ctxValidate.clearRect(0, 0, 150, 150);
+	if (operationResult === parseInt(validationResult.value)) {
+		console.log('Match')
+		ctxValidate.fillStyle = "green";
+		ctxValidate.fillText("OK", 28, 40)
+		validationOK = true;
+		console.log(emailOK, nameOK, messsageOK, validationOK)
+	} else {
+		console.log('No Match')
+		ctxValidate.fillStyle = "red";
+		ctxValidate.fillText("NOK", 17, 40)
+		validationOK = false;
+	}
+})
+
+*/
+
+document.getElementById('form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  var serviceID = 'default_service';
+  var templateID = 'template_ewv5msh';
+
+  if (inputName.value.length < 2) {
+    styleErrorState(inputName);
+    nameOK = false;
+    errorName.style.transform = "translateY(1rem)";
+  } else {
+    styleNormalState(inputName);
+    nameOK = true;
+  }
+
+  if (inputMessage.value.length < 2) {
+    styleErrorState(inputMessage);
+    messsageOK = false;
+    errorMessage.style.transform = "translateY(1rem)";
+  } else {
+    styleNormalState(inputMessage);
+    messsageOK = true;
+  }
+
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputEmail.value)) {
+    console.log('ERROR');
+    styleNormalState(inputEmail);
+    emailOK = true;
+  } else {
+    if (inputEmail.value === '') {
+      errorEmail.textContent = "Favor de llenar el campo";
+    } else {
+      errorEmail.textContent = "Formato de correo no válido";
+    }
+
+    errorEmail.style.transform = "translateY(1rem)";
+    styleErrorState(inputEmail);
+    emailOK = false;
+  }
+
+  if (emailOK && nameOK && messsageOK) {
+    loading.style.display = 'block';
+    loadingLabel.style.display = 'block';
+    loadingLabel.textContent = 'SENDING...';
+    emailjs.sendForm(serviceID, templateID, this).then(function () {
+      inputName.value = '';
+      inputEmail.value = '';
+      inputMessage.value = '';
+      loading.style.display = 'none';
+      loadingLabel.textContent = 'Mensaje enviado correctamente.';
+      setTimeout(function () {
+        loadingLabel.style.display = 'none';
+      }, 5000);
+    }, function (err) {
+      loadingLabel.textContent = 'The message could not be sent, try again';
+      loading.style.display = 'none';
+      setTimeout(function () {
+        loadingLabel.style.display = 'none';
+      }, 2000);
+      alert(JSON.stringify(err));
+    });
+  }
 });
+inputEmail.addEventListener('focus', function (e) {
+  styleActiveState(e);
+  errorEmail.style.transform = "translateY(0rem)";
+});
+inputName.addEventListener('focus', function (e) {
+  styleActiveState(e);
+  errorName.style.transform = "translateY(0rem)";
+});
+inputMessage.addEventListener('focus', function (e) {
+  styleActiveState(e);
+  errorMessage.style.transform = "translateY(0rem)";
+});
+inputName.addEventListener('focusout', function (e) {
+  styleNormalState(inputName);
+});
+inputMessage.addEventListener('focusout', function (e) {
+  styleNormalState(inputMessage);
+});
+inputEmail.addEventListener('focusout', function (e) {
+  styleNormalState(inputEmail);
+});
+
+var styleActiveState = function styleActiveState(e) {
+  e.target.style.borderColor = 'var(--color_activated)';
+  e.target.style.boxShadow = '0 0 2px 1px var(--color_activated)';
+};
+
+var styleNormalState = function styleNormalState(e) {
+  e.style.borderColor = 'var(--color_backlight)';
+  e.style.boxShadow = 'none';
+};
+
+var styleErrorState = function styleErrorState(e) {
+  e.style.borderColor = 'rgba(255, 0, 0, 0.5)';
+  e.style.boxShadow = '0 0 2px 1px rgba(255, 0, 0, 0.3)';
+};

@@ -31,6 +31,23 @@ var MODAL_IMAGE = document.querySelector(".modal__image");
 var MODAL_BUTTON = document.querySelector(".modal__button");
 var SWITCH_LANGUAGE = document.querySelector(".language__check");
 var MOBIL_MENU_LINKS = document.querySelectorAll(".link");
+var inputName = document.querySelector('.form__name');
+var inputEmail = document.querySelector('.form__email');
+var inputMessage = document.querySelector('.form__message');
+var labelName = document.querySelector('.form__label--name');
+var labelEmail = document.querySelector('.form__label--email');
+var labelMessage = document.querySelector('.form__label--message');
+var loading = document.querySelector('.form__loading');
+var loadingLabel = document.querySelector('.form__labelloading');
+var errorName = document.querySelector('.form__errorname');
+var errorEmail = document.querySelector('.form__erroremail');
+var errorMessage = document.querySelector('.form__errormessage');
+var submitButton = document.querySelector('.form__button');
+var linkHome = document.querySelector('.header__link');
+var linkGithub = document.querySelectorAll('.link__github');
+var linkLinkedin = document.querySelectorAll('.link__linkedin');
+var linkEmail = document.querySelectorAll('.link__mail');
+var scrollIcon = document.querySelector('.scrollicon');
 var NUMBER_BUBBLE = 20;
 var SIZE_BUBBLE = 45;
 var NAME_LOGOS = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "react", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
@@ -38,13 +55,14 @@ var LANGUAGE = {
   english: {
     header: ["Home", "Skills", "Projects", "About Me", "Contact"],
     section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
+    sectionLink: ["Go to home section", "Go to skills section", "Go to projects section", "Go to About me section", "Go to contact section"],
     intro: ["Hey👋, I'm", '"Transforming concepts and design, into code"'],
     skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools"],
     about: ["THE BEGINNING", "I am a self-taught person, since I was a child I was very interested in technology, especially electronics and programming.", "I studied electronics, where I learned about microcontrollers and was able to combine my two current passions, electronics and programming.", "I started working in the electronics field as a diagnostic technician.", "I started my own computer rental and repair business. Here I started to delve into the world of programming with ActionScript and Visual Basic.", "I worked as a mechanical assembly technician for the electronics industry, where test and automation equipment is manufactured.", "In the same company I got the position of hardware technician, where I did the routing and wiring of the electrical and electronic part of the equipment.", "I worked as a Hardware Engineer, where I made the electrical diagrams and the debugging of the electrical and electronic part.", "In the position of Development Engineer, with C, C# and PLC languages.", "I had the opportunity to start a business, and I decided to work as a freelance, where I do residential electrical installation work, and in the area of development with languages such as C #, for mobile and desktop applications.", "I have dedicated myself to study several programming languages, focusing on Web Development, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to go into the Back-End."],
     contact: {
       intro: "To know more about me, and to be able to work together you can find me at:",
       name: {
-        label: "name",
+        label: "Name",
         placeholder: "Your name",
         error: "Please, fill in the field"
       },
@@ -61,18 +79,24 @@ var LANGUAGE = {
         placeholder: "Your message",
         error: "Please, fill in the field"
       },
-      button: "Enviar",
+      button: "Send",
       notification: {
         send: "Sending..",
         sendOK: "Message sent successfully",
         sendError: "The message could not be sent, please try again."
       }
     },
-    footer: ["Made in <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> by Alejandro Garcia Alonso"]
+    footer: ["Made in <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> by Alejandro Garcia Alonso"],
+    socialMedia: {
+      github: "Link to GitHub from Alejandro",
+      linkedin: "Link to Linkedin from Alejandro",
+      email: "Link to send email to Alejandro"
+    }
   },
   spanish: {
     header: ["Inicio", "Habilidades", "Proyectos", "Sobre mi", "Contacto"],
     section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
+    sectionLink: ["Ir a la sección inicio", "Ir a la sección habilidades", "Ir a la sección proyectos", "Ir a la sección sobre mi", "Ir a la sección contact"],
     intro: ["Hola👋, Soy", '"Transformando conceptos y diseño, en código"'],
     skills: ["Web", "Móvil", "Escritorio", "Prueba y Medición", "Herramientas"],
     about: ["EL PRINCIPIO", "Soy autodidacta, desde pequeño me interesó mucho la tecnología, especialmente la electrónica y la programación.", "Estudié electrónica, donde aprendí sobre microcontroladores y pude combinar mis dos pasiones actuales, la electrónica y la programación.", "Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.", "Emprendi mi negocio de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación con ActionScript y Visual Basic.", "Trabajé como técnico de montaje mecánico para la industria electrónica, donde se fabrican equipos de prueba y automatización.", "En la misma empresa obtuve el puesto de técnico de hardware, donde realizaba el ruteado y cableado de la parte eléctrica y electrónica de los equipos.", "Trabajé como Ingeniero de Hardware, donde realizaba los esquemas eléctricos y la depuración de la parte eléctrica y electrónica.", "En el puesto de Ingeniero de Desarrollo, con lenguajes C, C# y PLC", "Autonoma con trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.", "Me he dedicado a estudiar varios lenguajes de programación, enfocándome en Desarrollo Web, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End."],
@@ -88,7 +112,7 @@ var LANGUAGE = {
         placeholder: "ejemplo@correo.com",
         error: {
           empty: "Por favor, rellene el campo",
-          format: "Formato de correo no válid"
+          format: "Formato de correo no válido"
         }
       },
       message: {
@@ -103,7 +127,12 @@ var LANGUAGE = {
         sendError: "No se ha podido enviar el mensaje, inténtelo de nuevo"
       }
     },
-    footer: ["Hecho en <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> por Alejandro Garcia Alonso"]
+    footer: ["Hecho en <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> por Alejandro Garcia Alonso"],
+    socialMedia: {
+      github: "Enlace al GitHub de Alejandro",
+      linkedin: "Enlace al Linkedin de Alejandro",
+      email: "Enlace para enviar correo a Alejandro"
+    }
   }
 };
 var containerTags = [];
@@ -114,6 +143,10 @@ var language = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.engli
 onload = function onload() {
   SELECTED_MENU_ITEM.style.left = "0px";
   SELECTED_MENU_ITEM.style.top = "0px";
+  scrollIcon.children[0].style.display = mobileDetect() ? 'none' : 'block';
+  scrollIcon.children[1].style.display = mobileDetect() ? 'block' : 'none';
+  console.log(scrollIcon.children[0]);
+  console.log(scrollIcon.children[1], mobileDetect());
   CreateLogoSkill(0);
   CreateProject();
   initAnimation();
@@ -143,7 +176,9 @@ SWITCH_LANGUAGE.addEventListener('change', function () {
 var selectLanguage = function selectLanguage() {
   DESKTOP_MENU_LINKS.forEach(function (menu, index) {
     menu.innerText = language.header[index];
+    menu.title = language.sectionLink[index];
   });
+  linkHome.title = language.sectionLink[0];
   SECTION_TITLES.forEach(function (section, index) {
     section.innerText = language.section[index];
   });
@@ -158,7 +193,26 @@ var selectLanguage = function selectLanguage() {
     }
   });
   CONTACT_MESSAGE.innerHTML = language.contact.intro;
+  inputName.placeholder = language.contact.name.placeholder;
+  labelName.textContent = language.contact.name.label;
+  errorName.textContent = language.contact.name.error;
+  inputEmail.placeholder = language.contact.email.placeholder;
+  labelEmail.textContent = language.contact.email.label;
+  errorEmail.textContent - language.contact.email.error.empty;
+  inputMessage.placeholder = language.contact.message.placeholder;
+  labelMessage.textContent = language.contact.message.label;
+  errorMessage.textContent = language.contact.message.error;
+  submitButton.textContent = language.contact.button;
   FOOTER.children[0].innerHTML = language.footer[0];
+  linkGithub.forEach(function (link) {
+    return link.title = language.socialMedia.github;
+  });
+  linkLinkedin.forEach(function (link) {
+    return link.title = language.socialMedia.linkedin;
+  });
+  linkEmail.forEach(function (link) {
+    return link.title = language.socialMedia.email;
+  });
 };
 
 var contentPresentation = function contentPresentation() {
@@ -748,15 +802,6 @@ document.addEventListener("scroll", function () {
 ///////////////////////////////////////////////////
 
 var btn = document.getElementById('button');
-var inputName = document.querySelector('.form__name');
-var inputEmail = document.querySelector('.form__email');
-var inputMessage = document.querySelector('.form__message');
-var loading = document.querySelector('.form__loading');
-var loadingLabel = document.querySelector('.form__labelloading');
-var errorName = document.querySelector('.form__errorname');
-var errorEmail = document.querySelector('.form__erroremail');
-var errorMessage = document.querySelector('.form__errormessage');
-var submitButton = document.querySelector('.form__button');
 var validation = document.querySelector('.validation');
 var formCanvas = document.querySelector('.validation__canvas');
 var validationButton = document.querySelector('.validation__button');
@@ -843,9 +888,9 @@ document.getElementById('form').addEventListener('submit', function (event) {
     emailOK = true;
   } else {
     if (inputEmail.value === '') {
-      errorEmail.textContent = "Favor de llenar el campo";
+      errorEmail.textContent = language.contact.email.error.empty;
     } else {
-      errorEmail.textContent = "Formato de correo no válido";
+      errorEmail.textContent = language.contact.email.error.format;
     }
 
     errorEmail.style.transform = "translateY(1rem)";
@@ -856,18 +901,18 @@ document.getElementById('form').addEventListener('submit', function (event) {
   if (emailOK && nameOK && messsageOK) {
     loading.style.display = 'block';
     loadingLabel.style.display = 'block';
-    loadingLabel.textContent = 'SENDING...';
+    loadingLabel.textContent = language.contact.notification.send;
     emailjs.sendForm(serviceID, templateID, this).then(function () {
       inputName.value = '';
       inputEmail.value = '';
       inputMessage.value = '';
       loading.style.display = 'none';
-      loadingLabel.textContent = 'Mensaje enviado correctamente.';
+      loadingLabel.textContent = language.contact.notification.sendOK;
       setTimeout(function () {
         loadingLabel.style.display = 'none';
       }, 5000);
     }, function (err) {
-      loadingLabel.textContent = 'The message could not be sent, try again';
+      loadingLabel.textContent = language.contact.notification.sendError;
       loading.style.display = 'none';
       setTimeout(function () {
         loadingLabel.style.display = 'none';

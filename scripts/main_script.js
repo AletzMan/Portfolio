@@ -24,6 +24,24 @@ const MODAL_BUTTON = document.querySelector(".modal__button");
 const SWITCH_LANGUAGE = document.querySelector(".language__check");
 const MOBIL_MENU_LINKS = document.querySelectorAll(".link");
 
+const inputName = document.querySelector('.form__name');
+const inputEmail = document.querySelector('.form__email');
+const inputMessage = document.querySelector('.form__message');
+const labelName = document.querySelector('.form__label--name');
+const labelEmail = document.querySelector('.form__label--email');
+const labelMessage = document.querySelector('.form__label--message');
+const loading = document.querySelector('.form__loading');
+const loadingLabel = document.querySelector('.form__labelloading');
+const errorName = document.querySelector('.form__errorname');
+const errorEmail = document.querySelector('.form__erroremail');
+const errorMessage = document.querySelector('.form__errormessage');
+const submitButton = document.querySelector('.form__button');
+const linkHome = document.querySelector('.header__link');
+const linkGithub = document.querySelectorAll('.link__github');
+const linkLinkedin = document.querySelectorAll('.link__linkedin');
+const linkEmail = document.querySelectorAll('.link__mail');
+const scrollIcon = document.querySelector('.scrollicon');
+
 
 const NUMBER_BUBBLE = 20;
 const SIZE_BUBBLE = 45;
@@ -36,6 +54,7 @@ const LANGUAGE = {
 	english: {
 		header: ["Home", "Skills", "Projects", "About Me", "Contact"],
 		section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
+		sectionLink: ["Go to home section", "Go to skills section", "Go to projects section", "Go to About me section", "Go to contact section"],
 		intro: ["Hey👋, I'm", '"Transforming concepts and design, into code"'],
 		skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools"],
 		about: [
@@ -53,17 +72,23 @@ const LANGUAGE = {
 		],
 		contact: {
 			intro: "To know more about me, and to be able to work together you can find me at:",
-			name: { label: "name", placeholder: "Your name", error: "Please, fill in the field" },
-			email: { label: "E-mail", placeholder: "example@email.com", error: {empty: "Please, fill in the field", format: "Invalid mail format"} },
+			name: { label: "Name", placeholder: "Your name", error: "Please, fill in the field" },
+			email: { label: "E-mail", placeholder: "example@email.com", error: { empty: "Please, fill in the field", format: "Invalid mail format" } },
 			message: { label: "Message", placeholder: "Your message", error: "Please, fill in the field" },
-			button: "Enviar",
-			notification: { send: "Sending..", sendOK: "Message sent successfully", sendError: "The message could not be sent, please try again.",}
+			button: "Send",
+			notification: { send: "Sending..", sendOK: "Message sent successfully", sendError: "The message could not be sent, please try again.", }
 		},
-		footer: ["Made in <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> by Alejandro Garcia Alonso"]
+		footer: ["Made in <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> by Alejandro Garcia Alonso"],
+		socialMedia: {
+			github: "Link to GitHub from Alejandro",
+			linkedin: "Link to Linkedin from Alejandro",
+			email: "Link to send email to Alejandro",
+		}
 	},
 	spanish: {
 		header: ["Inicio", "Habilidades", "Proyectos", "Sobre mi", "Contacto"],
 		section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
+		sectionLink: ["Ir a la sección inicio", "Ir a la sección habilidades", "Ir a la sección proyectos", "Ir a la sección sobre mi", "Ir a la sección contact"],
 		intro: ["Hola👋, Soy", '"Transformando conceptos y diseño, en código"'],
 		skills: ["Web", "Móvil", "Escritorio", "Prueba y Medición", "Herramientas"],
 		about: [
@@ -82,12 +107,17 @@ const LANGUAGE = {
 		contact: {
 			intro: "Para saber más sobre mí, y poder trabajar juntos puedes encontrarme en:",
 			name: { label: "Nombre", placeholder: "Su nombre", error: "Por favor, rellene el campo" },
-			email: { label: "Correo", placeholder: "ejemplo@correo.com", error: {empty: "Por favor, rellene el campo", format: "Formato de correo no válid"} },
+			email: { label: "Correo", placeholder: "ejemplo@correo.com", error: { empty: "Por favor, rellene el campo", format: "Formato de correo no válido" } },
 			message: { label: "Mensaje", placeholder: "Su mensaje", error: "Por favor, rellene el campo" },
 			button: "Enviar",
-			notification: { send: "Enviando..", sendOK: "Mensaje enviado correctamente", sendError: "No se ha podido enviar el mensaje, inténtelo de nuevo",}
+			notification: { send: "Enviando..", sendOK: "Mensaje enviado correctamente", sendError: "No se ha podido enviar el mensaje, inténtelo de nuevo", }
 		},
-		footer: ["Hecho en <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> por Alejandro Garcia Alonso"]
+		footer: ["Hecho en <img class='footer__copyright--icon' title='México' src='./assets/icons/mexico-icon.ico' alt='mexico flag' loading='lazy' draggable='false'> por Alejandro Garcia Alonso"],
+		socialMedia: {
+			github: "Enlace al GitHub de Alejandro",
+			linkedin: "Enlace al Linkedin de Alejandro",
+			email: "Enlace para enviar correo a Alejandro",
+		}
 	}
 }
 
@@ -100,6 +130,10 @@ let language = selectedLanguage == "spanish" ? LANGUAGE.spanish : LANGUAGE.engli
 onload = () => {
 	SELECTED_MENU_ITEM.style.left = "0px";
 	SELECTED_MENU_ITEM.style.top = "0px";
+	scrollIcon.children[0].style.display = mobileDetect() ? 'none' : 'block';
+	scrollIcon.children[1].style.display = mobileDetect() ? 'block' : 'none';
+	console.log(scrollIcon.children[0])
+	console.log(scrollIcon.children[1], mobileDetect())
 	CreateLogoSkill(0);
 	CreateProject();
 	initAnimation();
@@ -127,7 +161,9 @@ const selectLanguage = () => {
 
 	DESKTOP_MENU_LINKS.forEach((menu, index) => {
 		menu.innerText = language.header[index];
+		menu.title = language.sectionLink[index];
 	})
+	linkHome.title = language.sectionLink[0];
 	SECTION_TITLES.forEach((section, index) => {
 		section.innerText = language.section[index];
 	})
@@ -142,7 +178,20 @@ const selectLanguage = () => {
 		}
 	})
 	CONTACT_MESSAGE.innerHTML = language.contact.intro;
+	inputName.placeholder = language.contact.name.placeholder;
+	labelName.textContent = language.contact.name.label;
+	errorName.textContent = language.contact.name.error;
+	inputEmail.placeholder = language.contact.email.placeholder;
+	labelEmail.textContent = language.contact.email.label;
+	errorEmail.textContent - language.contact.email.error.empty;
+	inputMessage.placeholder = language.contact.message.placeholder;
+	labelMessage.textContent = language.contact.message.label;
+	errorMessage.textContent = language.contact.message.error;
+	submitButton.textContent = language.contact.button;
 	FOOTER.children[0].innerHTML = language.footer[0];
+	linkGithub.forEach(link => link.title = language.socialMedia.github);
+	linkLinkedin.forEach(link => link.title = language.socialMedia.linkedin);
+	linkEmail.forEach(link => link.title = language.socialMedia.email);
 }
 
 
@@ -703,6 +752,7 @@ for (let index = 0; index < MOBIL_MENU_LINKS.length; index++) {
 	})
 }
 
+
 window.addEventListener("resize", () => {
 	positionMenuselected = ((MOBILE_MENU_ITEMS.getBoundingClientRect().width / 16) / 5 * (indexMenuCurrent + 1)) - (SELECTED_MOBILE_MENU.getBoundingClientRect().width / 16) - 0.2;
 	SELECTED_MOBILE_MENU.style.left = `${positionMenuselected}rem`;
@@ -741,15 +791,6 @@ document.addEventListener("scroll", () => {
 //////////////////////SEND EMAIL //////////////////
 ///////////////////////////////////////////////////
 const btn = document.getElementById('button');
-const inputName = document.querySelector('.form__name');
-const inputEmail = document.querySelector('.form__email');
-const inputMessage = document.querySelector('.form__message');
-const loading = document.querySelector('.form__loading');
-const loadingLabel = document.querySelector('.form__labelloading');
-const errorName = document.querySelector('.form__errorname');
-const errorEmail = document.querySelector('.form__erroremail');
-const errorMessage = document.querySelector('.form__errormessage');
-const submitButton = document.querySelector('.form__button');
 const validation = document.querySelector('.validation');
 const formCanvas = document.querySelector('.validation__canvas');
 const validationButton = document.querySelector('.validation__button');
@@ -837,9 +878,9 @@ document.getElementById('form')
 			emailOK = true;
 		} else {
 			if (inputEmail.value === '') {
-				errorEmail.textContent = "Favor de llenar el campo";
+				errorEmail.textContent = language.contact.email.error.empty;
 			} else {
-				errorEmail.textContent = "Formato de correo no válido";
+				errorEmail.textContent = language.contact.email.error.format;
 			}
 			errorEmail.style.transform = "translateY(1rem)";
 			styleErrorState(inputEmail);
@@ -850,19 +891,19 @@ document.getElementById('form')
 		if (emailOK && nameOK && messsageOK) {
 			loading.style.display = 'block';
 			loadingLabel.style.display = 'block';
-			loadingLabel.textContent = 'SENDING...';
+			loadingLabel.textContent = language.contact.notification.send;
 			emailjs.sendForm(serviceID, templateID, this)
 				.then(() => {
 					inputName.value = '';
 					inputEmail.value = '';
 					inputMessage.value = '';
 					loading.style.display = 'none';
-					loadingLabel.textContent = 'Mensaje enviado correctamente.';
+					loadingLabel.textContent = language.contact.notification.sendOK;
 					setTimeout(() => {
 						loadingLabel.style.display = 'none';
 					}, 5000);
 				}, (err) => {
-					loadingLabel.textContent = 'The message could not be sent, try again';
+					loadingLabel.textContent = language.contact.notification.sendError;
 					loading.style.display = 'none';
 					setTimeout(() => {
 						loadingLabel.style.display = 'none';

@@ -156,7 +156,7 @@ figure {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  width: 70%;
+  width: 72%;
   height: 18em;
   left: 15%;
   top: 5%;
@@ -1157,6 +1157,7 @@ figure {
   width: 100%;
   gap: 1rem;
   margin: 1rem 0 0 0;
+  padding: 2rem;
   align-items: center;
   min-height: calc(100vh - 17rem);
   background-color: var(--color_backdark);
@@ -1421,6 +1422,14 @@ figure {
   filter: brightness(180%);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff;
+}
+
 @keyframes animationLoading {
   0% {
     transform: rotate(0deg);
@@ -1504,6 +1513,51 @@ figure {
   width: 2rem;
 }
 
+.scrollicon {
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  bottom: 4rem;
+  right: 0.3rem;
+  background-color: #e9971d00;
+  z-index: 3;
+}
+
+.desktopscroll {
+  width: 3rem;
+}
+.desktopscroll .path,
+.desktopscroll .line {
+  stroke: var(--color_activated);
+  stroke-width: 15px;
+  fill: transparent;
+}
+.desktopscroll .line {
+  animation: animationArrowMouse 1.2s linear alternate infinite;
+}
+
+.mobilscroll .path {
+  fill: var(--color_activated);
+  animation: animationArrowMouseTouch 1.2s linear alternate infinite;
+  stroke-width: 1px;
+}
+
+@keyframes animationArrowMouse {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+@keyframes animationArrowMouseTouch {
+  0% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(7px);
+  }
+}
 .link {
   position: relative;
   width: 2rem;

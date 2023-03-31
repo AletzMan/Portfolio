@@ -374,7 +374,7 @@ figure {
   grid-column: 1/span 2;
   grid-row: 2/3;
   margin: 0rem auto 1rem auto;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-family: var(--font-Title);
   word-wrap: break-word;
   align-self: flex-start;
@@ -388,7 +388,7 @@ figure {
 }
 @media only screen and (min-width: 768px) {
   .home__greetings {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     align-self: flex-end;
     grid-column: 1/2;
     grid-row: 1/2;
@@ -426,17 +426,18 @@ figure {
   grid-row: 3/4;
   color: var(--color_activated);
   z-index: 1;
-  color: var(--color_font);
+  color: var(--color_activated);
   text-align: left;
   font-weight: 100;
   font-size: 2rem;
   margin: 1rem 0 0.2rem 0.5rem;
   text-overflow: initial;
+  margin: 0;
 }
 @media only screen and (min-width: 768px) {
   .home__position {
     text-align: left;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 }
 @media (max-width: 500px) {
@@ -452,7 +453,7 @@ figure {
 }
 .home__position::before {
   content: "›";
-  color: var(--color_activated);
+  color: #c47a27;
 }
 .home__positiontwo {
   display: none;

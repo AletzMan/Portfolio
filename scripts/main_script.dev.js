@@ -568,7 +568,7 @@ var BODY = document.querySelector("body");
 var SOURCE_PHOTOS = "./assets/photos/project_";
 var SOURCE_PREVIEW_PHOTOS = "./assets/photos/preview_project_";
 var Title = [];
-var TECHNOLOGIES = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git"], ["csharp", "netcore", "xamarin", "xaml"], ["html", "css", "react", "javascript"], ["html", "css", "react", "javascript"], ["html", "css", "react", "javascript", "firebase"], ["html", "css", "react", "javascript"]];
+var TECHNOLOGIES = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git"], ["csharp", "netcore", "xamarin", "xaml"], ["html", "css", "react", "javascript"], ["html", "css", "react", "javascript"], ["html", "css", "react", "javascript", "firebase"], ["html", "css", "react", "javascript"], ["html", "css", "javascript"]];
 var REPOSITORIES = ["https://github.com/AletzMan/PaintBoard", "https://github.com/AletzMan", "https://aletzman.github.io/", "https://github.com/AletzMan/streaming_movie_clone", "https://github.com/AletzMan/ToDo_List", "https://github.com/AletzMan/soccer_stats", "https://github.com/AletzMan/hangman_game", "https://github.com/AletzMan/calculator"];
 var DEMO = ["https://aletzman.github.io/PaintBoard/", "https://github.com/AletzMan", "https://aletzman.github.io/", "https://aletzman.github.io/streaming_movie_clone/", "https://aletzman.github.io/ToDo_List/#/", "https://aletzman.github.io/soccer_stats/#/", "https://aletzman.github.io/hangman_game/#/", "https://aletzman.github.io/calculator/"];
 
@@ -616,6 +616,7 @@ var EditProjects = function EditProjects() {
 
     PROJECT_IMAGE[_index7].src = SOURCE_PREVIEW_PHOTOS + _index7 + ".jpg";
     PROJECT_REPOSITORY[_index7].href = REPOSITORIES[_index7];
+    projectsPreview[_index7].href = DEMO[_index7];
   };
 
   for (var _index7 = 0; _index7 < PROJECTS.length; _index7++) {
@@ -657,7 +658,7 @@ var EditProjects = function EditProjects() {
           PROJECT_CONTAINER[_index8].style.cursor = 'pointer';
 
           PROJECT_CONTAINER[_index8].onclick = function () {
-            var url = REPOSITORIES[_index8];
+            var url = DEMO[_index8];
 
             if (isViewActivated) {
               window.open(url);

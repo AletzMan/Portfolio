@@ -547,6 +547,7 @@ const TECHNOLOGIES = [
 	["html", "css", "react", "javascript"],
 	["html", "css", "react", "javascript", "firebase"],
 	["html", "css", "react", "javascript"],
+	["html", "css", "javascript"],
 ];
 const REPOSITORIES = [
 	"https://github.com/AletzMan/PaintBoard",
@@ -624,6 +625,7 @@ const EditProjects = () => {
 		});
 		PROJECT_IMAGE[index].src = SOURCE_PREVIEW_PHOTOS + index + ".jpg";
 		PROJECT_REPOSITORY[index].href = REPOSITORIES[index];
+		projectsPreview[index].href = DEMO[index];
 	}
 
 
@@ -660,7 +662,7 @@ const EditProjects = () => {
 					PROJECT_CONTAINER[index].children[4].children.item(0).children.item(0).style.fill = 'var(--color_activated)';
 					PROJECT_CONTAINER[index].style.cursor = 'pointer';
 					PROJECT_CONTAINER[index].onclick = function () {
-						var url = REPOSITORIES[index];
+						var url = DEMO[index];
 						if (isViewActivated) {
 							window.open(url);
 						}

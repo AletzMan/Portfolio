@@ -338,7 +338,7 @@ figure {
 .section {
   width: 90%;
   height: 100%;
-  min-height: calc(100vh - 9rem);
+  min-height: calc(100vh);
   margin: 0rem auto 4.8rem auto;
   justify-items: center;
   transition: opacity 0.5s linear;
@@ -424,7 +424,6 @@ figure {
   display: flex;
   grid-column: 1/2;
   grid-row: 3/4;
-  color: var(--color_activated);
   z-index: 1;
   color: var(--color_activated);
   text-align: left;
@@ -438,17 +437,20 @@ figure {
   .home__position {
     text-align: left;
     font-size: 2.8rem;
+    color: var(--color_activated);
   }
 }
 @media (max-width: 500px) {
   .home__position {
     font-size: 1.5rem;
     display: none;
+    color: var(--color_activated);
   }
 }
 @media (max-width: 768px) {
   .home__position {
     grid-column: 1/span 2;
+    color: var(--color_activated);
   }
 }
 .home__position::before {
@@ -461,7 +463,6 @@ figure {
   grid-row: 3/4;
   color: var(--color_activated);
   z-index: 1;
-  color: var(--color_font);
   text-align: left;
   font-weight: 100;
   font-size: 1.5rem;

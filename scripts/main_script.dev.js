@@ -9,7 +9,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var DESKTOP_MENU_LINKS = document.querySelectorAll(".menu__list--link");
 var DESKTOP_MENU_ITEMS = document.querySelectorAll(".menu__list");
 var SELECTED_MENU_ITEM = document.querySelector(".menu__selection");
-var presentation = document.querySelector(".landscape__window--text");
+var presentation = document.querySelector(".home__position");
 var SECTIONS = document.querySelectorAll(".section");
 var SECTION_TITLES = document.querySelectorAll(".title");
 var SLOGAN = document.querySelector(".home__slogan");
@@ -53,12 +53,12 @@ var SIZE_BUBBLE = 45;
 var NAME_LOGOS = ["html", "css", "javascript", "sass", "pug", "git", "github", "mysql", "react", "csharp", "netcore", "xamarin", "xaml", "c", "vscode", "vs", "labview", "teststand", "cvi"];
 var LANGUAGE = {
   english: {
-    header: ["Home", "Skills", "Projects", "About Me", "Contact"],
-    section: ["HOME", "SKILLS", "PROJECTS", "ABOUT ME", "CONTACT"],
-    sectionLink: ["Go to home section", "Go to skills section", "Go to projects section", "Go to About me section", "Go to contact section"],
+    header: ["Home", "Projects", "Technologies", "About Me", "Contact"],
+    section: ["HOME", "PROJECTS", "TECHNOLOGIES", "ABOUT ME", "CONTACT"],
+    sectionLink: ["Go to home section", "Go to projects section", "Go to technologies section", "Go to About me section", "Go to contact section"],
     intro: ["Hey👋, I'm", '"Transforming concepts and design, into code"'],
     skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools"],
-    about: ["THE BEGINNING", "I am a self-taught person, since I was a child I was very interested in technology, especially electronics and programming.", "I studied electronics, where I learned about microcontrollers and was able to combine my two current passions, electronics and programming.", "I started working in the electronics field as a diagnostic technician.", "I started my own computer rental and repair business. Here I started to delve into the world of programming with ActionScript and Visual Basic.", "I worked as a mechanical assembly technician for the electronics industry, where test and automation equipment is manufactured.", "In the same company I got the position of hardware technician, where I did the routing and wiring of the electrical and electronic part of the equipment.", "I worked as a Hardware Engineer, where I made the electrical diagrams and the debugging of the electrical and electronic part.", "In the position of Development Engineer, with C, C# and PLC languages.", "I had the opportunity to start a business, and I decided to work as a freelance, where I do residential electrical installation work, and in the area of development with languages such as C #, for mobile and desktop applications.", "I have dedicated myself to study several programming languages, focusing on Web Development, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to go into the Back-End."],
+    about: ["THE BEGINNING", "Focusing on Web Development, I have acquired knowledge in more technologies, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to get into the Back-End.", "Freelance in the area of development with languages such as C#, for mobile and desktop applications, web applications, and residential electrical installation.", "Development Engineer of functional equipment with C, C# and PLC languages.", "Hardware engineer, electrical schematic design and debugging of the electrical and electronic part of functional equipment.", "Hardware technician, routing and wiring of the electrical and electronic part of the equipment.", "Mechanical assembly technician for the electronics industry, where test and automation equipment is manufactured.", "I started my own computer rental and repair business. I started to get into the world of programming with ActionScript and Visual Basic."],
     contact: {
       intro: "To know more about me, and to be able to work together you can find me at:",
       name: {
@@ -94,12 +94,12 @@ var LANGUAGE = {
     }
   },
   spanish: {
-    header: ["Inicio", "Habilidades", "Proyectos", "Sobre mi", "Contacto"],
-    section: ["INICIO", "HABILIDADES", "PROYECTOS", "SOBRE MI", "CONTACTO"],
-    sectionLink: ["Ir a la sección inicio", "Ir a la sección habilidades", "Ir a la sección proyectos", "Ir a la sección sobre mi", "Ir a la sección contact"],
+    header: ["Inicio", "Proyectos", "Tecnologías", "Sobre mi", "Contacto"],
+    section: ["INICIO", "PROYECTOS", "TECNOLOGÍAS", "SOBRE MI", "CONTACTO"],
+    sectionLink: ["Ir a la sección inicio", "Ir a la sección proyectos", "Ir a la sección tecnologías", "Ir a la sección sobre mi", "Ir a la sección contact"],
     intro: ["Hola👋, Soy", '"Transformando conceptos y diseño, en código"'],
     skills: ["Web", "Móvil", "Escritorio", "Prueba y Medición", "Herramientas"],
-    about: ["EL PRINCIPIO", "Soy autodidacta, desde pequeño me interesó mucho la tecnología, especialmente la electrónica y la programación.", "Estudié electrónica, donde aprendí sobre microcontroladores y pude combinar mis dos pasiones actuales, la electrónica y la programación.", "Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.", "Emprendi mi negocio de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación con ActionScript y Visual Basic.", "Trabajé como técnico de montaje mecánico para la industria electrónica, donde se fabrican equipos de prueba y automatización.", "En la misma empresa obtuve el puesto de técnico de hardware, donde realizaba el ruteado y cableado de la parte eléctrica y electrónica de los equipos.", "Trabajé como Ingeniero de Hardware, donde realizaba los esquemas eléctricos y la depuración de la parte eléctrica y electrónica.", "En el puesto de Ingeniero de Desarrollo, con lenguajes C, C# y PLC", "Autonoma con trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.", "Me he dedicado a estudiar varios lenguajes de programación, enfocándome en Desarrollo Web, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End."],
+    about: ["EL PRINCIPIO", "Enfocándome en Desarrollo Web, he adquirodo conocimiento en mas tecnologías, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End.", "Freelance en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio, aplicaciones Web, e instalación eléctrica residencial", "Ingeniero de Desarrollo de equipos funcionales con lenguajes C, C# y PLC", "Ingeniero de Hardware, diseño de esquemas eléctricos y depuración de la parte eléctrica y electrónica de equipos funcionales.", "Técnico de hardware, ruteado y cableado de la parte eléctrica y electrónica de los equipos.", "Técnico de montaje mecánico para la industria electrónica, donde se fabrican equipos de prueba y automatización.", "Emprendi mi negocio de renta y reparación de computadoras. Comencé a adentrarme en el mundo de la programación con ActionScript y Visual Basic."],
     contact: {
       intro: "Para saber más sobre mí, y poder trabajar juntos puedes encontrarme en:",
       name: {
@@ -216,7 +216,7 @@ var selectLanguage = function selectLanguage() {
 };
 
 var contentPresentation = function contentPresentation() {
-  textPresentation = SWITCH_LANGUAGE.checked ? ['Software Developer', 'Front-End Developer', 'Electrical Design'] : ['Desarrollador de Software', 'Desarrollador Front-End', 'Diseño Electrico'];
+  textPresentation = SWITCH_LANGUAGE.checked ? ['Software Developer'] : ['Desarrollador de Software'];
 };
 
 for (var index = 0; index < DESKTOP_MENU_LINKS.length; index++) {
@@ -263,23 +263,22 @@ setTimeout(function () {
     } else {
       reverse = true;
       timeElapsed = new Date().getTime() - timeInit;
-    }
+    } //----Para invertir la animacion ---//
 
-    if (reverse && timeElapsed > delay) {
-      presentation.innerHTML = textReverse.substring(0, numLetter);
-      numLetter -= 1;
+    /*if (reverse && timeElapsed > delay) {
+    	presentation.innerHTML = textReverse.substring(0, numLetter);
+    	numLetter -= 1;
+    	if (presentation.innerHTML.length === 0) {
+    		reverse = false;
+    		textNumber += 1;
+    		numLetter = 0;
+    		delayON = true;
+    		if (textNumber > textPresentation.length - 1) {
+    			textNumber = 0;
+    		}
+    	}
+    }*/
 
-      if (presentation.innerHTML.length === 0) {
-        reverse = false;
-        textNumber += 1;
-        numLetter = 0;
-        delayON = true;
-
-        if (textNumber > textPresentation.length - 1) {
-          textNumber = 0;
-        }
-      }
-    }
   }, 100);
 }, 1600);
 
@@ -534,8 +533,8 @@ for (var _index4 = 0; _index4 < SKILLS_CATEGORIES.length; _index4++) {
   _loop(_index4);
 }
 
-var SKILLS = [["html", "css", "javascript", "react", "sass", "pug", "git", "github", "vscode"], ["csharp", "netcore", "xaml", "git", "github", "vs"], ["csharp", "netcore", "xamarin", "xaml", "vs", "git", "github"], ["c", "csharp", "xaml", "labview", "siemens", "git", "github"], ["vscode", "vs", "git", "labview", "teststand", "cvi", "tiaportal"]];
-var SKILL_NAMES = [["html", "css", "javascript", "react js", "sass", "pug", "git", "git hub", "visual studio code"], ["c#", "netcore", "xaml", "git", "github", "visual studio"], ["c#", "netcore", "xamarin forms", "xaml", "visual studio", "git", "github"], ["c", "c#", "xaml", "labview (Graphic)", "scl, kop", "git", "github"], ["visual studio code", "visual studio", "git", "labview", "teststand", "lab/windows cvi", "tia portal"]];
+var SKILLS = [["html", "css", "javascript", "react", "sass", "pug", "git", "github", "vscode", "firebase"], ["csharp", "netcore", "xaml", "git", "github", "vs"], ["csharp", "netcore", "xamarin", "xaml", "vs", "git", "github"], ["c", "csharp", "xaml", "labview", "siemens", "git", "github"], ["vscode", "vs", "git", "labview", "teststand", "cvi", "tiaportal"]];
+var SKILL_NAMES = [["html", "css", "javascript", "react js", "sass", "pug", "git", "git hub", "visual studio code", "firebase"], ["c#", "netcore", "xaml", "git", "github", "visual studio"], ["c#", "netcore", "xamarin forms", "xaml", "visual studio", "git", "github"], ["c", "c#", "xaml", "labview (Graphic)", "scl, kop", "git", "github"], ["visual studio code", "visual studio", "git", "labview", "teststand", "lab/windows cvi", "tia portal"]];
 
 var CreateLogoSkill = function CreateLogoSkill(numberSkill) {
   do {
@@ -569,8 +568,9 @@ var BODY = document.querySelector("body");
 var SOURCE_PHOTOS = "./assets/photos/project_";
 var SOURCE_PREVIEW_PHOTOS = "./assets/photos/preview_project_";
 var Title = [];
-var TECHNOLOGIES = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git"], ["csharp", "netcore", "xamarin", "xaml"], ["c", "csharp", "xaml", "labview"], ["vscode", "vs", "git", "labview"]];
-var REPOSITORIES = ["https://aletzman.github.io/", "https://github.com/AletzMan", "https://aletzman.github.io/"];
+var TECHNOLOGIES = [["html", "css", "javascript", "pug", "sass"], ["csharp", "netcore", "xaml", "sql", "mysql", "git"], ["csharp", "netcore", "xamarin", "xaml"], ["html", "css", "react", "javascript"], ["html", "css", "react", "javascript"], ["html", "css", "react", "javascript", "firebase"], ["html", "css", "react", "javascript"]];
+var REPOSITORIES = ["https://github.com/AletzMan/PaintBoard", "https://github.com/AletzMan", "https://aletzman.github.io/", "https://github.com/AletzMan/streaming_movie_clone", "https://github.com/AletzMan/ToDo_List", "https://github.com/AletzMan/soccer_stats", "https://github.com/AletzMan/hangman_game", "https://github.com/AletzMan/calculator"];
+var DEMO = ["https://aletzman.github.io/PaintBoard/", "https://github.com/AletzMan", "https://aletzman.github.io/", "https://aletzman.github.io/streaming_movie_clone/", "https://aletzman.github.io/ToDo_List/#/", "https://aletzman.github.io/soccer_stats/#/", "https://aletzman.github.io/hangman_game/#/", "https://aletzman.github.io/calculator/"];
 
 var CreateProject = function CreateProject() {
   for (var _index6 = 0; _index6 < REPOSITORIES.length - 1; _index6++) {
@@ -578,7 +578,7 @@ var CreateProject = function CreateProject() {
     PROJECT_CONTAINER.appendChild(NEW_PROJECT);
   }
 
-  Title = ["Drawing Board", "Test Sequence", "Electronic Encyclopedia"];
+  Title = ["Drawing Board", "Test Sequencer", "Electronic Encyclopedia", "Streaming Movie Clone", "ToDo List", "Soccer Stats and Betting", "HangMan Game", "Calculator"];
   EditProjects();
 };
 
@@ -627,7 +627,7 @@ var EditProjects = function EditProjects() {
   var _loop3 = function _loop3(_index8) {
     PROJECT_CONTAINER[_index8].addEventListener('mouseleave', function (e) {
       PROJECT_CONTAINER[_index8].style.transform = 'rotate(0deg)';
-      PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(100%)';
+      PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(80%)';
       PROJECT_CONTAINER[_index8].children[2].style.border = '1px solid var(--color_activated)';
       PROJECT_CONTAINER[_index8].children[4].children.item(0).children.item(0).style.fill = 'var(--color_font)';
     });
@@ -640,7 +640,7 @@ var EditProjects = function EditProjects() {
         isZoomActivated = true;
         isViewActivated = false;
         PROJECT_CONTAINER[_index8].style.cursor = 'zoom-in';
-        PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(160%)';
+        PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(110%)';
         PROJECT_CONTAINER[_index8].children[2].style.border = '3px solid var(--color_activated)';
         AsignEvent(PROJECT_CONTAINER[_index8], _index8);
       } else {
@@ -648,7 +648,7 @@ var EditProjects = function EditProjects() {
         isViewActivated = false;
         PROJECT_CONTAINER[_index8].style.cursor = 'default';
         PROJECT_CONTAINER[_index8].children[4].children.item(0).children.item(0).style.fill = 'var(--color_font)';
-        PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(100%)';
+        PROJECT_CONTAINER[_index8].children[2].style.filter = 'brightness(80%)';
         PROJECT_CONTAINER[_index8].children[2].style.border = '1px solid var(--color_activated)';
 
         if (e.offsetY < 65 && e.offsetX > 270) {
@@ -729,7 +729,7 @@ MODAL_BUTTON.addEventListener("mouseup", function (event) {
 /////////////////////////////--------- MENU MOBIL ---------/////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-var NAME_TAG_MENU = ["HOME", "SKILLS", "PROJECTS", "ABOUT", "CONTACT"];
+var NAME_TAG_MENU = ["HOME", "PROJECTS", "SKILLS", "ABOUT", "CONTACT"];
 var positionMenuselected = 0;
 var indexMenuCurrent = 0;
 var indexMenuBefore = 0;

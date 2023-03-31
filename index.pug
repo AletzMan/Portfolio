@@ -44,31 +44,26 @@ html(lang="es")
                 a(class="header__link" href="#" title="Go To Home" )
                     img(class="header__logo" src="./assets/logos/logo-large.svg" alt="logo Alejandro Garcia" loading="lazy" draggable="false")
                 ul(class="header__menu menu")
-                    li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") Home]
-                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  Skills]
-                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer")  Projects]
-                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer")  About me]
-                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer")  Contact]
+                    li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") Inicio]
+                    li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer")  Proyectos]
+                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  Technologies]
+                    li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer")  Sobre mi]
+                    li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer")  Contacto]
                     li(class="menu__selection")
             div(class="header__language language")                
                 input(class="language__check" type="checkbox")
                 div(class="language__button")
                     img(class="language__icon" src="./assets/icons/language-icon.svg" alt="icon of language")
         div(class="menumobil__content")
-        div(class="perspective")                
-                div(class=" landscape")
-                    div(class="landscape__window")    
-                        div(class="landscape__bar")   
-                            div(class="landscape__min landscape__circle")   
-                            div(class="landscape__max landscape__circle")   
-                            div(class="landscape__close landscape__circle")   
-                        p(class="landscape__window--text")
+       
         section(id="section__home" class="home section")
-            h2(class="home__title title") HOME
+            h2(class="home__title title") INICIO
             div(class="home__container")
-                span(class="home__greetings") Hey, #[br]My name is
+                span(class="home__greetings") HOla, #[br]Mi nombre es
                 span(class="home__name") Alejandro.
-                span(class="home__slogan") "Turning ideas and desing, into code"        
+                p(class="home__position") 
+                p(class="home__positiontwo") Desarrollador de Software
+                span(class="home__slogan") "TTransformando conceptos y diseño, en código"        
                 img(class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false")
                 a(class="home__link--github networks link__github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
                     +logosSVG('git')
@@ -86,25 +81,8 @@ html(lang="es")
                 line(class="desktopscroll__arrowdown line" x1="125" y1="200" x2="160" y2="175" stroke-linecap="round")
             svg(class="scrollicon__mobil mobilscroll" width="50" height="50" viewBox="0 0 24 28")
                 path(class="path" d="M7,9.29289322 L8.14644661,8.14644661 C8.34170876,7.95118446 8.65829124,7.95118446 8.85355339,8.14644661 C9.04881554,8.34170876 9.04881554,8.65829124 8.85355339,8.85355339 L6.85355339,10.8535534 C6.65829124,11.0488155 6.34170876,11.0488155 6.14644661,10.8535534 L4.14644661,8.85355339 C3.95118446,8.65829124 3.95118446,8.34170876 4.14644661,8.14644661 C4.34170876,7.95118446 4.65829124,7.95118446 4.85355339,8.14644661 L6,9.29289322 L6,3.70710678 L4.85355339,4.85355339 C4.65829124,5.04881554 4.34170876,5.04881554 4.14644661,4.85355339 C3.95118446,4.65829124 3.95118446,4.34170876 4.14644661,4.14644661 L6.14644661,2.14644661 C6.34170876,1.95118446 6.65829124,1.95118446 6.85355339,2.14644661 L8.85355339,4.14644661 C9.04881554,4.34170876 9.04881554,4.65829124 8.85355339,4.85355339 C8.65829124,5.04881554 8.34170876,5.04881554 8.14644661,4.85355339 L7,3.70710678 L7,9.29289322 Z M14,9.5 L14,12.0474376 C14,12.3783481 13.8839855,12.698786 13.6721417,12.9529985 C13.1720143,13.5531514 12.2800608,13.6342381 11.6799078,13.1341106 L10.7560738,12.3642489 C10.4736449,12.1288916 10.11764,12 9.75,12 C9.48363526,12 9.24082605,12.1526146 9.12532205,12.3926334 L9.08962348,12.4668155 C8.95447865,12.7476481 8.99541029,13.0814869 9.19439734,13.321352 L13.607865,18.6414804 C14.3217788,19.502054 15.3818498,20 16.5,20 C18.9852814,20 21,17.9852814 21,15.5 L21,11.5 C21,11.2238576 20.7761424,11 20.5,11 C20.2238576,11 20,11.2238576 20,11.5 L20,12.5 C20,12.7761424 19.7761424,13 19.5,13 C19.2238576,13 19,12.7761424 19,12.5 L19,10.5 C19,10.2238576 18.7761424,10 18.5,10 C18.2238576,10 18,10.2238576 18,10.5 L18,12.5 C18,12.7761424 17.7761424,13 17.5,13 C17.2238576,13 17,12.7761424 17,12.5 L17,9.5 C17,9.22385763 16.7761424,9 16.5,9 C16.2238576,9 16,9.22385763 16,9.5 L16,12.5 C16,12.7761424 15.7761424,13 15.5,13 C15.2238576,13 15,12.7761424 15,12.5 L15,5.5 C15,5.22385763 14.7761424,5 14.5,5 C14.2238576,5 14,5.22385763 14,5.5 L14,9.5 Z M13,9.49999981 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 C15.3284271,4 16,4.67157288 16,5.5 L16,8.08535285 C16.1563895,8.03007711 16.3246823,8 16.5,8 C17.191734,8 17.7741062,8.46823386 17.9474595,9.10504462 C18.1184541,9.03725677 18.3048761,9 18.5,9 C19.191734,9 19.7741062,9.46823386 19.9474595,10.1050446 C20.1184541,10.0372568 20.3048761,10 20.5,10 C21.3284271,10 22,10.6715729 22,11.5 L22,15.5 C22,18.5375661 19.5375661,21 16.5,21 C15.0842933,21 13.7421216,20.3695431 12.8382246,19.279958 L8.42475695,13.9598296 C7.97611908,13.4190278 7.88383427,12.6663521 8.18853292,12.0331845 L8.2242315,11.9590024 C8.50634865,11.3727595 9.09940726,11 9.75,11 C10.3515765,11 10.9341143,11.2109078 11.3962582,11.5960277 L12.3200922,12.3658894 C12.4959683,12.5124527 12.7573571,12.4886901 12.9039205,12.3128141 C12.9660017,12.2383166 13,12.1444116 13,12.0474376 L13,9.5 Z")
-        section(class="skills section" id="section__skills")
-            h2(class="skills__title title") SKILLS
-            div(class="skills__logos logos")
-                div(class="skills__select")
-                    button(class="skills__back") 
-                    span(class="skills__selecttitle") TYPE SKILL
-                    button(class="skills__next") 
-                input(type ="radio" name="skills" id="webdev" class="skills--webdev technologies" checked) 
-                label(for="webdev" class="label__tech" name="Web") Web
-                input(type ="radio" name="skills" id="mobil" class="skills--mobil technologies") 
-                label(for="mobil" class="label__tech" name="Mobil") Mobil
-                input(type ="radio" name="skills" id="desktop" class="skills--desktop technologies") 
-                label(for="desktop" class="label__tech" name="Desktop") Desktop
-                input(type ="radio" name="skills" id="test" class="skills--test technologies") 
-                label(for="test" class="label__tech" name="Test & Measurement") Test & Measurement
-                input(type ="radio" name="skills" id="platforms" class="skills--platforms technologies") 
-                label(for="platforms" class="label__tech" name="Tools & Platforms") Tools & Platforms                
         section(class="projects section" id="section__projects")
-            h2(class="projects__title title") PROJECTS
+            h2(class="projects__title title") PROYECTOS
             div(class="projects__container")
                 div(class="project")
                     div(class="project__container")
@@ -116,8 +94,25 @@ html(lang="es")
                             +logosSVG('git')
                         a(name="svg" class="project__options--linkpreview networks"  href=linkedin title="Go To Preview Project" target="_blank" rel="noopener noreferrer")   
                             +logosSVG('view')
+        section(class="skills section" id="section__skills")
+            h2(class="skills__title title") TECNOLOGÍAS
+            div(class="skills__logos logos")
+                div(class="skills__select")
+                    button(class="skills__back") 
+                    span(class="skills__selecttitle") TYPE SKILL
+                    button(class="skills__next") 
+                input(type ="radio" name="skills" id="webdev" class="skills--webdev technologies" checked) 
+                label(for="webdev" class="label__tech" name="Web") Web
+                input(type ="radio" name="skills" id="mobil" class="skills--mobil technologies") 
+                label(for="mobil" class="label__tech" name="Mobil") Móvil
+                input(type ="radio" name="skills" id="desktop" class="skills--desktop technologies") 
+                label(for="desktop" class="label__tech" name="Desktop") Escritorio
+                input(type ="radio" name="skills" id="test" class="skills--test technologies") 
+                label(for="test" class="label__tech" name="Test & Measurement") Prueba y Medición
+                input(type ="radio" name="skills" id="platforms" class="skills--platforms technologies") 
+                label(for="platforms" class="label__tech" name="Tools & Platforms") Herramientas
         section(class="about section" id="section__about")
-            h2(class="about__title title") ABOUT ME
+            h2(class="about__title title") SOBRE MI
             div(class="about__container aboutme")
                 ul(class="about__timeline timeline")
                     li(class="timeline__point--one point")   
@@ -127,24 +122,18 @@ html(lang="es")
                     li(class="timeline__point--five point")       
                     li(class="timeline__point--six point")      
                     li(class="timeline__point--seven point")  
-                    li(class="timeline__point--eight point")  
-                    li(class="timeline__point--nine point")  
-                    li(class="timeline__point--ten point") 
-                p(class="aboutme__one aboutme__paragraph") Soy una persona autodidacta, y apasionado por la programación. Desde muy pequeño me interesó mucho la tecnología, primero la electrónica, me gustaba desmontar objetos electrónicos y ver como funcionaban por dentro.
-                p(class="aboutme__two aboutme__paragraph") Decidí estudiar la carrera de electrónica, donde me encontré con los microcontroladores y así pude combinar mis dos actuales pasiones, la electrónica y la programación.
-                p(class="aboutme__three aboutme__paragraph") Comencé a trabajar en el campo de la electrónica como tecnico de diagnostico.
-                p(class="aboutme__four aboutme__paragraph") Emprendi mi negocio donde ofrecía servicios de renta y reparación de computadoras. Aquí comencé a adentrarme más en el mundo de la programación de forma autodidacta, con ActionScript y Visual Basic.
-                p(class="aboutme__five aboutme__paragraph") Empecé a trabajar como técnico de ensamble mecanico, para la industria electrónica, donde se fabrican equipos de prueba y automatización para empresas que fabrican productos electrónicos.
-                p(class="aboutme__six aboutme__paragraph") Fui ascendido a técnico de hardware, donde realizaba el ruteo y cableado de la parte eléctrica y electrónica de los equipos.
-                p(class="aboutme__seven aboutme__paragraph") Me ascendieron a Ingeniero de Hardware, donde realizaba los diagramas eléctricos y la depuración de la parte eléctrica y electrónica.
-                p(class="aboutme__eight aboutme__paragraph") Fui ascendido a  Ingeniero de Desarrollo mis responsabilidades.
-                p(class="aboutme__nine aboutme__paragraph") Tuve la oportunidad de montar un negocio, y decidí trabajar como freelance, donde realizo trabajos de instalación eléctrica residencial, y en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio.
-                p(class="aboutme__ten aboutme__paragraph") Desde entonces me he dedicado de manera autonoma a estudiar varios lenguajes de programación, me enfoque en Desarrollo Web, y desde el primer día he estado entusiasmado con este mundo, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End.#[br]#[br] Y sobre todo, nunca dejar de aprender. 
+                p(class="aboutme__one aboutme__paragraph") 
+                p(class="aboutme__two aboutme__paragraph") 
+                p(class="aboutme__three aboutme__paragraph") 
+                p(class="aboutme__four aboutme__paragraph")  
+                p(class="aboutme__five aboutme__paragraph")  
+                p(class="aboutme__six aboutme__paragraph") 
+                p(class="aboutme__seven aboutme__paragraph")
                 
         section(class="contact section" id="section__contact")
-            h2(class="contact__title title") CONTACT
+            h2(class="contact__title title") CONTACTO
             div(class="contact__type")
-                p(class="contact__type--message") To know more about me, and to be able to work together you can find me at:
+                p(class="contact__type--message") Para saber más sobre mí, y poder trabajar juntos puedes encontrarme en:
                 div(class="contact__type--networks")
                     a(class="contact__link--github networks link__github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
                         +logosSVG('git')
@@ -154,18 +143,18 @@ html(lang="es")
                         span(class="contact__name--linkedin networks__name") Linkedin
                     a(class="contact__link--mail networks link__mail"  href="mailto:alejo_2986@hotmail.com" title="Send Mail" target="_blank" rel="noopener noreferrer")   
                         +logosSVG('mail')
-                        span(class="contact__name--mail networks__name") E-mail
+                        span(class="contact__name--mail networks__name") Correo
                 form(class="contact__form form"  id="form")
                     span(class="form__errorname form__error") Favor de llenar el campo
                     input(class="form__name" type="text" placeholder="Your name..."  name="from_name" id="from_name")
-                    label(class="form__label--name form__label"  for="from_name") Name
+                    label(class="form__label--name form__label"  for="from_name") Nombre
                     span(class="form__erroremail form__error") Favor de llenar el campo
                     input(class="form__email" type="text"  name="user_email" id="user_email" placeholder="example@email.com")
-                    label(class="form__label--email form__label"  for="user_email") E-mail
+                    label(class="form__label--email form__label"  for="user_email") Correo
                     span(class="form__errormessage form__error") Favor de llenar el campo
                     textarea(class="form__message"  placeholder="Your message..." name="message" id="message", cols="30", rows="10")
-                    label(class="form__label--message form__label" for="message") Message
-                    button(class="form__button"  type="submit" id="button") Send
+                    label(class="form__label--message form__label" for="message") Mensaje
+                    button(class="form__button"  type="submit" id="button") Enviar
                     //div(class="form__validation validation")
                         span(class="validation__captcha") CAPTCHA
                         div(class="validation__reload")
@@ -184,7 +173,7 @@ html(lang="es")
                 a(class="footer__link--mail networks link__mail"  href="mailto:alejo_2986@hotmail.com" title="Send Mail" target="_blank" rel="noopener noreferrer")   
                    +logosSVG('mail')
             nav(class="footer__menumobil menumobil")
-                div(class="menumobil__link--select") HOME
+                div(class="menumobil__link--select") INICIO
                 ul(class="menumobil__links")
                     li(class="menumobil__links--home link")
                     li(class="menumobil__links--skills link")
@@ -193,7 +182,7 @@ html(lang="es")
                     li(class="menumobil__links--contact link")
         div(class="section__bubbles")
         div(class="modal")
-            button(class="modal__button") CLOSE
+            button(class="modal__button") CERRAR
             img(src="./assets/photos/project_1.jpg" class="modal__image")
             
                 

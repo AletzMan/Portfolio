@@ -59,7 +59,7 @@ const LANGUAGE = {
 		skills: ["Web", "Mobil", "Desktop", "Test & Measurement", "Tools"],
 		about: [
 			"THE BEGINNING",
-			"Focusing on Web Development, I have acquired knowledge in more technologies, I want to work in this fascinating area, at the moment I am in the Front-End area and little by little I want to get into the Back-End.",
+			"+8 years of experience in the electronics industry, both in hardware design (PCB, Schematics), +3 years of experience in software development (C, C#, LabView, MySQL). Learning new technologies in software development, mainly in frontend web development, and desktop applications with C# and Windows Forms.",
 			"Freelance in the area of development with languages such as C#, for mobile and desktop applications, web applications, and residential electrical installation.",
 			"Development Engineer of functional equipment with C, C# and PLC languages.",
 			"Hardware engineer, electrical schematic design and debugging of the electrical and electronic part of functional equipment.",
@@ -91,7 +91,7 @@ const LANGUAGE = {
 		skills: ["Web", "Móvil", "Escritorio", "Prueba y Medición", "Herramientas"],
 		about: [
 			"EL PRINCIPIO",
-			"Enfocándome en Desarrollo Web, he adquirodo conocimiento en mas tecnologías, quiero trabajar en esta fascinante área, de momento estoy en el área de Front-End y poco a poco quiero ir adentrandome en el Back-End.",
+			"+8 años de experiencia en la industria electrónica, tanto en diseño de hardware (PCB, Esquemáticos), + 3 años de experiencia en desarrollo de software (C, C#, LabView, MySQL). Aprendiendo nuevas tecnologías en desarrollo de software, principalmente en desarrollo web frontend, y aplicaciones de escritorio con C# y Windows Forms.",
 			"Freelance en el área de desarrollo con lenguajes como C#, para aplicaciones móviles y de escritorio, aplicaciones Web, e instalación eléctrica residencial",
 			"Ingeniero de Desarrollo de equipos funcionales con lenguajes C, C# y PLC",
 			"Ingeniero de Hardware, diseño de esquemas eléctricos y depuración de la parte eléctrica y electrónica de equipos funcionales.",
@@ -128,8 +128,6 @@ onload = () => {
 	SELECTED_MENU_ITEM.style.top = "0px";
 	scrollIcon.children[0].style.display = mobileDetect() ? 'none' : 'block';
 	scrollIcon.children[1].style.display = mobileDetect() ? 'block' : 'none';
-	console.log(scrollIcon.children[0])
-	console.log(scrollIcon.children[1], mobileDetect())
 	CreateLogoSkill(0);
 	CreateProject();
 	initAnimation();
@@ -541,12 +539,13 @@ const SOURCE_PREVIEW_PHOTOS = "./assets/photos/preview_project_";
 let Title = [];
 const TECHNOLOGIES = [
 	["html", "css", "javascript", "pug", "sass"],
-	["csharp", "netcore", "xaml", "sql", "mysql", "git"],
-	["csharp", "netcore", "xamarin", "xaml"],
+	["csharp", "netcore", "xaml", "sql", "mysql"],
+	["html", "css", "javascript"],
 	["html", "css", "react", "javascript",],
 	["html", "css", "react", "javascript"],
 	["html", "css", "react", "javascript", "firebase"],
 	["html", "css", "react", "javascript"],
+	["html", "css", "javascript"],
 	["html", "css", "javascript"],
 ];
 const REPOSITORIES = [
@@ -558,6 +557,7 @@ const REPOSITORIES = [
 	"https://github.com/AletzMan/soccer_stats",
 	"https://github.com/AletzMan/hangman_game",
 	"https://github.com/AletzMan/calculator",
+	"https://github.com/AletzMan/bubble_shooter_game",
 ];
 const DEMO = [
 	"https://aletzman.github.io/PaintBoard/",
@@ -568,6 +568,7 @@ const DEMO = [
 	"https://aletzman.github.io/soccer_stats/#/",
 	"https://aletzman.github.io/hangman_game/#/",
 	"https://aletzman.github.io/calculator/",
+	"https://aletzman.github.io/bubble_shooter_game/",
 ];
 
 
@@ -587,6 +588,7 @@ const CreateProject = () => {
 		"Soccer Stats and Betting",
 		"HangMan Game",
 		"Calculator",
+		"Bubble Shooter Game",
 	];
 
 	EditProjects();
@@ -635,9 +637,9 @@ const EditProjects = () => {
 		PROJECT_CONTAINER[index].addEventListener('mouseleave', (e) => {
 
 			PROJECT_CONTAINER[index].style.transform = 'rotate(0deg)'
-			PROJECT_CONTAINER[index].children[2].style.filter = 'brightness(80%)'
-			PROJECT_CONTAINER[index].children[2].style.border = '1px solid var(--color_activated)';
-			PROJECT_CONTAINER[index].children[4].children.item(0).children.item(0).style.fill = 'var(--color_font)';
+			PROJECT_CONTAINER[index].children[4].style.filter = 'brightness(80%)'
+			PROJECT_CONTAINER[index].children[4].style.border = '1px solid var(--color_activated)';
+			PROJECT_CONTAINER[index].children[6].children.item(0).children.item(0).style.fill = 'var(--color_font)';
 
 		})
 		PROJECT_CONTAINER[index].addEventListener('mousemove', (e) => {
@@ -647,19 +649,19 @@ const EditProjects = () => {
 				isZoomActivated = true;
 				isViewActivated = false;
 				PROJECT_CONTAINER[index].style.cursor = 'zoom-in';
-				PROJECT_CONTAINER[index].children[2].style.filter = 'brightness(110%)';
-				PROJECT_CONTAINER[index].children[2].style.border = '3px solid var(--color_activated)';
+				PROJECT_CONTAINER[index].children[4].style.filter = 'brightness(110%)';
+				PROJECT_CONTAINER[index].children[4].style.border = '3px solid var(--color_activated)';
 				AsignEvent(PROJECT_CONTAINER[index], index);
 			} else {
 				isZoomActivated = false;
 				isViewActivated = false;
 				PROJECT_CONTAINER[index].style.cursor = 'default';
-				PROJECT_CONTAINER[index].children[4].children.item(0).children.item(0).style.fill = 'var(--color_font)';
-				PROJECT_CONTAINER[index].children[2].style.filter = 'brightness(80%)'
-				PROJECT_CONTAINER[index].children[2].style.border = '1px solid var(--color_activated)';
+				PROJECT_CONTAINER[index].children[6].children.item(0).children.item(0).style.fill = 'var(--color_font)';
+				PROJECT_CONTAINER[index].children[4].style.filter = 'brightness(80%)'
+				PROJECT_CONTAINER[index].children[4].style.border = '1px solid var(--color_activated)';
 				if (e.offsetY < 65 && e.offsetX > 270) {
 					isViewActivated = true;
-					PROJECT_CONTAINER[index].children[4].children.item(0).children.item(0).style.fill = 'var(--color_activated)';
+					PROJECT_CONTAINER[index].children[6].children.item(0).children.item(0).style.fill = 'var(--color_activated)';
 					PROJECT_CONTAINER[index].style.cursor = 'pointer';
 					PROJECT_CONTAINER[index].onclick = function () {
 						var url = DEMO[index];
@@ -757,8 +759,6 @@ for (let index = 0; index < MOBIL_MENU_LINKS.length; index++) {
 		indexMenuBefore = indexMenuCurrent;
 		indexMenuCurrent = index;
 		numberOfSectionsDisplaced = Math.abs(indexMenuCurrent - indexMenuBefore);
-
-		console.log(SECTIONS[index].getBoundingClientRect().height);
 		let scrollPosition = 0;
 		for (let numberSection = 0; numberSection < index; numberSection++) {
 			scrollPosition += (SECTIONS[numberSection].getBoundingClientRect().height) + (80);
@@ -894,7 +894,6 @@ document.getElementById('form')
 		}
 
 		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputEmail.value)) {
-			console.log('ERROR')
 			styleNormalState(inputEmail);
 			emailOK = true;
 		} else {

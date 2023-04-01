@@ -863,6 +863,9 @@ $sizeContainerMenuMobil: 35rem;
                 transform: translateZ(4em);
             }
         }
+        &:hover>.project__link {
+            transform: translateZ(7em) translateY(-0.9em);
+        }
     }
 
     &__technologies {
@@ -903,6 +906,7 @@ $sizeContainerMenuMobil: 35rem;
     }
 
     &__title {
+        position: relative;
         grid-row: 1 / 2;
         width: 100%;
         height: 4rem;
@@ -923,6 +927,19 @@ $sizeContainerMenuMobil: 35rem;
         object-fit: cover;
         border: 0px solid var(--color_font);
 
+    }
+
+    &__link{
+        position: absolute;
+        top: 0rem;
+        color: var(--color_activated);
+    }
+
+    &__github{
+        left: 0;
+    }
+    &__demo{
+        right: 0;
     }
 
     &__options {
@@ -1157,7 +1174,7 @@ $sizeContainerMenuMobil: 35rem;
 
 .timeline__point--one {
     &::before {
-        content: '2022 - 2023';
+        content: '2023';
         top: -3.2rem;
     }
 }

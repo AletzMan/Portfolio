@@ -62,7 +62,7 @@ html(lang="es")
                 span(class="home__greetings") Hola👋, soy
                 span(class="home__name") Alejandro
                 p(class="home__position") 
-                p(class="home__positiontwo") Desarrollador de Software
+                h1(class="home__positiontwo") Desarrollador de Software
                 span(class="home__slogan") "TTransformando conceptos y diseño, en código"        
                 img(class="home__photo" src="./assets/photos/my_photo.webp" alt="photo of Alejandro Garcia" draggable="false")
                 a(class="home__link--github networks link__github" href=github title="Go To GitHub" target="_blank" rel="noopener noreferrer")
@@ -84,15 +84,17 @@ html(lang="es")
         section(class="projects section" id="section__projects")
             h2(class="projects__title title") PROYECTOS
             div(class="projects__container")
-                div(class="project")
+                div(class="project")                    
                     div(class="project__container")
+                        span(class="project__github  project__link") Git Hub
+                        span(class="project__demo project__link") DEMO
                         div(class="project__title")
                         div(class="project__technologies")
                         button(name="button" class="project__options--zoom networks" aria-labelledby="image zoom" aria-label="zoom" title="image project zoom")
                             img(class="project__image" src="./assets/photos/project_1.jpg" alt="photo of project" loading="lazy" draggable="false" aria-label="zoom")
                         a(name="svg" class="project__options--repository networks link__githubproject" href='' title="Go To GitHub repository project" target="_blank" rel="noopener noreferrer")
                             +logosSVG('git')
-                        a(name="svg" class="project__options--linkpreview networks"  href='' title="Go To Preview Project" target="_blank" rel="noopener noreferrer")   
+                        a(name="svg" class="project__options--linkpreview networks"  href='' title="Go To Demo Project" target="_blank" rel="noopener noreferrer")   
                             +logosSVG('view')
         section(class="skills section" id="section__skills")
             h2(class="skills__title title") TECNOLOGÍAS

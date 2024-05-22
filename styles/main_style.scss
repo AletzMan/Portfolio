@@ -863,6 +863,7 @@ $sizeContainerMenuMobil: 35rem;
                 transform: translateZ(4em);
             }
         }
+
         &:hover>.project__link {
             transform: translateZ(7em) translateY(-0.9em);
         }
@@ -929,16 +930,17 @@ $sizeContainerMenuMobil: 35rem;
 
     }
 
-    &__link{
+    &__link {
         position: absolute;
         top: 0rem;
         color: var(--color_activated);
     }
 
-    &__github{
+    &__github {
         left: 0;
     }
-    &__demo{
+
+    &__demo {
         right: 0;
     }
 
@@ -1174,7 +1176,7 @@ $sizeContainerMenuMobil: 35rem;
 
 .timeline__point--one {
     &::before {
-        content: '2023';
+        content: '2024';
         top: -3.2rem;
     }
 }

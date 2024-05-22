@@ -46,7 +46,6 @@ html(lang="es")
                 ul(class="header__menu menu")
                     li(class="menu__list menu__list--home") #[a(class="menu__list--link" href="#section__home" title="Go to Home" rel="noopener noreferrer") Inicio]
                     li(class="menu__list menu__list--projects") #[a(class="menu__list--link" href="#section__projects" title="Go to Projects" rel="noopener noreferrer")  Proyectos]
-                    li(class="menu__list menu__list--skills") #[a(class="menu__list--link" href="#section__skills" title="Go to Skills" rel="noopener noreferrer")  Technologies]
                     li(class="menu__list menu__list--about") #[a(class="menu__list--link" href="#section__about" title="Go to About Me" rel="noopener noreferrer")  Sobre mi]
                     li(class="menu__list menu__list--contact") #[a(class="menu__list--link" href="#section__contact" title="Go to Contact" rel="noopener noreferrer")  Contacto]
                     li(class="menu__selection")
@@ -96,23 +95,7 @@ html(lang="es")
                             +logosSVG('git')
                         a(name="svg" class="project__options--linkpreview networks"  href='' title="Go To Demo Project" target="_blank" rel="noopener noreferrer")   
                             +logosSVG('view')
-        section(class="skills section" id="section__skills")
-            h2(class="skills__title title") TECNOLOGÍAS
-            div(class="skills__logos logos")
-                div(class="skills__select")
-                    button(class="skills__back") 
-                    span(class="skills__selecttitle") TYPE SKILL
-                    button(class="skills__next") 
-                input(type ="radio" name="skills" id="webdev" class="skills--webdev technologies" checked) 
-                label(for="webdev" class="label__tech" name="Web") Web
-                input(type ="radio" name="skills" id="mobil" class="skills--mobil technologies") 
-                label(for="mobil" class="label__tech" name="Mobil") Móvil
-                input(type ="radio" name="skills" id="desktop" class="skills--desktop technologies") 
-                label(for="desktop" class="label__tech" name="Desktop") Escritorio
-                input(type ="radio" name="skills" id="test" class="skills--test technologies") 
-                label(for="test" class="label__tech" name="Test & Measurement") Prueba y Medición
-                input(type ="radio" name="skills" id="platforms" class="skills--platforms technologies") 
-                label(for="platforms" class="label__tech" name="Tools & Platforms") Herramientas
+             
         section(class="about section" id="section__about")
             h2(class="about__title title") SOBRE MI
             div(class="about__container aboutme")
@@ -178,7 +161,6 @@ html(lang="es")
                 div(class="menumobil__link--select") INICIO
                 ul(class="menumobil__links")
                     li(class="menumobil__links--home link")
-                    li(class="menumobil__links--skills link")
                     li(class="menumobil__links--projects link")
                     li(class="menumobil__links--about link")
                     li(class="menumobil__links--contact link")
